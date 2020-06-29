@@ -1,0 +1,28 @@
+.page1 {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+
+
+h2{
+  font-family: helvetica-w01-roman, helvetica-w02-roman, helvetica-lt-w10-roman, sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  opacity: 0.95;
+  color: #212529;
+}
+hr{
+  width: 30%;
+  margin-top: 1px;
+  border-top: 1px solid #808080;
+}
+.txt1{
+  font-family: helvetica-w01-roman, helvetica-w02-roman, helvetica-lt-w10-roman, sans-serif;
+  font-size: 17px;
+  line-height: 1.5em;
+  text-align: center;
+  color: #212529;
+  margin-bottom: 145px;
+  filter: contrast(10.21);
+}

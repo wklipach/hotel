@@ -1,31 +1,38 @@
+.container{
+  max-width: 1140px;
+  padding: 0;
+}
 #navbar-content{
-  font-family: 'Arial','Proxima N W01 Reg','inconsolata', monospace;
-
 
 }
 header .navbar-light {
   background-color: #fff;
 }
 header .navbar-brand{
-
+  margin-right: 80px;
 }
 
 header .nav-item{
-
+  font-family: proxima-n-w01-reg, sans-serif;
   font-size: 14px;
   text-transform: uppercase;
   display: -webkit-inline-flex;
   display: inline-flex;
+  margin-right: 35px;
 }
 
-header .nav-item:hover {
-  color: red;
+header .nav-link {
+  color: #A3BAC9;
+}
+
+header .nav-link:hover {
+  color: #FF7F41;
 }
 header .nav-item a::after{
   content: '';
   display: block;
   width: 100%;
-  background-color: #ccc;
+  background-color: #A3BAC9;
   height: 1px;
   transform: scale(0);
   transition: all .3s;

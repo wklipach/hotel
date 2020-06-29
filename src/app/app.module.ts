@@ -10,6 +10,9 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { IntroComponent } from './intro/intro.component';
+import { GalleryPageComponent } from './gallery-page/gallery-page.component';
+import { MapPageComponent } from './map-page/map-page.component';
 
 
 // определение маршрутов
@@ -31,7 +34,10 @@ const appRoutes: Routes = [
     ReservationComponent,
     TransferComponent,
     ReviewsComponent,
-    ContactsComponent
+    ContactsComponent,
+    IntroComponent,
+    GalleryPageComponent,
+    MapPageComponent
   ],
   imports: [
     BrowserModule,
