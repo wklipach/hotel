@@ -18,7 +18,8 @@ const appRoutes: Routes = [
   {path: 'contacts', component: ContactsComponent},
   {path: 'reviews', component: ReviewsComponent},
   {path: 'transfer', component: TransferComponent},
-  {path: 'about', component: AboutComponent }
+  {path: 'about', component: AboutComponent },
+  {path: 'header', component: HeaderComponent}
 ];
 
 
