@@ -1,6 +1,7 @@
-.container{
-  max-width: 1140px;
+.navbar{
   padding: 0;
+  width: 1180px;
+  margin: 0 auto;
 }
 #navbar-content{
 
@@ -9,7 +10,7 @@ header .navbar-light {
   background-color: #fff;
 }
 header .navbar-brand{
-  margin-right: 80px;
+  margin-right: 76px;
 }
 
 header .nav-item{
@@ -24,10 +25,15 @@ header .nav-item{
 header .nav-link {
   color: #A3BAC9;
 }
-
 header .nav-link:hover {
   color: #FF7F41;
 }
+
+li:last-child {
+  margin-left: 41px;
+  margin-top: -2px;
+}
+
 header .nav-item a::after{
   content: '';
   display: block;
@@ -42,4 +48,6 @@ header .nav-item a:hover::after{
 }
 
 
-/**/
+
+
+

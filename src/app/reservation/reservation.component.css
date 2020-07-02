@@ -1,0 +1,55 @@
+body{
+
+}
+.container{
+  max-width: 1140px;
+  margin: 0 auto;
+}
+h1{
+  font-size:24px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  color: #212529;
+  margin: 41px 0 0 42px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #dadcdc;
+}
+.choice-block{
+  font-family: 'Open Sans', sans-serif;
+  width: 980px;
+  height: 85px;
+  margin-left: 42px;
+  border-bottom: 1px solid #dadcdc;
+  display: inline-block;
+  margin-bottom: 95px;
+  vertical-align: middle;
+}
+.check-in, .check-out{
+  font-size:13px;
+  width: 182px;
+  height: 36px;
+  padding: 0 7.5px;
+  margin: auto 0;
+  line-height: 33px;
+  display: inline-block;
+  border: 1px solid #dadcdc;
+  border-radius: 1px;
+  box-sizing: border-box;
+  position: relative;
+  text-align: left;
+  white-space: nowrap;
+}
+.room-block{
+  width:860px;
+  height: 170px;
+  background-color: #dadcdc;
+  margin-left: 42px;
+}
+.room-title{
+  font-family: 'Open Sans', sans-serif;
+  display: inline-block;
+  position: relative;
+  font-size:20px;
+  top:0;
+  left: 20px;
+}
