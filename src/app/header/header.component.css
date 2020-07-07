@@ -30,10 +30,8 @@ header .nav-link:hover {
 }
 
 li:last-child {
-  margin-left: 41px;
-  margin-top: -2px;
+  margin: -3px 0 0 41px;
 }
-
 header .nav-item a::after{
   content: '';
   display: block;
@@ -47,7 +45,15 @@ header .nav-item a:hover::after{
   transform: scale(1);
 }
 
+.arrow{
+  margin-left: 6px;
+}
 
 
+@media screen and (min-width:480px) and (max-width:800px) {
 
+}
 
+@media screen and (max-width:479px) {
+
+}

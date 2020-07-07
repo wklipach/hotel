@@ -10,6 +10,7 @@ h1{
   font-family: 'Open Sans', sans-serif;
   font-weight: normal;
   color: #212529;
+  width: 980px;
   margin: 41px 0 0 42px;
   padding-bottom: 14px;
   border-bottom: 1px solid #dadcdc;
@@ -21,8 +22,8 @@ h1{
   margin-left: 42px;
   border-bottom: 1px solid #dadcdc;
   display: inline-block;
-  margin-bottom: 95px;
-  vertical-align: middle;
+  margin-bottom: 38px;
+  padding-top: 8px;
 }
 .check-in, .check-out{
   font-size:13px;
@@ -30,7 +31,7 @@ h1{
   height: 36px;
   padding: 0 7.5px;
   margin: auto 0;
-  line-height: 33px;
+  line-height: 34px;
   display: inline-block;
   border: 1px solid #dadcdc;
   border-radius: 1px;
@@ -40,16 +41,62 @@ h1{
   white-space: nowrap;
 }
 .room-block{
+  position: relative;
+  display: flex;
   width:860px;
   height: 170px;
-  background-color: #dadcdc;
+  background-color: #ffffff;
   margin-left: 42px;
+  padding-bottom: 37px;
+  border-bottom: 1px solid #dadcdc;
+}
+.room-image{
+  width: 265px;
+  cursor: pointer;
+}
+.room-description{
+  width: 395px;
+  height: 126px;
+  border-bottom: solid 1px #dadcdc;
 }
 .room-title{
   font-family: 'Open Sans', sans-serif;
   display: inline-block;
   position: relative;
+  cursor: pointer;
   font-size:20px;
-  top:0;
-  left: 20px;
+  font-weight: 600;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  vertical-align: top;
+}
+p{
+  color: #414141;
+  font-family: 'Open Sans', sans-serif;
+  font-size:12px;
+
+}
+.room-about{
+  width: 200px;
+  text-align: center;
+}
+.room-price-from{
+  text-align: center;
+  display: block;
+  position: relative;
+  font-size: 12px;
+  padding-top: 43px;
+  font-weight: 400;
+}
+.room-price{
+  text-align: center;
+  display: block;
+  font-size: 25px;
+  padding-top: 12px;
+  padding-bottom: 16px;
+  font-weight: 600;
+}
+.btn-about{
+  width: 160px;
+  height: 36px;
 }
