@@ -1,0 +1,52 @@
+<div class="month">      
+    <ul>
+      <li class="prev" (click)="prev()"> ❮ </li>
+      <div class="topleft" (click)="now()">сегодня</div>
+      <div class="top2left" (click)="clear()">очистить</div>      
+      <li class="next" (click)="next()" > ❯ </li>
+      <li>
+        {{this.curDate.toLocaleString('ru', { month: 'long'})}}<br>
+        <span style="font-size:18px"> {{curDate.getFullYear()}}</span>
+      </li>
+    </ul>
+  </div>
+
+<app-weekdays></app-weekdays>
+
+<ul class="days" *ngFor="let item of this.arrarWeekMonth; let i = index" id='week{{i}}'>
+
+          <li id='{{item[0].tagMo}}' [class]="getCurrentStyle(item[0].boolCurMonth, item[0].boolCurDate, 
+                                                              item[0].boolCheckDay, item[0].boolBusyDay)" 
+                                     (mousedown)="flipoverMouseCheckDate(item[0].tag, item[0].boolCurMonth)"
+                                     (mouseover)="mouseOver($event, item[0].tag, item[0].boolCurMonth)"> 
+                                     {{item[0].dayMo}} 
+                                     </li>
+          <li id='{{item[1].tagTu}}' [class]="getCurrentStyle(item[1].boolCurMonth, item[1].boolCurDate, item[1].boolCheckDay, item[1].boolBusyDay)" 
+                                     (mousedown)="flipoverMouseCheckDate(item[1].tag, item[1].boolCurMonth)"
+                                     (mouseover)="mouseOver($event, item[1].tag, item[1].boolCurMonth)"> 
+                                     {{item[1].dayTu}} </li>
+          <li id='{{item[2].tagWe}}' [class]="getCurrentStyle(item[2].boolCurMonth, item[2].boolCurDate, item[2].boolCheckDay, item[2].boolBusyDay)" 
+                                     (mousedown)="flipoverMouseCheckDate(item[2].tag, item[2].boolCurMonth)"
+                                     (mouseover)="mouseOver($event, item[2].tag, item[2].boolCurMonth)"> 
+                                     {{item[2].dayWe}} </li>
+          <li id='{{item[3].tagTh}}' [class]="getCurrentStyle(item[3].boolCurMonth, item[3].boolCurDate, item[3].boolCheckDay, item[3].boolBusyDay)" 
+                                     (mousedown)="flipoverMouseCheckDate(item[3].tag, item[3].boolCurMonth)"
+                                     (mouseover)="mouseOver($event, item[3].tag, item[3].boolCurMonth)"> 
+                                     {{item[3].dayTh}} 
+                                     </li>
+          <li id='{{item[4].tagFr}}' [class]="getCurrentStyle(item[4].boolCurMonth, item[4].boolCurDate, item[4].boolCheckDay, item[4].boolBusyDay)" 
+                                     (mousedown)="flipoverMouseCheckDate(item[4].tag, item[4].boolCurMonth)"
+                                     (mouseover)="mouseOver($event, item[4].tag, item[4].boolCurMonth)">
+                                     {{item[4].dayFr}} 
+                                    </li>
+          <li id='{{item[5].tagSa}}' [class]="getCurrentStyle(item[5].boolCurMonth, item[5].boolCurDate, item[5].boolCheckDay, item[5].boolBusyDay)" 
+                                     (mousedown)="flipoverMouseCheckDate(item[5].tag, item[5].boolCurMonth)"
+                                     (mouseover)="mouseOver($event, item[5].tag, item[5].boolCurMonth)">
+                                     {{item[5].daySa}} 
+                                    </li>
+          <li id='{{item[6].tagSu}}' [class]="getCurrentStyle(item[6].boolCurMonth, item[6].boolCurDate, item[6].boolCheckDay, item[6].boolBusyDay)" 
+                                     (mousedown)="flipoverMouseCheckDate(item[6].tag, item[6].boolCurMonth)"
+                                     (mouseover)="mouseOver($event, item[6].tag, item[6].boolCurMonth)">
+                                     {{item[6].daySu}} 
+                                    </li>
+</ul>

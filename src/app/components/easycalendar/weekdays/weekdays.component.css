@@ -1,0 +1,12 @@
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color:#ADDFFF;
+}
+
+.weekdays li {
+    display: inline-block;        
+    width: 13.6%;
+    text-align: center;
+    color: #4C787E;
+}

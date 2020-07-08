@@ -13,7 +13,8 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { IntroComponent } from './intro/intro.component';
 import { GalleryPageComponent } from './gallery-page/gallery-page.component';
 import { MapPageComponent } from './map-page/map-page.component';
-
+import { EasycalendarComponent } from './components/easycalendar/easycalendar.component';
+import { WeekdaysComponent } from './components/weekdays/weekdays.component';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -37,7 +38,9 @@ const appRoutes: Routes = [
     ContactsComponent,
     IntroComponent,
     GalleryPageComponent,
-    MapPageComponent
+    MapPageComponent,
+    EasycalendarComponent,
+    WeekdaysComponent
   ],
   imports: [
     BrowserModule,
