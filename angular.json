@@ -25,7 +25,9 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "assets/fonts/Web Open Sans/stylesheet.css",
+              "assets/fonts/Web Proxima Nova Regular/proxima_nova_regular.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
