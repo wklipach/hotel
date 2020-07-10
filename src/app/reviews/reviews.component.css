@@ -1,0 +1,46 @@
+h1 {
+  font-family: proxima-n-w01-reg, sans-serif;
+  font-size: 36px;
+  margin-top: 63px;
+}
+.ln {
+  width: 180px;
+  border-top: 1px solid #000000;
+  margin-top: 8px;
+  margin-bottom: 90px;
+}
+.ln-rb {
+  width: 700px;
+  border-top: 1px solid #dadcdc;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.reviews-block {
+  width: 764px;
+  height: auto;
+  min-height: 85px;
+  background: rgb(163, 186, 201);
+  margin: 10px auto 0 auto;
+  padding: 14px;
+  border-radius: 10px;
+}
+.photo {
+  min-width:  80px;
+}
+.reviews-description {
+  padding-top: 1px;
+}
+.title-rb {
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 1.2;
+  padding-right: 28px;
+}
+.txt-rb {
+  color: #fff;
+  text-align: left;
+  font-size: 14px;
+}
+.date {
+  font-size: 13px;
+}

@@ -15,6 +15,7 @@ import { GalleryPageComponent } from './gallery-page/gallery-page.component';
 import { MapPageComponent } from './map-page/map-page.component';
 import { EasycalendarComponent } from './components/easycalendar/easycalendar.component';
 import { WeekdaysComponent } from './components/weekdays/weekdays.component';
+import { FooterComponent } from './footer/footer.component';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     GalleryPageComponent,
     MapPageComponent,
     EasycalendarComponent,
-    WeekdaysComponent
+    WeekdaysComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
