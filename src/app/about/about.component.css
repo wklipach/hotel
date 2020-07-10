@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: #FF7F41;
+}
+.p1 {
+  width:100%;
+  font-size: 26px;
+}
+p {
+
+  font-size: 20px;
+  color: #545454;
+  text-align:center;
+  margin: 20px 0;
+  padding: 0 38px;
+}
+a{
+
+}
+a:hover{
+  cursor: pointer;
+}
