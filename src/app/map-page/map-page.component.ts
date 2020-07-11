@@ -10,22 +10,93 @@ import { } from 'googlemaps';
 export class MapPageComponent implements OnInit {
 
   @ViewChild('mapRef', {static: true }) mapElement: ElementRef;
+  @ViewChild('pano', {static: true }) mapPano: ElementRef;
 
   locations = [
     {
-      lat: 59.903043,
-      lng: 29.076565,
-      title: 'Victoria',
-      data1: 'Апартаменты Рантала Один',
-      data2: 'первый телефон',
+      lat: 59.903041,
+      lng: 29.076567,
+      title: 'Апартаменты Рантала',
+      data1: 'Апартаменты Рантала, Парковая, 6',
+      data2: 'тел. +79117448813',
     },
     {
-      lat: 59.905834,
-      lng: 29.080522,
-      title: 'Victoria2',
-      data1: 'Апартаменты Рантала Два',
-      data2: 'второй телефон',
+      lat: 59.908198,
+      lng: 29.065691,
+      title: 'Гостиница Виктория',
+      data1: 'Гостиница Виктория, Парковая, 72',
+      data2: 'тел. +79117448813',
+    },
+    {
+      lat: 59.903220,
+      lng: 29.073719,
+      title: 'Апартаменты Ленинградская, 70',
+      data1: 'Апартаменты Ленинградская, 70',
+      data2: 'тел. +79117448813',
+    },
+    {
+      lat: 59.905810,
+      lng: 29.080512,
+      title: 'Апартаменты пр. Героев, 42',
+      data1: 'Апартаменты пр. Героев, 42',
+      data2: 'тел. +79117448813',
+    },
+
+    {
+      lat: 59.905079,
+      lng: 29.083898,
+      title: 'Апартаменты пр. Героев, 32',
+      data1: 'Апартаменты пр. Героев, 32',
+      data2: 'тел. +79117448813',
+    },
+
+    {
+      lat: 59.906779,
+      lng: 29.087972,
+      title: 'Апартаменты Красных Фортов, 13',
+      data1: 'Апартаменты Красных Фортов, 13',
+      data2: 'тел. +79117448813',
+    },
+
+    {
+      lat: 59.909431,
+      lng: 29.089051,
+      title: 'Апартаменты пр. Героев, 60',
+      data1: 'Апартаменты пр. Героев, 60',
+      data2: 'тел. +79117448813',
+    },
+
+    {
+      lat: 59.916620,
+      lng: 29.084072,
+      title: 'Отель Молодежная, 72',
+      data1: 'Отель Молодежная, 72',
+      data2: 'тел. +79117448813',
+    },
+    {
+      lat: 59.891769,
+      lng: 29.088065,
+      title: 'Апартаменты Высотная, 5',
+      data1: 'Апартаменты Высотная, 5',
+      data2: 'тел. +79117448813',
+    },
+
+    {
+      lat: 59.887658,
+      lng: 29.098988,
+      title: 'Отель Мира, 5',
+      data1: 'Отель Мира, 5',
+      data2: 'тел. +79117448813',
+    },
+
+    {
+      lat: 59.911222,
+      lng: 29.094775,
+      title: 'Офис Молодежная, 6а',
+      data1: 'Офис Молодежная, 6а',
+      data2: 'тел. +79117448813',
     }
+
   ];
 
 
@@ -66,6 +137,11 @@ export class MapPageComponent implements OnInit {
       zoom: 17
     });
 
+/*
+    const panorama = this.generatePanorama(59.908198, 29.065691);
+    map.setStreetView(panorama);
+*/
+
     // tslint:disable-next-line: forin
     for (const indLoc in this.locations) {
       const location = this.locations[indLoc];
@@ -84,59 +160,15 @@ export class MapPageComponent implements OnInit {
       });
 
       marker.addListener('click', () => {
-          infowindow.open(map, marker);
+        infowindow.open(map, marker);
+        // const p = this.generatePanorama(location.lat, location.lng);
+        // map.setStreetView(p);
+
+
         });
 
 
     }
-
-
-/*
-    var marker = new window['google'].maps.Marker(
-      {
-        position: {lat: 59.903043, lng: 29.076565},
-        map: map,
-        title: 'Victoria',
-        draggable: true,
-        animation: window['google'].maps.Animation.DROP,
-      }
-
-      ,
-      {
-        position: {lat: 59.905834, lng: 29.080522},
-        map: map,
-        title: 'Victoria2',
-        draggable: true,
-        animation: window['google'].maps.Animation.DROP,
-      }
-    var contentString = '<div id="content">' +
-    '<div id="siteNotice">' +
-    '</div>'+
-    '<h3 id="thirdHeading" class="thirdHeading">Апартаменты Рантала</h3>'+
-    '<div id="bodyContent">'+
-    '<p>"+79117448813"</p>'+
-    '</div>'+
-    '</div>';
-
-    var infowindow = new window['google'].maps.InfoWindow({
-      content: contentString
-    });
-
-      marker.addListener('click', function() {
-        infowindow.open(map, marker);
-      });
-
-*/
-
-/*
-      let latLng = {lat: Number(location.latitude), lng: Number(location.longitude)};
-      let marker = new google.maps.Marker({
-        position: latLng,
-        title: location.locationName
-    })
-      marker.setMap(map)
-*/
-
 
   }
 
@@ -151,6 +183,22 @@ export class MapPageComponent implements OnInit {
          '</div>';
   }
 
+
+  generatePanorama(inLat, inLng) {
+    const fenway = { lat: inLat, lng: inLng };
+    console.log('this.mapPano.nativeElement=', this.mapPano.nativeElement);
+    const panorama = new google.maps.StreetViewPanorama(
+      this.mapPano.nativeElement,
+      {
+        position: fenway,  /*  {lat: inLat, lng: inLng}, */
+        pov: {
+          heading: 34,
+          pitch: 10
+        }
+      }
+    );
+    return panorama;
+  }
 
 
 }
