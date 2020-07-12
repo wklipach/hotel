@@ -1,31 +1,28 @@
-body{
-
-}
 .container{
   max-width: 1140px;
   margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
 }
 h1{
   font-size:24px;
   font-family: 'Open Sans', sans-serif;
   font-weight: normal;
   color: #212529;
-  width: 980px;
+  width: 860px;
   margin: 41px 0 0 42px;
   padding-bottom: 14px;
   border-bottom: 1px solid #dadcdc;
 }
 .choice-block{
   font-family: 'Open Sans', sans-serif;
-  width: 980px;
+  width: 860px;
   height: 85px;
   margin-left: 42px;
   border-bottom: 1px solid #dadcdc;
   display: inline-block;
-  margin-bottom: 38px;
   padding-top: 8px;
 }
-.check-in, .check-out, .check-col{
+.check-in, .check-out, .check-col, .check-chldr {
   font-size:13px;
   width: 182px;
   height: 36px;
@@ -39,8 +36,12 @@ h1{
   position: relative;
   text-align: left;
   white-space: nowrap;
+}
+.check-in, .check-out:hover {
   cursor: pointer;
 }
+
+
 .room-block{
   position: relative;
   display: flex;
@@ -48,6 +49,7 @@ h1{
   height: auto;
   background-color: #ffffff;
   margin-left: 42px;
+  margin-top: 38px;
   padding-bottom: 37px;
   border-bottom: 1px solid #dadcdc;
 }
@@ -56,7 +58,7 @@ h1{
   cursor: pointer;
 }
 .room-description{
-  width: 395px;
+  width: 410px;
   height: 126px;
   border-bottom: solid 1px #dadcdc;
 }
@@ -68,18 +70,22 @@ h1{
   font-size:20px;
   font-weight: 600;
   padding-top: 8px;
-  padding-bottom: 8px;
+  padding-bottom: 4px;
   vertical-align: top;
 }
 p{
   color: #414141;
   font-family: 'Open Sans', sans-serif;
-  font-size:12px;
-
+  font-size: 13px;
+  line-height: 1.2;
+  margin-bottom: 2px;
+  height: 36px;
+  overflow: hidden;
 }
 .room-about{
-  width: 200px;
+  width: 185px;
   text-align: center;
+  padding-left: 25px;
 }
 .room-price-from{
   text-align: center;
@@ -103,13 +109,47 @@ p{
   background-color: rgba(230,89,24,0.9496549333844865) !important;
   color: rgba(54,56,57,1) !important;
 }
-span .col{
+.btn-choice {
+  width: 140px;
+  height: 36px;
+  margin-top: 20px;
+  background-color: rgba(230,89,24,0.9496549333844865) !important;
+  color: rgba(54,56,57,1) !important;
+}
+.col, .person {
+  flex-basis: content;
+  flex-grow: 0;
+  min-width: 0;
+}
+.comfort-block {
+  width: 410px;
+  height: 33px;
+  overflow: hidden;
+}
+.comfort-image {
+  width: 50px;
+  height: 33px;
+}
+.arrows {
 
 }
-.comfort{
-  width: 60px;
-  height: 60px;
-  border: 1px solid red;
+.arr {
+  width: 12px;
+  height: 12px;
+  display: block
+}
+.arr2 {
+  width: 12px;
+  height: 12px;
+}
+.arr, .arr2:hover {
+  cursor: pointer;
+}
+
+ul {
+  font-size: 13px;
+  padding-left: 13px;
+  padding-bottom: 2px;
 }
 
 .easy-calendar{
