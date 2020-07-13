@@ -5,44 +5,102 @@
 
   <div class="d-flex justify-content-start choice-block">
     <div class="d-flex justify-content-between check-in">
-      <span>Заезд</span>
-      <span><img class="ico" src="../../assets/img/calendar.svg" height="20" width="20"/></span>
+      <span id="textCalenarBegin">Заезд&nbsp;</span>
+      <span (click)="clickIconBeginCalendar()"><img class="ico" src="../../assets/img/calendar.svg" height="20" width="20"/></span>
     </div>
 
     <div class="d-flex justify-content-between check-out">
-      <span>Выезд</span>
-      <span><img class="ico" src="../../assets/img/calendar.svg" height="20" width="20"/></span>
+      <span id="textCalenarEnd">Выезд&nbsp;</span>
+      <span (click)="clickIconEndCalendar()" ><img class="ico" src="../../assets/img/calendar.svg" height="20" width="20"/></span>
     </div>
-
 
     <div class="d-flex justify-content-between check-col">
 
-      <div class="m-0 p-0 pr-2 col">2</div>
-      <div class="person">взрослых</div>
+      <div class="m-0 p-0 pr-2 col">{{numberOfAdults}}&nbsp;взрослых</div>
+      <!-- уБРАЛ ТАК КАК ПРИ ПРЕВЫШЕНИИ 9, ТО 10 11 И Т.П. СЛИВАЕТСЯ ЦИФРА И СЛОВО ВЗРОСЛЫХ
+         <div class="person">&nbsp;взрослых</div>
+      -->
+
       <div class="d-flex flex-column m-0 ml-auto arrows">
-        <span><img class="arr mt-1" src="../../assets/img/up-down-arrow.svg"/></span>
-        <span><img class="arr2 mb-3" src="../../assets/img/drop-down-arrow.svg"/></span>
+        <span (click)="addAdult()"><img class="arr mt-1" src="../../assets/img/up-down-arrow.svg"/></span>
+        <span (click)="deleteAdult()"><img class="arr2 mb-3" src="../../assets/img/drop-down-arrow.svg"/></span>
       </div>   <!--  -->
 
     </div>
 
     <div class="d-flex justify-content-between check-chldr">
 
-      <div class="m-0 p-0 pr-2 col">0</div>
-      <div class="person">детей</div>
+      <div class="m-0 p-0 pr-2 col">{{numberOfChildren}}&nbsp;детей</div>
+      <!-- уБРАЛ ТАК КАК ПРИ ПРЕВЫШЕНИИ 9, ТО 10 11 И Т.П. СЛИВАЕТСЯ ЦИФРА И СЛОВО ДЕТЕЙ
+         <div class="person">детей</div>
+      -->
       <div class="d-flex flex-column m-0 ml-auto arrows">
-        <span><img class="arr mt-1" src="../../assets/img/up-down-arrow.svg"/></span>
-        <span><img class="arr2 mb-3" src="../../assets/img/drop-down-arrow.svg"/></span>
+        <span (click)="addChildren()"><img class="arr mt-1" src="../../assets/img/up-down-arrow.svg"/></span>
+        <span (click)="deleteChildren()"><img class="arr2 mb-3" src="../../assets/img/drop-down-arrow.svg"/></span>
       </div>   <!--  -->
 
     </div>
 
-    <button type="button" class="btn-choice">
+    <button type="button" class="btn-choice" (click)="findRooms()">
       Подобрать
     </button>
 
+  </div>
+
+  <div *ngIf="boolBeginCalendar || boolEndCalendar" class="calendar-block">
+    <div *ngIf="boolBeginCalendar" class="easy-calendar-left">
+      <app-easycalendar #beginCalendar (clickDay)="clickDayBegin($event)"></app-easycalendar>
+    </div>
+    <div *ngIf="boolEndCalendar" class="easy-calendar-left">
+      <app-easycalendar #endCalendar (clickDay)="clickDayEnd($event)"></app-easycalendar>
+    </div>
+  </div>
+
+
+<!-- ЗАГЛУШКА ДЛЯ РАБОТЫ С БАЗОЙ-->
+<div *ngFor="let room of roomsArray">
+
+<div class="room-block">
+
+  <div class="room-image">
+    <img src="../../assets/img/molodezhnaya72room1-thumb1.jpg" height="170" width="240"/>
+  </div>
+
+  <div class="room-description">
+    <div class="room-title">Отель Молодежная 72 №1</div>
+    <p>
+      В номере имеются все необходимые удобства для комфортабельного проживания и отдыха:
+      двухспальная кровать, и другая фигня.
+    </p>
+    <ul class="features">
+      <li>Площадь: <span class="metr">18</span> кв. м</li>
+      <li> Кровати: <span class="beds">двуспальных 1</span></li>
+    </ul>
+
+    <div class="d-flex justify-content-start mt-1 comfort-block">
+      <span class="p-0 comfort-image"><img src="../../assets/img/wifi-thin.svg" height="26" width="26"/></span>
+      <span class="p-0 comfort-image"><img src="../../assets/img/wifi-thin.svg" height="26" width="26"/></span>
+      <span class="p-0 comfort-image"><img src="../../assets/img/wifi-thin.svg" height="26" width="26"/></span>
+      <span class="p-0 comfort-image"><img src="../../assets/img/wifi-thin.svg" height="26" width="26"/></span>
+    </div>
 
   </div>
+
+  <div class="room-about">
+    <span class="room-price-from">от</span>
+    <span class="room-price">3800 руб</span>
+
+    <button type="button" class="btn-about" style="background-color: white; color:#797575;">
+      О номере
+    </button>
+
+  </div>
+
+</div>
+
+
+</div>
+<!-- КОНЕЦ ЗАГЛУШКИ ДЛЯ РАБОТЫ С БАЗОЙ-->
 
 
   <div class="room-block">
@@ -239,9 +297,7 @@
 </div>
 
 
-<div class="easy-calendar">
-  <app-easycalendar></app-easycalendar>
-</div>
 
-
+<!--
 <app-map-page></app-map-page>
+-->

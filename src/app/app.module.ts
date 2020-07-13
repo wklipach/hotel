@@ -16,6 +16,7 @@ import { MapPageComponent } from './map-page/map-page.component';
 import { EasycalendarComponent } from './components/easycalendar/easycalendar.component';
 import { WeekdaysComponent } from './components/weekdays/weekdays.component';
 import { FooterComponent } from './footer/footer.component';
+import { AddroomsComponent } from './addrooms/addrooms.component';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
   {path: 'reviews', component: ReviewsComponent},
   {path: 'transfer', component: TransferComponent},
   {path: 'about', component: AboutComponent },
-  {path: 'header', component: HeaderComponent}
+  {path: 'header', component: HeaderComponent},
+  {path: 'admin', component: AddroomsComponent}
 ];
 
 
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
     MapPageComponent,
     EasycalendarComponent,
     WeekdaysComponent,
-    FooterComponent
+    FooterComponent,
+    AddroomsComponent
   ],
   imports: [
     BrowserModule,

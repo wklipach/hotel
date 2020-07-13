@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 
 @Component({
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./easycalendar.component.css']
 })
 export class EasycalendarComponent implements OnInit {
+
+  @Output() clickDay = new EventEmitter<string>();
 
   weekCount = 0;
   weekFirst = 0;
@@ -30,6 +32,8 @@ export class EasycalendarComponent implements OnInit {
   ngOnInit(): void {
     this.initMethod ( this.curDate );
   }
+
+
 
   public initMethod(curDate: Date) {
 
@@ -73,7 +77,7 @@ export class EasycalendarComponent implements OnInit {
 
 
       const strNowDate = this.formatDate(new Date());
-  
+
       return Array<any> (weekCount).fill([0, null]).map((x: any, i: any) =>
       [
        {tagMo: this.getTag(i + weekFirst, y, 0),
@@ -294,6 +298,8 @@ getCurrentStyle(boolCurMonth: boolean, boolNow: boolean, boolCheckDay: boolean, 
 // формирование макссива с датами при клике мыши
 flipoverMouseCheckDate(strDate: string, boolCurMonth: boolean) {
 
+
+  this.clickDay.emit(strDate);
 
   setTimeout(() =>   {
 
