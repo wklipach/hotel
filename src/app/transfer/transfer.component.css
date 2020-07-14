@@ -1,0 +1,115 @@
+h2{
+  font-family: helvetica-w01-roman, helvetica-w02-roman, helvetica-lt-w10-roman, sans-serif;
+  font-size: 42px;
+  font-weight: 500;
+  opacity: 0.95;
+  color: #212529;
+  margin-top: 40px;
+}
+hr{
+  width: 10%;
+  margin-top: 1px;
+  border-top: 1px solid #808080;
+  margin-bottom: 46px;
+}
+
+.item-viteb, .item-ladoga, .item-pulkovo {
+  font-family:open sans,sans-serif;
+  width:336px;
+  height: 487px;
+  background-color: #fff;
+  margin-right: 30px;
+  padding: 15px;
+  box-shadow: 1px 3px 4px 2px #dadcdc;
+}
+.name {
+  width: 180px;
+  font-size: 20px;
+  color: #577083;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  background-color: #fff;
+  padding-left: 18px;
+  margin-top: -30px;
+  z-index: 3;
+  position: absolute;
+}
+
+.phone {
+  font-size: 14px;
+  color: #7FCCF7;
+  margin-top: 34px;
+  padding-left: 18px;
+}
+.txt {
+  font-family: proxima-n-w01-reg, sans-serif;
+  font-size: 15px;
+  color: #577083;
+  margin-top: 15px;
+  padding-left: 18px;
+  letter-spacing: normal;
+}
+.prise-order {
+  font-family: avenir-lt-w01_85-heavy1475544,sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #F37E48;
+  margin-top: 15px;
+  padding-left: 18px;
+  line-height: 0.5;
+}
+.btn-order {
+  width: 120px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000000;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border: solid rgba(0, 0, 0, 0.99) 1px;
+  border-radius: 20px;
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+  margin-top: -12px;
+  margin-left: 28px;
+  padding-top: 15px;
+  padding-left: 28px;
+}
+a.btn-order:hover {
+  background: rgb(142, 138, 138);
+  color: #ffffff;
+}
+a.btn-order:active {
+  color: #ffffff;
+  box-shadow: 0 3px rgb(205, 205, 205) inset;
+  font-size: 16px;
+}
+.description {
+  font-family: helvetica-w01-light,helvetica-w02-light,sans-serif;
+  font-size: 20px;
+  max-width: 50%;
+  margin: 100px 0;
+}
+
+
+
+
+/*
+
+.row {
+  width: 1000px;
+}
+.card {
+  margin-bottom: 20px;
+}
+input, select {
+  width: 400px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+label {
+  width: 350px;
+}
+
+*/

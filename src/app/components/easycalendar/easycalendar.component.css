@@ -3,8 +3,12 @@
   width: 274px;
   height: 232px;
   padding: 16px;
-  margin: 150px 0;
+  margin-top: -10px;
+  margin-left: 42px;
   border: 1px solid #dadcdc;
+  position: relative;
+  background-color: white;
+  z-index: 9;
 }
 .top{
   height: 32px;
