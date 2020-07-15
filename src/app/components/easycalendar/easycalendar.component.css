@@ -1,12 +1,12 @@
 .calendar-panel{
   font-family: 'Open Sans', sans-serif;
+  position: absolute;
   width: 274px;
-  height: 232px;
+  height: auto;
   padding: 16px;
   margin-top: -10px;
   margin-left: 42px;
   border: 1px solid #dadcdc;
-  position: relative;
   background-color: white;
   z-index: 9;
 }

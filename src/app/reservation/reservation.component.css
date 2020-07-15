@@ -123,11 +123,12 @@ p{
 }
 .comfort-block {
   width: 410px;
-  height: 33px;
+  height: 35px;
+  padding-top: 2px;
   overflow: hidden;
 }
 .comfort-image {
-  width: 50px;
+  width: 36px;
   height: 33px;
 }
 
@@ -157,12 +158,12 @@ ul {
 }
 
 
-.calendar-block{
+.c2alendar-block{
   width:860px;
   height: 350px;
 }
 
-.easy-calendar-left{
+.e2asy-calendar-left{
   float:left;
   width: 274px;
   height: 224px;

@@ -1,0 +1,8 @@
+.title-room {
+  max-width: 649px;
+  text-overflow: ellipsis;
+  margin-top: 36px;
+  line-height: 20px;
+  overflow: visible;
+  font-size: 28px;
+}

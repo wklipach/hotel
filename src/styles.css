@@ -1,7 +1,9 @@
 @import 'assets/fonts/Web Proxima Nova Regular/proxima_nova_regular.css';
-@import 'assets/fonts/Web Open Sans/stylesheet.css'; 
+@import 'assets/fonts/Web Open Sans/stylesheet.css';
 
-/* You can add global styles to this file, and also import other style files */
+/*
+@import 'assets/fonts/Proxima N W01 Reg/stylesheet.css';
+You can add global styles to this file, and also import other style files */
 body {
   margin: 0;
   padding: 0;

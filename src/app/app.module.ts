@@ -18,6 +18,8 @@ import { WeekdaysComponent } from './components/weekdays/weekdays.component';
 import { FooterComponent } from './footer/footer.component';
 import { AddroomsComponent } from './addrooms/addrooms.component';
 import { MainComponent } from './main/main.component';
+import { IntroTopComponent } from './intro-top/intro-top.component';
+import { AboutRoomComponent } from './about-room/about-room.component';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -48,7 +50,9 @@ const appRoutes: Routes = [
     WeekdaysComponent,
     FooterComponent,
     AddroomsComponent,
-    MainComponent
+    MainComponent,
+    IntroTopComponent,
+    AboutRoomComponent
   ],
   imports: [
     BrowserModule,
