@@ -21,6 +21,9 @@ import { MainComponent } from './main/main.component';
 import { IntroTopComponent } from './intro-top/intro-top.component';
 import { AboutRoomComponent } from './about-room/about-room.component';
 
+import { HttpClientModule} from '@angular/common/http';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+
 // определение маршрутов
 const appRoutes: Routes = [
   {path: 'reservation', component: ReservationComponent},
@@ -30,7 +33,8 @@ const appRoutes: Routes = [
   {path: 'about', component: AboutComponent },
   {path: 'header', component: HeaderComponent},
   {path: 'main', component: MainComponent},
-  {path: 'admin', component: AddroomsComponent}
+  {path: 'admin', component: AddroomsComponent},
+  {path: 'about-room', component: AboutRoomComponent}
 ];
 
 
@@ -55,6 +59,8 @@ const appRoutes: Routes = [
     AboutRoomComponent
   ],
   imports: [
+    HttpClientModule,
+    NgxGalleryModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes)
 

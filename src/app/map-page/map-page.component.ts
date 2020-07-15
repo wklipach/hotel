@@ -132,6 +132,9 @@ export class MapPageComponent implements OnInit {
   }
 
   loadMap = () => {
+
+    this.mapElement.nativeElement.height = 200;
+
     const map = new window.google.maps.Map(this.mapElement.nativeElement, {
       center: {lat: 59.903043, lng: 29.076565},
       zoom: 17

@@ -6,3 +6,5 @@
   overflow: visible;
   font-size: 28px;
 }
+
+.ngx-gallery { display: inline-block; margin-bottom: 20px; }
