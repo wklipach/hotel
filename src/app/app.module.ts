@@ -26,6 +26,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 // определение маршрутов
 const appRoutes: Routes = [
+  {path: '', component: MainComponent},
   {path: 'reservation', component: ReservationComponent},
   {path: 'contacts', component: ContactsComponent},
   {path: 'reviews', component: ReviewsComponent},
@@ -33,7 +34,6 @@ const appRoutes: Routes = [
   {path: 'about', component: AboutComponent },
   {path: 'header', component: HeaderComponent},
   {path: 'main', component: MainComponent},
-  {path: 'admin', component: AddroomsComponent},
   {path: 'about-room', component: AboutRoomComponent}
 ];
 
