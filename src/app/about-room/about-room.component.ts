@@ -19,9 +19,9 @@ export class AboutRoomComponent implements OnInit {
   ngOnInit(): void {
     this.galleryOptions = [
       {
-        width: '600px',
-        height: '400px',
-        thumbnailsColumns: 4,
+        width: '648px',
+        height: '406px',
+        thumbnailsColumns: 10,
         imageAnimation: NgxGalleryAnimation.Slide
       },
       // max-width 800
@@ -49,6 +49,36 @@ export class AboutRoomComponent implements OnInit {
         big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
       },
       {
+        small: 'assets/img/molodezhnaya72room1-thumb1.jpg',
+        medium: 'assets/img/molodezhnaya72room1-thumb1.jpg',
+        big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
+      },
+      {
+        small: 'assets/img/molodezhnaya72room1-thumb1.jpg',
+        medium: 'assets/img/molodezhnaya72room1-thumb1.jpg',
+        big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
+      },
+      {
+        small: 'assets/img/molodezhnaya72room1-thumb1.jpg',
+        medium: 'assets/img/molodezhnaya72room1-thumb1.jpg',
+        big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
+      },
+      {
+        small: 'assets/img/molodezhnaya72room1-thumb1.jpg',
+        medium: 'assets/img/molodezhnaya72room1-thumb1.jpg',
+        big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
+      },
+      {
+        small: 'assets/img/molodezhnaya72room1-thumb1.jpg',
+        medium: 'assets/img/molodezhnaya72room1-thumb1.jpg',
+        big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
+      },
+      {
+        small: 'assets/img/molodezhnaya72room1-thumb1.jpg',
+        medium: 'assets/img/molodezhnaya72room1-thumb1.jpg',
+        big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
+      },
+      {
         small: 'assets/img/molodezhnaya72room1-thumb2.jpg',
         medium: 'assets/img/molodezhnaya72room1-thumb2.jpg',
         big: 'assets/img/molodezhnaya72room1-thumb2.jpg'
@@ -57,7 +87,8 @@ export class AboutRoomComponent implements OnInit {
         small: 'assets/img/molodezhnaya72room1-middle2.jpg',
         medium: 'assets/img/molodezhnaya72room1-middle2.jpg',
         big: 'assets/img/molodezhnaya72room1-middle2.jpg'
-      },{
+      },
+      {
         small: 'assets/img/molodezhnaya72room1-middle1.jpg',
         medium: 'assets/img/molodezhnaya72room1-middle1.jpg',
         big: 'assets/img/molodezhnaya72room1-middle1.jpg'

@@ -41,7 +41,6 @@ h1{
   cursor: pointer;
 }
 
-
 .room-block{
   position: relative;
   display: flex;
@@ -150,14 +149,16 @@ ul {
   padding-left: 13px;
   padding-bottom: 2px;
 }
+img {
+  color: #7FCCF7;
+}
+
 
 .easy-calendar{
   width: 274px;
   height: 224px;
   margin: 0 auto;
 }
-
-
 .c2alendar-block{
   width:860px;
   height: 350px;

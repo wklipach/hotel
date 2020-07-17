@@ -1,6 +1,6 @@
 .footer {
   font-family: verdana,geneva,sans-serif;
-  position: fixed;
+  position: relative;
   width: 100%;
   height: 66px;
   background: #FF7F41;

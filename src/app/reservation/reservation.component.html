@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div class="container">
-  <h1>Бронирование номера</h1>
+  <h1>Наши номера</h1>
 
   <div class="d-flex justify-content-start choice-block">
     <div class="d-flex justify-content-between check-in">
@@ -17,9 +17,7 @@
     <div class="d-flex justify-content-between check-col">
 
       <div class="m-0 p-0 pr-2 col">{{numberOfAdults}}&nbsp;взрослых</div>
-      <!-- уБРАЛ ТАК КАК ПРИ ПРЕВЫШЕНИИ 9, ТО 10 11 И Т.П. СЛИВАЕТСЯ ЦИФРА И СЛОВО ВЗРОСЛЫХ
-         <div class="person">&nbsp;взрослых</div>
-      -->
+
 
       <div class="d-flex flex-column m-0 ml-auto arrows">
         <span (click)="addAdult()"><img class="arr mt-1" src="../../assets/img/up-down-arrow.svg"/></span>
@@ -31,9 +29,7 @@
     <div class="d-flex justify-content-between check-chldr">
 
       <div class="m-0 p-0 pr-2 col">{{numberOfChildren}}&nbsp;детей</div>
-      <!-- уБРАЛ ТАК КАК ПРИ ПРЕВЫШЕНИИ 9, ТО 10 11 И Т.П. СЛИВАЕТСЯ ЦИФРА И СЛОВО ДЕТЕЙ
-         <div class="person">детей</div>
-      -->
+
       <div class="d-flex flex-column m-0 ml-auto arrows">
         <span (click)="addChildren()"><img class="arr mt-1" src="../../assets/img/up-down-arrow.svg"/></span>
         <span (click)="deleteChildren()"><img class="arr2 mb-3" src="../../assets/img/drop-down-arrow.svg"/></span>
