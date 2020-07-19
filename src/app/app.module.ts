@@ -23,6 +23,10 @@ import { AboutRoomComponent } from './about-room/about-room.component';
 
 import { HttpClientModule} from '@angular/common/http';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { ListGuideService } from './services/list-guide.service';
+import { GlobalRef } from './services/globalref';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NumberService } from './services/number.service';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -34,7 +38,8 @@ const appRoutes: Routes = [
   {path: 'about', component: AboutComponent },
   {path: 'header', component: HeaderComponent},
   {path: 'main', component: MainComponent},
-  {path: 'about-room', component: AboutRoomComponent}
+  {path: 'about-room', component: AboutRoomComponent},
+  {path: 'admin', component: AddroomsComponent}
 ];
 
 
@@ -62,11 +67,12 @@ const appRoutes: Routes = [
     HttpClientModule,
     NgxGalleryModule,
     BrowserModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
 
 
   ],
-  providers: [],
+  providers: [GlobalRef, ListGuideService, NumberService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

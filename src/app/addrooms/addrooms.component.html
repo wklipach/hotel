@@ -1,186 +1,134 @@
 <div class="container-fluid">
-    <div class="row text-center">
-      <div class="col-12">
-  
-        <div class="card p-4">
-  <h5 class="card-title">Номер</h5>
-          <div class="d-flex">
-            <label> Название или тип проживания</label>
-            <input type="text" class="form-control"  placeholder="Отель Молодежная 72 №1">
-          </div>
-  
-          <div class="d-flex">
-         <label>Макс. гостей</label>
-            <input type="text" class="form-control"  placeholder="">
-          </div>
-            <div class="d-flex">
-            <label>Макс. детей</label>
-              <input type="text" class="form-control"  placeholder="">
-            </div>
-              <div class="d-flex">
-         <label>Размер номера</label>
-                <input type="text" class="form-control"  placeholder="">м²
-              </div>
+
+  <form [formGroup]="addroomsForm">
+
+  <div class="row text-center">
+    <div class="col-12">
+
+      <div class="card p-4">
+        <h5 class="card-title">Номер</h5>
+        <div class="d-flex">
+          <label> Название или тип проживания</label>
+          <input formControlName="nameRoom" type="text" class="form-control" placeholder="Отель Молодежная 72 №1">
         </div>
-  
-  
-        <div class="card p-4">
-          <h5 class="card-title">Кровати</h5>
-          <div class="d-flex">
-           <label>Количество</label>
-            <input type="text" class="form-control"  placeholder="">
-          </div>
-  
-          <div class="d-flex">
-            <label>Тип</label>
-            <select class="custom-select" formControlName="inputBed"  placeholder="">
-  
-              <option>Выберите</option>
-              <option>Односпальная</option>
-              <option>Полутороспальная</option>
-              <option>Двуспальная</option>
-              <option>Большая двуспальная</option>
-              <option> Две односпальные</option>
-              <option>Трехспальные</option>
-  
-            </select>
-          </div>
+
+        <div class="d-flex">
+          <label>Макс. гостей</label>
+          <input formControlName="maxGuest" type="text" class="form-control" placeholder="">
         </div>
-  
-  
-        <div class="card p-4">
-          <h5 class="card-title">Удобства</h5>
-          <div class="d-flex flex-column">
-  
-           <h5>Отметьте все преимущества номера.</h5>
-  
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1">Интернет (Wi-Fi)</label>
-            </div>
-  
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck2">
-              <label class="custom-control-label" for="customCheck2">Телевизор</label>
-            </div>
-  
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck3">
-              <label class="custom-control-label" for="customCheck3">Мини-бар</label>
-            </div>
-  
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck4">
-              <label class="custom-control-label" for="customCheck4">Душ</label>
-            </div>
-  
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck5">
-              <label class="custom-control-label" for="customCheck5">Кухня</label>
-            </div>
-  
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck6">
-              <label class="custom-control-label" for="customCheck6">Полотенца</label>
-            </div>
-  
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck7">
-              <label class="custom-control-label" for="customCheck7">Бытовая техника</label>
-            </div>
-  
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck8">
-              <label class="custom-control-label" for="customCheck8">Кондиционер</label>
-            </div>
-  
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck9">
-              <label class="custom-control-label" for="customCheck9">Сейф</label>
-            </div>
-  
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck10">
-              <label class="custom-control-label" for="customCheck10">Телефон</label>
-            </div>
-  
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck11">
-              <label class="custom-control-label" for="customCheck11">Ванна</label>
-            </div>
-  
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck12">
-              <label class="custom-control-label" for="customCheck12">Рабочая зона</label>
-            </div>
-  
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck13">
-              <label class="custom-control-label" for="customCheck13">Для курящих</label>
-            </div>
-          </div>
-          </div>
-  
-  
-        <div class="card p-4">
-          <h5 class="card-title">Фотографии</h5>
-          <div class="d-flex">
-            <label>Добавить</label>
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFile">
-              <label class="custom-file-label" for="customFile">Добавить фотографии</label>
-            </div>
-  
-         </div>
+        <div class="d-flex">
+          <label>Макс. детей</label>
+          <input formControlName="maxChild" type="text" class="form-control" placeholder="">
         </div>
-  
-  
-        <div class="card p-4">
-          <h5 class="card-title">Описание</h5>
-          <div class="d-flex">
-            <label>Описание номера</label>
-            <textarea formControlName="description" id="description" class = "form-control" rows = "3"
-                      placeholder="Опишите ваш номер. В чем его особенности?"></textarea>
-  
-          </div>
-        </div>
-  
-  
-        <div class="card p-4">
-          <h5 class="card-title">Адрес</h5>
-          <div class="d-flex">
-            <label>Внесите адрес</label>
-            <input type="text" class="form-control"  placeholder="ул. Ленина д.3">
-  
-          </div>
-        </div>
-  
-  
-        <div class="card p-4">
-          <h5 class="card-title">Цена</h5>
-          <div class="d-flex">
-            <label>Тип расчета</label>
-            <select class="custom-select" formControlName="inputBed"  placeholder="">
-  
-              <option>За номер</option>
-              <option>С человека</option>
-  
-            </select>
-          </div>
-  
-          <div class="d-flex">
-            <label>Цена в будни</label>
-            <input type="text" class="form-control"  placeholder="">
-          </div>
-          <div class="d-flex">
-            <label>Цена в выходные</label>
-            <input type="text" class="form-control"  placeholder="">
-          </div>
-  
-        </div>
-  
-        <button class="btn btn-outline-primary my-5 mx-4" type="button">Сохранить</button>
-  
+        <div class="d-flex">
+          <label>Размер номера</label>
+          <input formControlName="numberSize" type="text" class="form-control" placeholder="">м²
         </div>
       </div>
+
+
+      <div class="card p-4">
+        <h5 class="card-title">Кровати</h5>
+        <div class="d-flex">
+          <label>Количество</label>
+          <input formControlName="amountBed" type="text" class="form-control" placeholder="">
+        </div>
+
+        <div class="d-flex">
+          <label>Тип</label>
+          <select class="custom-select" formControlName="typeBed" placeholder="">
+            <option [value]="bedstype.id" *ngFor="let bedstype of listBedstype">{{bedstype.name}}</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="card p-4">
+        <h5 class="card-title">Удобства</h5>
+        <div class="d-flex flex-column">
+
+          <h5>Отметьте все преимущества номера.</h5>
+
+          <div *ngFor="let feature of listFeatures">
+            <div class="custom-control custom-checkbox">
+              <input  formControlName="typeBed{{feature.id}}" type="checkbox" class="custom-control-input" id="customCheck{{feature.id}}">
+              <label class="custom-control-label" for="customCheck{{feature.id}}">{{feature.name}}</label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="card p-4">
+        <h5 class="card-title">Фотографии</h5>
+        <div class="d-flex">
+          <label>Добавить</label>
+
+          <!-- загрузка изображений -->
+          <div class="card text-center">
+            <input type="file" accept="image/*" id="avatar" (change)="onFileChange($event)" #fileInput
+              style="display:none">
+            <button type="button" class="btn btn-link"
+              style="display: block; cursor: pointer; text-decoration: underline;"
+              onclick="document.getElementById('avatar').click()">Прикрепить изображение</button>
+            <button type="button" class="btn btn-link" (click)="clearFile()"
+              style="display: block; cursor: pointer; text-decoration: underline;">Очистить</button>
+          </div>
+          <div class="card" #imageloadCard id="imageloadCard"></div>
+
+        </div>
+      </div>
+
+
+      <div class="card p-4">
+        <h5 class="card-title">Описание</h5>
+        <div class="d-flex">
+          <label>Описание номера</label>
+          <textarea formControlName="description" id="description" class="form-control" rows="3"
+            placeholder="Опишите ваш номер. В чем его особенности?">" "</textarea>
+
+        </div>
+      </div>
+
+
+      <div class="card p-4">
+        <h5 class="card-title">Адрес</h5>
+        <div class="d-flex">
+          <label>Внесите адрес</label>
+          <select class="custom-select" formControlName="inputAddress" placeholder="">
+            <option [value]="address.id" *ngFor="let address of listAddress">{{address.name}}</option>
+          </select>
+        </div>
+
+      </div>
+
+
+      <div class="card p-4">
+        <h5 class="card-title">Цена</h5>
+        <div class="d-flex">
+          <label>Тип расчета</label>
+          <select class="custom-select" formControlName="inputTypeprice" placeholder="">
+            <option [value]="typeprice.id" *ngFor="let typeprice of listTypeprice">{{typeprice.name}}</option>
+          </select>
+        </div>
+
+        <div class="d-flex">
+          <label>Цена в будни</label>
+          <input formControlName="priceWeekdays" type="text" class="form-control" placeholder="">
+        </div>
+        <div class="d-flex">
+          <label>Цена в выходные</label>
+          <input formControlName="priceWeekend" type="text" class="form-control" placeholder="">
+        </div>
+
+      </div>
+
+      {{sError}}
+      <button class="btn btn-outline-primary my-5 mx-4" type="button" (click)="saveRoom()">Сохранить</button>
+
     </div>
+  </div>
+
+  </form>
+</div>
