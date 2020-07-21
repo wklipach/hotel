@@ -27,6 +27,7 @@ import { ListGuideService } from './services/list-guide.service';
 import { GlobalRef } from './services/globalref';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NumberService } from './services/number.service';
+import { ReservationService } from './services/reservation.service';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -72,7 +73,7 @@ const appRoutes: Routes = [
 
 
   ],
-  providers: [GlobalRef, ListGuideService, NumberService],
+  providers: [GlobalRef, ListGuideService, NumberService, ReservationService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

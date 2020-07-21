@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EasycalendarComponent } from '../components/easycalendar/easycalendar.component';
+import { ReservationService } from '../services/reservation.service';
+import { GlobalRef } from '../services/globalref';
 
 @Component({
   selector: 'app-reservation',
@@ -16,11 +18,22 @@ export class ReservationComponent implements OnInit {
   numberOfAdults = 1;
   numberOfChildren = 0;
   roomsArray = [];
+  sUrlImage = '';
 
-  constructor() { }
+  constructor(private rs: ReservationService, private gr: GlobalRef) {
+    this.sUrlImage = gr.sUrlImageGlobal;
+  }
 
   ngOnInit(): void {
-    this.roomsArray = new Array(10);
+
+
+    this.rs.getGuideReservation().subscribe( value => {
+      console.log(value);
+      this.roomsArray = value[0];
+
+    });
+
+    // this.roomsArray = new Array(10);
   }
 
 

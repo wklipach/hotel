@@ -58,37 +58,68 @@
 
 <div class="room-block">
 
-  <div class="room-image">
-    <img src="../../assets/img/molodezhnaya72room1-thumb1.jpg" height="170" width="240"/>
-  </div>
+
+
+      <!-- показываем фото номера-->
+      <div *ngIf="room.photo_mas && room.photo_mas.length>0">
+        <div class="room-image">  
+         <img src="{{this.sUrlImage}}{{room.photo_mas[0]}}" height="170" width="240"/>
+      </div>
+      </div>  
+
+      <div *ngIf="!room.photo_mas || room.photo_mas.length === 0">
+        <div class="room-image">  
+          <div class="room-image">
+            <img src="../../assets/img/intro-image.jpg" height="170" width="240"/>
+          </div>
+        </div>
+      </div>  
+      <!-- закончили показ фото номера-->
+ 
 
   <div class="room-description">
-    <div class="room-title">Отель Молодежная 72 №1</div>
+    <div class="room-title">{{room.name}}</div>
+
+    <div>адрес: {{room.address}}</div>
+    
     <p>
-      В номере имеются все необходимые удобства для комфортабельного проживания и отдыха:
-      двухспальная кровать, и другая фигня.
+      {{room.description}}
     </p>
+
+
     <ul class="features">
-      <li>Площадь: <span class="metr">18</span> кв. м</li>
-      <li> Кровати: <span class="beds">двуспальных 1</span></li>
+      <li>Площадь: <span class="metr">{{room.size}}</span> кв. м</li>
+      <li> Кровати: <span class="beds">{{room.bedstype}} {{room.beds}}</span></li>
     </ul>
 
-    <div class="d-flex justify-content-start mt-1 comfort-block">
-      <span class="p-0 comfort-image"><img src="../../assets/img/wi-fi.png" height="30" width="30"/></span>
-      <span class="p-0 comfort-image"><img src="../../assets/img/tv.png" height="30" width="30"/></span>
-      <span class="p-0 comfort-image"><img src="../../assets/img/shower.png" height="30" width="30"/></span>
-      <span class="p-0 comfort-image"><img src="../../assets/img/kitchen.png" height="30" width="30"/></span>
-      <span class="p-0 comfort-image"><img src="../../assets/img/bath.png" height="30" width="30"/></span>
-      <span class="p-0 comfort-image"><img src="../../assets/img/towels.png" height="30" width="30"/></span>
-      <span class="p-0 comfort-image"><img src="../../assets/img/work-zone.png" height="30" width="30"/></span>
-      <span class="p-0 comfort-image"><img src="../../assets/img/appliances.png" height="30" width="30"/></span>
-    </div>
+
+    {{room.features_mas}}
+    <div *ngIf="room.features_mas && room.features_mas.length > 0">
+      <div class="d-flex justify-content-start mt-1 comfort-block">
+        <div *ngFor="let feature of room.features_mas">
+          <span *ngIf="feature === '1'" class="p-0 comfort-image"><img src="../../assets/img/wi-fi.png" height="30" width="30"/></span>
+          <span *ngIf="feature === '2'" class="p-0 comfort-image"><img src="../../assets/img/tv.png" height="30" width="30"/></span>
+          <span *ngIf="feature === '3'" class="p-0 comfort-image"><img src="../../assets/img/bar.png" height="30" width="30"/></span>
+          <span *ngIf="feature === '4'" class="p-0 comfort-image"><img src="../../assets/img/shower.png" height="30" width="30"/></span>          
+          <span *ngIf="feature === '5'" class="p-0 comfort-image"><img src="../../assets/img/kitchen.png" height="30" width="30"/></span>
+          <span *ngIf="feature === '6'" class="p-0 comfort-image"><img src="../../assets/img/towels.png" height="30" width="30"/></span>
+          <span *ngIf="feature === '7'" class="p-0 comfort-image"><img src="../../assets/img/appliances.png" height="30" width="30"/></span>
+          <span *ngIf="feature === '8'" class="p-0 comfort-image"><img src="../../assets/img/conditioner.png" height="30" width="30"/></span>
+          <span *ngIf="feature === '9'" class="p-0 comfort-image"><img src="../../assets/img/safe.png" height="30" width="30"/></span>
+          <span *ngIf="feature === '10'" class="p-0 comfort-image"><img src="../../assets/img/phone.png" height="30" width="30"/></span>
+          <span *ngIf="feature === '11'" class="p-0 comfort-image"><img src="../../assets/img/bath.png" height="30" width="30"/></span>          
+          <span *ngIf="feature === '12'" class="p-0 comfort-image"><img src="../../assets/img/work-zone.png" height="30" width="30"/></span>
+          <span *ngIf="feature === '13'" class="p-0 comfort-image"><img src="../../assets/img/smokers.png" height="30" width="30"/></span>
+          <span *ngIf="feature === '14'" class="p-0 comfort-image"><img src="../../assets/img/toilet.png" height="30" width="30"/></span>
+        </div>
+      </div>
+   </div> 
 
   </div>
 
   <div class="room-about">
     <span class="room-price-from">от</span>
-    <span class="room-price">3800 руб</span>
+    <span class="room-price">{{room.price_weekdays}} руб</span>
 
     <button type="button" class="btn-about" style="background-color: white; color:#797575;">
       О номере
@@ -103,218 +134,8 @@
 <!-- КОНЕЦ ЗАГЛУШКИ ДЛЯ РАБОТЫ С БАЗОЙ-->
 
 
-  <div class="room-block">
-
-    <div class="room-image">
-      <img src="../../assets/img/molodezhnaya72room1-thumb1.jpg" height="170" width="240"/>
-    </div>
-
-    <div class="room-description">
-      <div class="room-title">Отель Молодежная 72 №1</div>
-      <p>
-        В номере имеются все необходимые удобства для комфортабельного проживания и отдыха:
-        двухспальная кровать, и другая фигня.
-      </p>
-      <ul class="features">
-        <li>Площадь: <span class="metr">18</span> кв. м</li>
-        <li> Кровати: <span class="beds">двуспальных 1</span></li>
-      </ul>
-
-      <div class="d-flex justify-content-start mt-1 comfort-block">
-        <span class="p-0 comfort-image"><img src="../../assets/img/wi-fi.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/tv.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/shower.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/kitchen.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/bath.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/towels.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/work-zone.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/appliances.png" height="30" width="30"/></span>
-      </div>
-
-    </div>
-
-    <div class="room-about">
-      <span class="room-price-from">от</span>
-      <span class="room-price">3800 руб</span>
-
-      <button type="button" class="btn-about" style="background-color: white; color:#797575;">
-        О номере
-      </button>
-
-    </div>
-
-  </div>
-
-  <div class="room-block">
-
-    <div class="room-image">
-      <img src="../../assets/img/molodezhnaya72room1-thumb2.jpg" height="170" width="240"/>
-    </div>
-
-    <div class="room-description">
-      <div class="room-title">Отель Молодежная 72 №2</div>
-      <p>
-        В номере имеются все необходимые удобства для комфортабельного проживания и отдыха:
-        двухспальная кровать, и другая фигня.
-      </p>
-      <ul class="features">
-        <li>Площадь: <span class="metr">18</span> кв. м</li>
-        <li> Кровати: <span class="beds">двуспальных 1</span></li>
-      </ul>
-
-      <div class="d-flex justify-content-start mt-1 comfort-block">
-        <span class="p-0 comfort-image"><img src="../../assets/img/wi-fi.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/tv.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/shower.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/kitchen.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/bath.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/towels.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/work-zone.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/appliances.png" height="30" width="30"/></span>
-      </div>
-
-    </div>
-
-    <div class="room-about">
-      <span class="room-price-from">от</span>
-      <span class="room-price">2400 руб</span>
-
-      <button type="button" class="btn-about" style="background-color: white; color:#797575;">
-        О номере
-      </button>
-
-    </div>
-
-  </div>
-
-  <div class="room-block">
-
-    <div class="room-image">
-      <img src="../../assets/img/molodezhnaya72room1-thumb1.jpg" height="170" width="240"/>
-    </div>
-
-    <div class="room-description">
-      <div class="room-title">Отель Молодежная 72 №3</div>
-      <p>
-        В номере имеются все необходимые удобства для комфортабельного проживания и отдыха:
-        двухспальная кровать, и другая фигня.
-      </p>
-      <ul class="features">
-        <li>Площадь: <span class="metr">18</span> кв. м</li>
-        <li> Кровати: <span class="beds">двуспальных 1</span></li>
-      </ul>
-
-      <div class="d-flex justify-content-start mt-1 comfort-block">
-        <span class="p-0 comfort-image"><img src="../../assets/img/wi-fi.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/tv.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/shower.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/kitchen.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/bath.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/towels.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/work-zone.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/appliances.png" height="30" width="30"/></span>
-      </div>
-
-    </div>
-
-    <div class="room-about">
-      <span class="room-price-from">от</span>
-      <span class="room-price">3800 руб</span>
-
-      <button type="button" class="btn-about" style="background-color: white; color:#797575;">
-        О номере
-      </button>
-
-    </div>
-
-  </div>
-
-  <div class="room-block">
-
-    <div class="room-image">
-      <img src="../../assets/img/molodezhnaya72room1-thumb2.jpg" height="170" width="240"/>
-    </div>
-
-    <div class="room-description">
-      <div class="room-title">Отель Молодежная 72 №4</div>
-      <p>
-        В номере имеются все необходимые удобства для комфортабельного проживания и отдыха:
-        двухспальная кровать, и другая фигня.
-      </p>
-      <ul class="features">
-        <li>Площадь: <span class="metr">18</span> кв. м</li>
-        <li> Кровати: <span class="beds">двуспальных 1</span></li>
-      </ul>
-
-      <div class="d-flex justify-content-start mt-1 comfort-block">
-        <span class="p-0 comfort-image"><img src="../../assets/img/wi-fi.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/tv.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/shower.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/kitchen.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/bath.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/towels.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/work-zone.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/appliances.png" height="30" width="30"/></span>
-      </div>
-
-    </div>
-
-    <div class="room-about">
-      <span class="room-price-from">от</span>
-      <span class="room-price">3200 руб</span>
-
-      <button type="button" class="btn-about" style="background-color: white; color:#797575;">
-        О номере
-      </button>
-
-    </div>
-
-  </div>
-
-  <div class="room-block">
-
-    <div class="room-image">
-      <img src="../../assets/img/molodezhnaya72room1-thumb2.jpg" height="170" width="240"/>
-    </div>
-
-    <div class="room-description">
-      <span class="room-title">Отель Молодежная 72 №5</span>
-      <p>
-        В номере имеются все необходимые удобства для комфортабельного проживания и отдыха: двухспальная кровать, и другая фигня.
-      </p>
-
-      <ul class="features">
-        <li>Площадь: <span class="metr">18</span> кв. м</li>
-        <li> Кровати: <span class="beds">двуспальных 1</span></li>
-      </ul>
-
-      <div class="d-flex justify-content-start mt-1 comfort-block">
-        <span class="p-0 comfort-image"><img src="../../assets/img/wi-fi.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/tv.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/shower.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/kitchen.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/bath.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/towels.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/work-zone.png" height="30" width="30"/></span>
-        <span class="p-0 comfort-image"><img src="../../assets/img/appliances.png" height="30" width="30"/></span>
-      </div>
-
-    </div>
-
-    <div class="room-about">
-      <span class="room-price-from">от</span>
-      <span class="room-price">2600 руб</span>
-
-      <button type="button" class="btn-about">
-        О номере
-      </button>
-
-    </div>
-
-  </div>
 
 
-</div>
 
 
 
