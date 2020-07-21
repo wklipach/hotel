@@ -230,7 +230,7 @@ export class AddroomsComponent implements OnInit {
               setTimeout(() => { 
                 this.router.navigate(['/']);
               });
-              
+
             }
 
            }

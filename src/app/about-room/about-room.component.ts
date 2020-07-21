@@ -4,6 +4,8 @@ import { EasycalendarComponent } from '../components/easycalendar/easycalendar.c
 import {NgxGalleryOptions} from '@kolkov/ngx-gallery';
 import {NgxGalleryImage} from '@kolkov/ngx-gallery';
 import {NgxGalleryAnimation} from '@kolkov/ngx-gallery';
+import { AuthService } from '../services/auth.service';
+import { GlobalRef } from '../services/globalref';
 
 @Component({
   selector: 'app-about-room',
@@ -22,9 +24,10 @@ export class AboutRoomComponent implements OnInit {
   boolEndCalendar = false;
   numberOfAdults = 1;
   numberOfChildren = 0;
+  room: any;
 
 
-  constructor() { }
+  constructor(private auth: AuthService, private gr: GlobalRef) { }
 
   ngOnInit(): void {
     this.galleryOptions = [
@@ -51,59 +54,30 @@ export class AboutRoomComponent implements OnInit {
       }
     ];
 
+    this.room = this.auth.getInfoNumber();
 
-    this.galleryImages = [
-      {
-        small: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        medium: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
-      },
-      {
-        small: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        medium: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
-      },
-      {
-        small: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        medium: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
-      },
-      {
-        small: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        medium: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
-      },
-      {
-        small: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        medium: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
-      },
-      {
-        small: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        medium: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
-      },
-      {
-        small: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        medium: 'assets/img/molodezhnaya72room1-thumb1.jpg',
-        big: 'assets/img/molodezhnaya72room1-thumb1.jpg'
-      },
-      {
-        small: 'assets/img/molodezhnaya72room1-thumb2.jpg',
-        medium: 'assets/img/molodezhnaya72room1-thumb2.jpg',
-        big: 'assets/img/molodezhnaya72room1-thumb2.jpg'
-      },
-      {
-        small: 'assets/img/molodezhnaya72room1-middle2.jpg',
-        medium: 'assets/img/molodezhnaya72room1-middle2.jpg',
-        big: 'assets/img/molodezhnaya72room1-middle2.jpg'
-      },
-      {
-        small: 'assets/img/molodezhnaya72room1-middle1.jpg',
-        medium: 'assets/img/molodezhnaya72room1-middle1.jpg',
-        big: 'assets/img/molodezhnaya72room1-middle1.jpg'
-      }
-    ];
+
+    const varPhoto: NgxGalleryImage[] = [];
+
+    if (this.room.photo_mas) {
+    this.room.photo_mas.forEach(element => {
+      varPhoto.push({
+        small: this.gr.sUrlImageGlobal + element,
+        medium: this.gr.sUrlImageGlobal + element,
+        big: this.gr.sUrlImageGlobal + element
+      });
+    });
+  } else {
+    varPhoto.push({
+      small: '../../assets/img/intro-image.jpg',
+      medium: '../../assets/img/intro-image.jpg',
+      big: '../../assets/img/intro-image.jpg'
+    });
+
+  }
+
+    this.galleryImages = varPhoto;
+
 
   }
 

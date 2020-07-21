@@ -93,7 +93,6 @@
     </ul>
 
 
-    {{room.features_mas}}
     <div *ngIf="room.features_mas && room.features_mas.length > 0">
       <div class="d-flex justify-content-start mt-1 comfort-block">
         <div *ngFor="let feature of room.features_mas">
@@ -121,7 +120,7 @@
     <span class="room-price-from">от</span>
     <span class="room-price">{{room.price_weekdays}} руб</span>
 
-    <button type="button" class="btn-about" style="background-color: white; color:#797575;">
+    <button (click)="onClickAboutRoom(room.id, room)"  type="button" class="btn-about" style="background-color: white; color:#797575;">
       О номере
     </button>
 

@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { EasycalendarComponent } from '../components/easycalendar/easycalendar.component';
 import { ReservationService } from '../services/reservation.service';
 import { GlobalRef } from '../services/globalref';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation',
@@ -20,7 +22,8 @@ export class ReservationComponent implements OnInit {
   roomsArray = [];
   sUrlImage = '';
 
-  constructor(private rs: ReservationService, private gr: GlobalRef) {
+  constructor(private rs: ReservationService, private gr: GlobalRef,
+              private auth: AuthService,  private router: Router) {
     this.sUrlImage = gr.sUrlImageGlobal;
   }
 
@@ -89,5 +92,10 @@ export class ReservationComponent implements OnInit {
     console.log('найти комнаты');
   }
 
+  onClickAboutRoom(idnumber: number, room: any) {
+    this.auth.setNumber(idnumber);
+    this.auth.setInfoNumber(room);
+    this.router.navigate(['/about-room']);
+  }
 
 }

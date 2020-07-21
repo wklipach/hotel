@@ -6,46 +6,51 @@
 
       <div class="d-flex justify-content-start title-room">
         <a href="#" class="btn-back"><img src="../../assets/img/room-back.png" height="26" width="26"/></a>
-        <h2> Апартаменты Парковая 6 (Рантала)</h2>
-
+        <h2 *ngIf="room">{{room.name}}</h2>
       </div>
+      <div *ngIf="room">{{room.address}}</div>
 
 
-  <div class="ngx-block">
+  <div *ngIf="room" class="ngx-block">
     <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
   </div>
 
       <div class="d-flex justify-content-start properties-block ">
         <div class="part-1">Параметры:</div>
-        <div class="part-2">Вместимость: 4</div>
-        <div class="part-3">Кровати: двуспальных 1,<br> больших двуспальных 1 </div>
+        <div *ngIf="room" class="part-2">Вместимость: {{room.guests}} взрослых, {{room.children}} детей</div>
+        <div *ngIf="room" class="part-3">Кровать: {{room.bedstype}},<br>количество {{room.beds}} </div>
       </div>
 
       <div class="d-flex justify-content-start description-block ">
         <div class="part-1">О номере:</div>
-        <div class="part-4">В номере имеются: двухспальная кровать, письменный стол, стул, комод, телевизор, wi-fi, санузел.
-        <br>Оказываем услуги трансфера, питания, а так же услуги личного водителя.</div>
+        <div *ngIf="room" class="part-4">{{room.description}}</div>
       </div>
 
-      <div class="d-flex justify-content-start comfort-block">
-        <div class="part-1">Удобства:</div>
-        <div class="d-flex justify-content-start flex-wrap">
 
-        <div class="d-flex flex-column comfort-images">
-          <span><img src="../../assets/img/wi-fi.png" height="30" width="30"/>Wi-Fi</span>
-          <span><img src="../../assets/img/shower.png" height="30" width="30"/>Душ</span>
-         <span> <img src="../../assets/img/towels.png" height="30" width="30"/>Полотенца</span>
-          <span><img src="../../assets/img/tv.png" height="30" width="30"/>Телевизор</span>
+      <div class="part-1">Удобства:</div>
+       <div *ngIf="room.features_mas && room.features_mas.length > 0">
+        <div class="d-flex justify-content-start mt-1 comfort-block">
+          <div *ngFor="let feature of room.features_mas">
+            <span *ngIf="feature === '1'" class="p-0 comfort-image"><img src="../../assets/img/wi-fi.png" height="30" width="30"/></span>
+            <span *ngIf="feature === '2'" class="p-0 comfort-image"><img src="../../assets/img/tv.png" height="30" width="30"/></span>
+            <span *ngIf="feature === '3'" class="p-0 comfort-image"><img src="../../assets/img/bar.png" height="30" width="30"/></span>
+            <span *ngIf="feature === '4'" class="p-0 comfort-image"><img src="../../assets/img/shower.png" height="30" width="30"/></span>          
+            <span *ngIf="feature === '5'" class="p-0 comfort-image"><img src="../../assets/img/kitchen.png" height="30" width="30"/></span>
+            <span *ngIf="feature === '6'" class="p-0 comfort-image"><img src="../../assets/img/towels.png" height="30" width="30"/></span>
+            <span *ngIf="feature === '7'" class="p-0 comfort-image"><img src="../../assets/img/appliances.png" height="30" width="30"/></span>
+            <span *ngIf="feature === '8'" class="p-0 comfort-image"><img src="../../assets/img/conditioner.png" height="30" width="30"/></span>
+            <span *ngIf="feature === '9'" class="p-0 comfort-image"><img src="../../assets/img/safe.png" height="30" width="30"/></span>
+            <span *ngIf="feature === '10'" class="p-0 comfort-image"><img src="../../assets/img/phone.png" height="30" width="30"/></span>
+            <span *ngIf="feature === '11'" class="p-0 comfort-image"><img src="../../assets/img/bath.png" height="30" width="30"/></span>          
+            <span *ngIf="feature === '12'" class="p-0 comfort-image"><img src="../../assets/img/work-zone.png" height="30" width="30"/></span>
+            <span *ngIf="feature === '13'" class="p-0 comfort-image"><img src="../../assets/img/smokers.png" height="30" width="30"/></span>
+            <span *ngIf="feature === '14'" class="p-0 comfort-image"><img src="../../assets/img/toilet.png" height="30" width="30"/></span>
+          </div>
         </div>
-        <div class="d-flex flex-column comfort-images">
-          <span><img src="../../assets/img/kitchen.png" height="30" width="30"/>Кухня</span>
-          <span><img src="../../assets/img/bath.png" height="30" width="30"/>Ванна</span>
-          <span><img src="../../assets/img/work-zone.png" height="30" width="30"/>Рабочая зона</span>
-        </div>
+    
+  
 
 
-
-      </div>
     </div>
 
 
@@ -62,9 +67,16 @@
       </div>
 
 
+
+      <app-map-page></app-map-page>
+
     </div>    <!-- col-8 -->
 
 
+<!-- КОНЕЦ ОСНОВНОЙ СТРАНИЦЫ-->    
+
+
+<!-- ПРАВАЯ КОЛОНКА С БРОНИРОВАНИЕМ -->    
 <div class="col-4 pl-0">
 
   <div class="order-widget flex-column">
@@ -72,7 +84,7 @@
 
     <div class="d-flex flex-column prise-block">
       <span class="from">от</span>
-     <span class="prise">3600 руб</span>
+     <span *ngIf="room" class="prise">{{room.price_weekdays}} руб</span>
      <span class="to">за ночь</span>
   </div>
 
@@ -127,13 +139,6 @@
     <app-easycalendar #endCalendar (clickDay)="clickDayEnd($event)"></app-easycalendar>
   </div>
 </div>
-
-
-  <div class="map-middle">
-    <img src="../../assets/img/map-middle.png" height="342" width="648"/>
-  </div>
-
-
 
 
   </div>

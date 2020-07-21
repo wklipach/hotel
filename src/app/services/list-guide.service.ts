@@ -43,5 +43,12 @@ export class ListGuideService {
     return this.http.get(this.gr.sUrlGlobal + 'guide', {params: varparams});
   }
 
+  getGuideOneAddress(idAddress: number) {
+    const varparams = new HttpParams()
+    .set('get_one_address', 'get_one_address')
+    .set('id_address', idAddress.toString());
+    return this.http.get(this.gr.sUrlGlobal + 'guide', {params: varparams});
+  }
+
 
 }

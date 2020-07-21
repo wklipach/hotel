@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { } from 'googlemaps';
+import { Router } from '@angular/router';
+import { ListGuideService } from '../services/list-guide.service';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -100,23 +103,78 @@ export class MapPageComponent implements OnInit {
   ];
 
 
-  constructor() {
+  constructor(private auth: AuthService,
+              private router: Router,
+              private lsg: ListGuideService) {
 
   }
 
   ngOnInit(): void {
-    // AIzaSyA74254mNXG7sVoYX-qpgwWYlXV7jB_IO4
-    this.renderMap();
+
+    if (this.router.url === '/about-room') {
+
+      const room = this.auth.getInfoNumber();
+      const idAddress = room.id_address;
+      this.lsg.getGuideOneAddress(idAddress).subscribe(listaddress => {
+        this.locations = [];
+
+        let latCenter = 59.903043;
+        let lngcenter = 29.076565;
+        // tslint:disable-next-line: forin
+        for (const key in listaddress) {
+          if (listaddress.hasOwnProperty(key)) {
+            const address = listaddress[key];
+            this.locations.push({
+              lat: Number(address.lat),
+              lng: Number(address.lng),
+              title: address.title,
+              data1: address.data1,
+              data2: address.data2
+            });
+            latCenter = Number(address.lat);
+            lngcenter = Number(address.lng);
+          }
+          break;
+        } // for!
+        this.renderMap(latCenter, lngcenter);
+      }); // subscribe!
+
+    } else {
+
+      this.lsg.getGuideAddress(1).subscribe(listaddress => {
+      this.locations = [];
+
+      for (const key in listaddress) {
+        if (listaddress.hasOwnProperty(key)) {
+          const address = listaddress[key];
+          this.locations.push({
+            lat: Number(address.lat),
+            lng: Number(address.lng),
+            title: address.title,
+            data1: address.data1,
+            data2: address.data2
+          });
+        }
+      }
+      // center: {lat: 59.903043, lng: 29.076565},
+      // AIzaSyA74254mNXG7sVoYX-qpgwWYlXV7jB_IO4
+      this.renderMap(59.903043, 29.076565);
+
+      });
+    }
+
+
+
 
   }
 
 
 
-  renderMap() {
+  renderMap(latVar, lngVar) {
 
     // tslint:disable-next-line: no-string-literal
     window['initMap'] = () => {
-      this.loadMap();
+      this.loadMap(latVar, lngVar);
     };
 
     if (!window.document.getElementById('google-map-script')) {
@@ -127,16 +185,16 @@ export class MapPageComponent implements OnInit {
 
       window.document.body.appendChild(s);
     } else {
-      this.loadMap();
+      this.loadMap(latVar, lngVar);
     }
   }
 
-  loadMap = () => {
+  loadMap = (latVar, lngVar) => {
 
     this.mapElement.nativeElement.height = 200;
 
     const map = new window.google.maps.Map(this.mapElement.nativeElement, {
-      center: {lat: 59.903043, lng: 29.076565},
+      center: {lat: latVar, lng: lngVar},
       zoom: 17
     });
 
