@@ -27,6 +27,19 @@
       </div>
 
 
+  <div class="card p-4">
+
+  <div *ngFor="let bedstype of listBedstype">
+     <div class="d-flex justify-content-between  w-50">
+      <span>{{bedstype.name}}</span>
+      <input formControlName="bed{{bedstype.id}}" type="text" class="form-control w-25" placeholder="">
+      </div>
+  </div>
+
+  </div>
+
+
+  <!--
       <div class="card p-4">
         <h5 class="card-title">Кровати</h5>
         <div class="d-flex">
@@ -42,6 +55,7 @@
         </div>
       </div>
 
+-->
 
       <div class="card p-4">
         <h5 class="card-title">Удобства</h5>
@@ -51,7 +65,7 @@
 
           <div *ngFor="let feature of listFeatures">
             <div class="custom-control custom-checkbox">
-              <input  formControlName="typeBed{{feature.id}}" type="checkbox" class="custom-control-input" id="customCheck{{feature.id}}">
+              <input  formControlName="typefeature{{feature.id}}" type="checkbox" class="custom-control-input" id="customCheck{{feature.id}}">
               <label class="custom-control-label" for="customCheck{{feature.id}}">{{feature.name}}</label>
             </div>
           </div>
@@ -132,3 +146,5 @@
 
   </form>
 </div>
+
+ 

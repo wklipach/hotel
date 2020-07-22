@@ -22,6 +22,16 @@ export class NumberService {
     return this.http.post(this.gr.sUrlGlobal + 'number', param);
   }
 
+  insertNumberBedstype(idnumber, masBedstype) {
+    const param = {insert_number_bedstype : 'insert_number_bedstype', id_number: idnumber.toString(),
+                  // tslint:disable-next-line: object-literal-shorthand
+                  masBedstype: masBedstype};
+    return this.http.post(this.gr.sUrlGlobal + 'number', param);
+  }
+
+
+  
+
   updateImageMessageTable(curMessage: any, curExt: string, idmessage: number, idprefix) {
     const datamessage = {message_image: curMessage, id_message: idmessage, id_prefix: idprefix, ext: curExt};
     return this.http.post(this.gr.sUrlGlobal + 'number', datamessage);

@@ -27,8 +27,8 @@ export class AddroomsComponent implements OnInit {
       maxGuest: new FormControl(''),
       maxChild: new FormControl(''),
       numberSize: new FormControl(''),
-      amountBed: new FormControl(''),
-      typeBed: new FormControl(''),
+      /* amountBed: new FormControl(''),
+      typeBed: new FormControl(''), */
       description: new FormControl(''),
       inputAddress: new FormControl(''),
       inputTypeprice: new FormControl(''),
@@ -47,16 +47,18 @@ export class AddroomsComponent implements OnInit {
     this.lg.getGuideFeatures().subscribe( (value: any[]) => {
       this.listFeatures = value;
       // создаем элементы формы соответствующие массиву
-
       this.listFeatures.forEach( (feature, index, add) => {
-        this.addroomsForm.addControl('typeBed' + feature.id, new FormControl(''));
+        this.addroomsForm.addControl('typefeature' + feature.id, new FormControl(''));
       });
-
 
     });
 
     this.lg.getGuideBedstype().subscribe( (value: any[]) => {
       this.listBedstype = value;
+      this.listBedstype.forEach( (bedstype, index, add) => {
+        this.addroomsForm.addControl('bed' + bedstype.id, new FormControl(''));
+      });
+
     });
 
     this.lg.getGuideTypeprice().subscribe( (value: any[]) => {
@@ -132,6 +134,7 @@ export class AddroomsComponent implements OnInit {
 
   saveRoom() {
 
+
     this.sError = '';
 
     if (this.addroomsForm.controls.nameRoom.value === '') {
@@ -154,6 +157,7 @@ export class AddroomsComponent implements OnInit {
       return;
     }
 
+/*
     if (!Number(this.addroomsForm.controls.amountBed.value)) {
       this.sError = 'Добавьте количество кроватей.';
       return;
@@ -163,6 +167,9 @@ export class AddroomsComponent implements OnInit {
       this.sError = 'Добавьте тип кровати.';
       return;
     }
+*/
+
+
 
     if (!Number(this.addroomsForm.controls.inputAddress.value)) {
       this.sError = 'Добавьте адрес.';
@@ -190,8 +197,6 @@ export class AddroomsComponent implements OnInit {
       guests: this.addroomsForm.controls.maxGuest.value,
       children: this.addroomsForm.controls.maxChild.value,
       size: this.addroomsForm.controls.numberSize.value,
-      beds: this.addroomsForm.controls.amountBed.value,
-      id_bedstype: this.addroomsForm.controls.typeBed.value,
       id_address: this.addroomsForm.controls.inputAddress.value,
       id_typeprice: this.addroomsForm.controls.inputTypeprice.value,
       price_weekdays: this.addroomsForm.controls.priceWeekdays.value,
@@ -211,7 +216,7 @@ export class AddroomsComponent implements OnInit {
             // перебор особенностей номера и их вывод
             const masFeature = [];
             this.listFeatures.forEach( (feature, index, add) => {
-                if (this.addroomsForm.controls['typeBed' + feature.id].value === true) {
+                if (this.addroomsForm.controls['typefeature' + feature.id].value === true) {
                   masFeature.push(feature.id); }
             });
 
@@ -222,12 +227,29 @@ export class AddroomsComponent implements OnInit {
            // закончили занесение особенностей номера
 
 
+            // перебор кроватей и их вывод
+            const masBedstype = [];
+            this.listBedstype.forEach( (bed, index, add) => {
+                     if (this.addroomsForm.controls['bed' + bed.id].value) {
+                      const curval = this.addroomsForm.controls['bed' + bed.id].value;
+                      if (Number(curval) && Number(curval) > 0) {
+                        masBedstype.push({id_bed: bed.id, amount: curval }); }
+                       }
+                      });
+
+            if (masBedstype.length > 0) {
+              console.log(masBedstype);
+              this.ns.insertNumberBedstype(id, masBedstype).subscribe(value => {
+                       });
+                    }
+            // закончили занесение кроватей в базу
+
             // если есть фото сохраняем их
             if (this.indexImg > 0) {
               this.onPostImageAvatar(id);
             } else {
 
-              setTimeout(() => { 
+              setTimeout(() => {
                 this.router.navigate(['/']);
               });
 
