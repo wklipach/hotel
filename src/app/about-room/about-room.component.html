@@ -18,7 +18,12 @@
       <div class="d-flex justify-content-start properties-block ">
         <div class="part-1">Параметры:</div>
         <div *ngIf="room" class="part-2">Вместимость: {{room.guests}} взрослых, {{room.children}} детей</div>
-        <div *ngIf="room" class="part-3">Кровать: {{room.bedstype}},<br>количество {{room.beds}} </div>
+        <!-- выводим кровати номера-->
+        <div class="part-1">Кровати:</div>
+        <div *ngIf="room.beds_mas && room.beds_mas.length>0">
+          <li *ngFor="let bed of room.beds_mas"><span class="beds">{{bed.name}} : {{bed.amount}} шт.</span></li>
+        </div>
+
       </div>
 
       <div class="d-flex justify-content-start description-block ">
@@ -34,21 +39,21 @@
             <span *ngIf="feature === '1'" class="p-0 comfort-image"><img src="../../assets/img/wi-fi.png" height="30" width="30"/></span>
             <span *ngIf="feature === '2'" class="p-0 comfort-image"><img src="../../assets/img/tv.png" height="30" width="30"/></span>
             <span *ngIf="feature === '3'" class="p-0 comfort-image"><img src="../../assets/img/bar.png" height="30" width="30"/></span>
-            <span *ngIf="feature === '4'" class="p-0 comfort-image"><img src="../../assets/img/shower.png" height="30" width="30"/></span>          
+            <span *ngIf="feature === '4'" class="p-0 comfort-image"><img src="../../assets/img/shower.png" height="30" width="30"/></span>
             <span *ngIf="feature === '5'" class="p-0 comfort-image"><img src="../../assets/img/kitchen.png" height="30" width="30"/></span>
             <span *ngIf="feature === '6'" class="p-0 comfort-image"><img src="../../assets/img/towels.png" height="30" width="30"/></span>
             <span *ngIf="feature === '7'" class="p-0 comfort-image"><img src="../../assets/img/appliances.png" height="30" width="30"/></span>
             <span *ngIf="feature === '8'" class="p-0 comfort-image"><img src="../../assets/img/conditioner.png" height="30" width="30"/></span>
             <span *ngIf="feature === '9'" class="p-0 comfort-image"><img src="../../assets/img/safe.png" height="30" width="30"/></span>
             <span *ngIf="feature === '10'" class="p-0 comfort-image"><img src="../../assets/img/phone.png" height="30" width="30"/></span>
-            <span *ngIf="feature === '11'" class="p-0 comfort-image"><img src="../../assets/img/bath.png" height="30" width="30"/></span>          
+            <span *ngIf="feature === '11'" class="p-0 comfort-image"><img src="../../assets/img/bath.png" height="30" width="30"/></span>
             <span *ngIf="feature === '12'" class="p-0 comfort-image"><img src="../../assets/img/work-zone.png" height="30" width="30"/></span>
             <span *ngIf="feature === '13'" class="p-0 comfort-image"><img src="../../assets/img/smokers.png" height="30" width="30"/></span>
             <span *ngIf="feature === '14'" class="p-0 comfort-image"><img src="../../assets/img/toilet.png" height="30" width="30"/></span>
           </div>
         </div>
-    
-  
+
+
 
 
     </div>
@@ -73,10 +78,10 @@
     </div>    <!-- col-8 -->
 
 
-<!-- КОНЕЦ ОСНОВНОЙ СТРАНИЦЫ-->    
+<!-- КОНЕЦ ОСНОВНОЙ СТРАНИЦЫ-->
 
 
-<!-- ПРАВАЯ КОЛОНКА С БРОНИРОВАНИЕМ -->    
+<!-- ПРАВАЯ КОЛОНКА С БРОНИРОВАНИЕМ -->
 <div class="col-4 pl-0">
 
   <div class="order-widget flex-column">
@@ -117,7 +122,7 @@
       <div class="d-flex flex-column m-0 ml-auto arrows">
         <span (click)="addChildren()"><img class="arr mt-1" src="../../assets/img/up-down-arrow.svg"/></span>
         <span (click)="deleteChildren()"><img class="arr2 mb-3" src="../../assets/img/drop-down-arrow.svg"/></span>
-      </div>   
+      </div>
 
     </div>
 

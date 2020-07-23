@@ -68,7 +68,6 @@
           "options": {
             "browserTarget": "hotel:build",
             "port": 4201
-            
           },
           "configurations": {
             "production": {
@@ -125,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "hotel"
+    }
+  },
+  "defaultProject": "hotel",
+  "cli": {
+    "analytics": false
+  }
 }
