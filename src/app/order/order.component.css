@@ -1,0 +1,98 @@
+.container-fluid {
+  font-family: Arial,sans-serif;
+  max-width: 1300px;
+}
+.additional-features {
+  width: 100%;
+  height: auto;
+  padding: 35px 30px 35px 100px;
+}
+.block {
+  width: 570px;
+  height: auto;
+  min-height: 85px;
+  border: 1px solid #ced0d0;
+  border-radius: 3px;
+  padding: 21px 31px 13px 23px;
+  margin-bottom: 18px;
+}
+h2 {
+  font-family: Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 1px solid #ced0d0;
+  padding-bottom: 10px;
+  margin-bottom: 27px;
+  color: #373737;
+}
+img {
+  margin-right: 19px;
+  vertical-align: top;
+  display: inline-block;
+}
+.charge {
+  width: 270px;
+  height: auto;
+  display: inline-block;
+  margin-top: -4px;
+}
+.name {
+  font-family: Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #373737;
+  display: inline;
+  vertical-align: top;
+}
+.prise {
+  font-family: Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #373737;
+  display: inline;
+  vertical-align: top;
+}
+.text {
+  font-size: 14px;
+  color: #777777;
+  line-height: 18px;
+  word-wrap: break-word;
+  margin-bottom: 0;
+}
+.amount {
+  display: inline-block;
+  width: 78px;
+  padding-left: 40px;
+  vertical-align: top;
+  margin-top: -5px;
+}
+label, span {
+  font-size: 14px;
+  color: #777777;
+}
+.dinner{
+  width: 80px;
+}
+.check-auto {
+}
+
+.order-details {
+  max-width: 330px;
+  padding: 35px 37px 35px 0;
+}
+.information {
+  font-size: 14px;
+  font-weight: bold;
+  color: #373737;
+}
+.coupon {
+  width: 170px;
+  height: 30px;
+  font-size: 14px;
+  padding-bottom: 8px;
+}
+.btn-coupon {
+  color: #33a2dc;
+  font-size: 14px;
+
+}

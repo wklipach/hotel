@@ -1,33 +1,104 @@
-
 <div class="container-fluid">
   <div class="row">
-    <div class="col-8">
+    <div class="col-7 additional-features">
+      <h2>Добавьте дополнительные возможности</h2>
+
+      <div class="block">
+        <img src="../../assets/img/lunch-dinner.jpg" height="79" width="109"/>
+
+        <div class=" charge">
+          <span class="name">Обед или ужин на выбор</span>
+          <span class="prise ml-1">350 руб</span>
+
+        <p class="text">
+            Обед с 12:00 до 14:00, ужин с 17:00 до 23:00. Услуга предоставляется Бор-Баром,
+            можно включить в стоимость проживания.
+        </p>
+
+        </div>
+
+        <div class="amount">
+          <label>Количество</label>
+          <input formControlName="dinner" type="text" class="form-control dinner" placeholder="0">
+        </div>
+
+      </div>    <!-- block end -->
 
 
-      <div class="d-flex w-25">
-        <label>Количество ужинов</label>
-        <input formControlName="dinner" type="text" class="form-control" placeholder="">
-      </div>
+      <div class="block">
+        <img src="../../assets/img/avto-pulkovo.jpg" height="79" width="109"/>
+
+        <div class=" charge">
+          <span class="name">Встретить в Пулково</span>
+          <span class="prise ml-1">2200 руб</span>
+
+          <p class="text">
+            Трансфер от аэропорта Пулково до Соснового Бора (гостиницы) и обратно.
+            Все предоставляемые автомобили бизнес-класса. Имеется в наличии минивэн.
+          </p>
+
+        </div>
+
+        <div class="amount">
+          <label>Выбрать</label>
+          <div class="custom-control custom-checkbox d-flex flex-column">
+            <label class="custom-control-label"></label>
+            <input type="checkbox" class="custom-control-input">
+          </div>
+        </div>
+
+      </div>    <!-- block end -->
+
+      <div class="block">
+        <img src="../../assets/img/avto-vitebskiy.jpg" height="79" width="109"/>
+
+        <div class=" charge">
+          <span class="name">Встретить на Витебском вокзале</span>
+          <span class="prise ml-5">2500 руб</span>
+
+          <p class="text">
+            Трансфер от Витебского вокзала до Соснового Бора (гостиницы) и обратно.
+            Все предоставляемые автомобили бизнес-класса. Имеется в наличии минивэн.
+          </p>
+
+        </div>
+
+        <div class="amount">
+          <label>Выбрать</label>
+          <div class="custom-control custom-checkbox d-flex flex-column">
+            <label class="custom-control-label"></label>
+            <input type="checkbox" class="custom-control-input">
+          </div>
+        </div>
+
+      </div>    <!-- block end -->
 
 
+      <div class="block">
+        <img src="../../assets/img/avto-ladozjskiy.jpg" height="79" width="109"/>
+
+        <div class=" charge">
+          <span class="name">Встретить на Ладожском вокзале</span>
+          <span class="prise ml-5">2600 руб</span>
+
+          <p class="text">
+            Трансфер от Ладожского вокзала до Соснового Бора (гостиницы) и обратно.
+            Все предоставляемые автомобили бизнес-класса. Имеется в наличии минивэн.
+          </p>
+
+        </div>
+
+        <div class="amount">
+          <label>Выбрать</label>
+          <div class="custom-control custom-checkbox d-flex flex-column">
+            <label class="custom-control-label"></label>
+            <input type="checkbox" class="custom-control-input">
+          </div>
+        </div>
+
+      </div>    <!-- block end -->
 
       <div class="d-flex flex-column">
-
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input">
-          <label class="custom-control-label">Аэропорт Пулково</label>
-        </div>
-
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input">
-          <label class="custom-control-label">Витебский вокзал</label>
-        </div>
-
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input">
-          <label class="custom-control-label">Варшавский вокзал</label>
-        </div>
-
 
         <div class="d-flex w-50">
           <label>Имя</label>
@@ -53,66 +124,72 @@
           <textarea class="form-control" aria-label="Пожелания"></textarea>
         </div>
 
-
-
       </div>
 
     </div>
 
+    <div class="col-4 order-details">
 
+     <h2>Детали заказа</h2>
 
-    <div class="col-4">
+     <div class="image">
+        <img style="margin:0" src="../../assets/img/molodezhnaya72room1-middle1.jpg" height="200" width="290"/></div>
 
-
-     <h3>Детали заказа</h3>
-
-
-     <label>Фото номера</label>
-      <div class="image">
-        <img src="../../assets/img/molodezhnaya72room1-middle1.jpg" height="226" width="306"/></div>
-
-      <div class="d-flex justify-content-between">
-      <h4>Тип номера</h4>
-      <span>Отель Молодёжная 72 №5 - Из базы</span>
+      <div class="d-flex justify-content-between pt-3">
+      <span>Тип номера</span>
+        <span class="information">Отель Молодёжная 72 №5</span>
     </div>
 
 
-      <div class="d-flex justify-content-between">
-      <h4>Даты</h4>
-      <span>июл. 30-31, 2020 - Из базы</span>
+      <div class="d-flex justify-content-between py-1">
+      <span>Даты</span>
+      <span class="information">июль 30-31, 2020</span>
       </div>
 
-      <div class="d-flex justify-content-between">
-      <h4>Ночей</h4>
-        <span>3 - Из базы</span>
+      <div class="d-flex justify-content-between py-1">
+      <span>Ночей</span>
+        <span class="information">3</span>
       </div>
 
-      <div class="d-flex justify-content-between">
-      <h4>Гостей</h4>
-        <span>1 взрослых - Из базы</span>
+      <div class="d-flex justify-content-between py-1">
+      <span>Гостей</span>
+       <span class="information">1 взрослых</span>
       </div>
 
-      <div class="d-flex justify-content-between">
-      <h4>Без налога</h4> 	<span>2600  - Из базы руб</span>
+      <div class="d-flex justify-content-between py-1">
+      <span>Без налога</span> 	<span class="information">2600 руб</span>
       </div>
 
-      <div class="d-flex justify-content-between">
-       <h4>Налог (0 %)</h4> 	<span>0 руб  - Из базы </span>
-      </div>
-
-            <h4>Добавить</h4>
-
-           <label>Дополнительно:</label>
-
-      <div class="d-flex justify-content-between">
-      <h4>Обед или ужин на выбор</h4>  <span>  × 2 	700 руб   - Из базы  </span>
-      </div>
-
-      <div class="d-flex justify-content-between">
-      <span>Встретить в Пулково 	2200 руб    - Из базы </span>
+      <div class="d-flex justify-content-between py-1">
+       <span>Налог (0 %)</span> 	<span class="information">0 руб</span>
       </div>
 
 
+    <div class="additionally">
+        <span>Дополнительно:</span>
+
+        <div class="d-flex justify-content-between py-1">
+        <span>Обед или ужин на выбор</span>  <span class="information">  × 2 	700 руб</span>
+       </div>
+
+       <div class="d-flex justify-content-between py-1">
+        <span>Встретить в Пулково</span> 	<span class="information">2200 руб</span>
+      </div>
+    </div>
+
+
+      <div class="d-flex justify-content-between py-1">
+        <input formControlName="coupon" type="text" class="form-control coupon" placeholder="Код купона">
+        <a href="#" class="btn-coupon">Добавить</a>
+      </div>
+
+      <div class="d-flex justify-content-between py-1">
+        <span> Итого</span> 	<span class="information">4800 руб</span>
+      </div>
+
+      <div class="d-flex justify-content-between py-1">
+        <span>Залог</span> 	<span class="information">2400 руб</span>
+      </div>
 
 
 
