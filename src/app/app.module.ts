@@ -29,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NumberService } from './services/number.service';
 import { ReservationService } from './services/reservation.service';
 import { AuthService } from './services/auth.service';
+import { OrderComponent } from './order/order.component';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -63,7 +64,8 @@ const appRoutes: Routes = [
     AddroomsComponent,
     MainComponent,
     IntroTopComponent,
-    AboutRoomComponent
+    AboutRoomComponent,
+    OrderComponent
   ],
   imports: [
     HttpClientModule,
