@@ -1,104 +1,56 @@
+<form [formGroup]="orderForm">
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-7 additional-features">
       <h2>Добавьте дополнительные возможности</h2>
 
-      <div class="block">
-        <img src="../../assets/img/lunch-dinner.jpg" height="79" width="109"/>
 
-        <div class=" charge">
-          <span class="name">Обед или ужин на выбор</span>
-          <span class="prise ml-1">350 руб</span>
+  
+<div *ngIf="addserv && addserv.length>0">
+<div *ngFor="let curElemAddServ of addserv">
 
-        <p class="text">
-            Обед с 12:00 до 14:00, ужин с 17:00 до 23:00. Услуга предоставляется Бор-Баром,
-            можно включить в стоимость проживания.
-        </p>
+  <div class="block">
+    <img src="{{gr.sUrlImageAddServGlobal}}{{curElemAddServ.file_name}}" height="79" width="109"/>
+    <div class=" charge">
+      <span class="name">{{curElemAddServ.name}}</span>
+      <span class="prise ml-1">{{curElemAddServ.price}} руб</span>
+      <p class="text">
+        {{curElemAddServ.description}}
+      </p>
+    </div>
 
-        </div>
+    <div class="amount">
+      <div *ngIf="curElemAddServ.ItIsBoolean.data[0] === 0">
+        <label>Количество</label>
+        <input formControlName="addserv{{curElemAddServ.id}}" type="text" 
+               class="form-control dinner" placeholder="0"
+               (change)="clickAmountElement($event, curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)">
+      </div>        
 
-        <div class="amount">
-          <label>Количество</label>
-          <input formControlName="dinner" type="text" class="form-control dinner" placeholder="0">
-        </div>
+      <div *ngIf="curElemAddServ.ItIsBoolean.data[0] === 1">
+        <label>Выбрать</label>
+        <div class="custom-control custom-checkbox d-flex flex-column">
+          <input formControlName="addserv{{curElemAddServ.id}}" type="checkbox"  
+                (change)="clickCheckElement($event, curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)">
+      </div>
 
-      </div>    <!-- block end -->
-
-
-      <div class="block">
-        <img src="../../assets/img/avto-pulkovo.jpg" height="79" width="109"/>
-
-        <div class=" charge">
-          <span class="name">Встретить в Пулково</span>
-          <span class="prise ml-1">2200 руб</span>
-
-          <p class="text">
-            Трансфер от аэропорта Пулково до Соснового Бора (гостиницы) и обратно.
-            Все предоставляемые автомобили бизнес-класса. Имеется в наличии минивэн.
-          </p>
-
-        </div>
-
-        <div class="amount">
-          <label>Выбрать</label>
-          <div class="custom-control custom-checkbox d-flex flex-column">
-            <label class="custom-control-label"></label>
-            <input type="checkbox" class="custom-control-input">
-          </div>
-        </div>
-
-      </div>    <!-- block end -->
-
-      <div class="block">
-        <img src="../../assets/img/avto-vitebskiy.jpg" height="79" width="109"/>
-
-        <div class=" charge">
-          <span class="name">Встретить на Витебском вокзале</span>
-          <span class="prise ml-5">2500 руб</span>
-
-          <p class="text">
-            Трансфер от Витебского вокзала до Соснового Бора (гостиницы) и обратно.
-            Все предоставляемые автомобили бизнес-класса. Имеется в наличии минивэн.
-          </p>
-
-        </div>
-
-        <div class="amount">
-          <label>Выбрать</label>
-          <div class="custom-control custom-checkbox d-flex flex-column">
-            <label class="custom-control-label"></label>
-            <input type="checkbox" class="custom-control-input">
-          </div>
-        </div>
-
-      </div>    <!-- block end -->
+    </div>        
 
 
-      <div class="block">
-        <img src="../../assets/img/avto-ladozjskiy.jpg" height="79" width="109"/>
+    </div>
 
-        <div class=" charge">
-          <span class="name">Встретить на Ладожском вокзале</span>
-          <span class="prise ml-5">2600 руб</span>
 
-          <p class="text">
-            Трансфер от Ладожского вокзала до Соснового Бора (гостиницы) и обратно.
-            Все предоставляемые автомобили бизнес-класса. Имеется в наличии минивэн.
-          </p>
+  </div>
 
-        </div>
 
-        <div class="amount">
-          <label>Выбрать</label>
-          <div class="custom-control custom-checkbox d-flex flex-column">
-            <label class="custom-control-label"></label>
-            <input type="checkbox" class="custom-control-input">
-          </div>
-        </div>
+</div>
+</div>      
 
-      </div>    <!-- block end -->
+
 
       <div class="d-flex flex-column">
+
 
         <div class="d-flex w-50">
           <label>Имя</label>
@@ -121,7 +73,7 @@
         </div>
         <div class="d-flex w-50">
           <label>Пожелания</label>
-          <textarea class="form-control" aria-label="Пожелания"></textarea>
+          <textarea formControlName="wishes" class="form-control" aria-label="Пожелания"></textarea>
         </div>
 
       </div>
@@ -133,31 +85,38 @@
      <h2>Детали заказа</h2>
 
      <div class="image">
-        <img style="margin:0" src="../../assets/img/molodezhnaya72room1-middle1.jpg" height="200" width="290"/></div>
+        <img style="margin:0" src="{{gr.sUrlImageGlobal}}{{sPhoto}}" height="200" width="290"/></div>
 
       <div class="d-flex justify-content-between pt-3">
       <span>Тип номера</span>
-        <span class="information">Отель Молодёжная 72 №5</span>
-    </div>
+        <span class="information">{{this.room.name}}</span>
+      </div>
+
+      <div class="d-flex justify-content-between pt-3">
+        <span>Адрес</span>
+          <span class="information">{{this.room.address}}</span>
+        </div>
+  
 
 
       <div class="d-flex justify-content-between py-1">
       <span>Даты</span>
-      <span class="information">июль 30-31, 2020</span>
+      <span class="information">{{strInfoDate}}</span>
       </div>
 
       <div class="d-flex justify-content-between py-1">
       <span>Ночей</span>
-        <span class="information">3</span>
+        <span class="information">{{strNight}}</span>
       </div>
 
       <div class="d-flex justify-content-between py-1">
       <span>Гостей</span>
-       <span class="information">1 взрослых</span>
+       <span class="information">{{countAdult}} взрослых</span>
+       <span class="information">{{countChildren}} детей</span>
       </div>
-
+      
       <div class="d-flex justify-content-between py-1">
-      <span>Без налога</span> 	<span class="information">2600 руб</span>
+      <span>Без налога</span> 	<span class="information">{{costWithoutServices}} руб</span>
       </div>
 
       <div class="d-flex justify-content-between py-1">
@@ -168,27 +127,28 @@
     <div class="additionally">
         <span>Дополнительно:</span>
 
+      <div *ngFor="let LE of listSelectedServices">
         <div class="d-flex justify-content-between py-1">
-        <span>Обед или ужин на выбор</span>  <span class="information">  × 2 	700 руб</span>
-       </div>
-
-       <div class="d-flex justify-content-between py-1">
-        <span>Встретить в Пулково</span> 	<span class="information">2200 руб</span>
+         <span>{{LE.name}}</span>  <span class="information">  × {{LE.count}}	= {{LE.cost}} руб</span>
+        </div>
       </div>
+
     </div>
 
 
       <div class="d-flex justify-content-between py-1">
         <input formControlName="coupon" type="text" class="form-control coupon" placeholder="Код купона">
+        <!--
         <a href="#" class="btn-coupon">Добавить</a>
+        -->
       </div>
 
       <div class="d-flex justify-content-between py-1">
-        <span> Итого</span> 	<span class="information">4800 руб</span>
+        <span> Итого</span> 	<span class="information">{{totalCost}} руб</span>
       </div>
 
       <div class="d-flex justify-content-between py-1">
-        <span>Залог</span> 	<span class="information">2400 руб</span>
+        <span>Залог</span> 	<span class="information">{{room.price_weekend}} руб</span>
       </div>
 
 
@@ -198,3 +158,5 @@
 
   <button class="btn btn-outline-primary mb-5 mx-5" type="button">Продолжить</button>
 </div>
+
+</form>

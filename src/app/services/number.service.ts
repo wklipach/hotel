@@ -30,8 +30,6 @@ export class NumberService {
   }
 
 
-  
-
   updateImageMessageTable(curMessage: any, curExt: string, idmessage: number, idprefix) {
     const datamessage = {message_image: curMessage, id_message: idmessage, id_prefix: idprefix, ext: curExt};
     return this.http.post(this.gr.sUrlGlobal + 'number', datamessage);

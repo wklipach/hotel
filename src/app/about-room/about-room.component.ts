@@ -6,6 +6,7 @@ import {NgxGalleryImage} from '@kolkov/ngx-gallery';
 import {NgxGalleryAnimation} from '@kolkov/ngx-gallery';
 import { AuthService } from '../services/auth.service';
 import { GlobalRef } from '../services/globalref';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about-room',
@@ -25,9 +26,10 @@ export class AboutRoomComponent implements OnInit {
   numberOfAdults = 1;
   numberOfChildren = 0;
   room: any;
+  sError = '';
 
 
-  constructor(private auth: AuthService, private gr: GlobalRef) { }
+  constructor(private auth: AuthService, private gr: GlobalRef, private router: Router) { }
 
   ngOnInit(): void {
     this.galleryOptions = [
@@ -93,20 +95,30 @@ export class AboutRoomComponent implements OnInit {
 
   clickDayBegin(strDate) {
     this.beginCalendar.clear();
-    document.getElementById('textCalenarBegin'). textContent = strDate;
+    document.getElementById('textCalenarBegin').textContent = strDate;
     this.boolBeginCalendar = false;
 
   }
 
   clickDayEnd(strDate) {
     this.endCalendar.clear();
-    document.getElementById('textCalenarEnd'). textContent = strDate;
+    document.getElementById('textCalenarEnd').textContent = strDate;
     this.boolEndCalendar = false;
 
   }
 
   addAdult() {
-    this.numberOfAdults = this.numberOfAdults + 1;
+
+   // количество взрослых не должно быть больше разрешенного
+   if (this.room.guests && Number(this.room.guests)) {
+    const maxAdults = Number(this.room.guests);
+    if (this.numberOfAdults < maxAdults) {
+        this.numberOfAdults = this.numberOfAdults + 1;
+    }
+    return;
+  }
+
+   this.numberOfAdults = this.numberOfAdults + 1;
   }
 
   deleteAdult() {
@@ -119,7 +131,15 @@ export class AboutRoomComponent implements OnInit {
 
 
   addChildren() {
-    this.numberOfChildren = this.numberOfChildren + 1;
+   // количество детей не должно быть больше разрешенного
+   if (this.room.children && Number(this.room.children)) {
+     const maxChildren = Number(this.room.children);
+     if (this.numberOfChildren < maxChildren) {
+         this.numberOfChildren = this.numberOfChildren + 1;
+     }
+     return;
+   }
+   this.numberOfChildren = this.numberOfChildren + 1;
   }
 
   deleteChildren() {
@@ -130,7 +150,42 @@ export class AboutRoomComponent implements OnInit {
   }
 
   findRooms() {
-    console.log('найти комнаты');
+
+    const strDateBegin = document.getElementById('textCalenarBegin').textContent;
+    const strDateEnd = document.getElementById('textCalenarEnd').textContent;
+
+    this.sError = '';
+    const dDateBegin = this.toDate(strDateBegin);
+    if (!this.isValidDate(dDateBegin)) {
+      this.sError = 'Введите дату заезда';
+      return;
+     }
+
+    const dDateEnd = this.toDate(strDateEnd);
+    if  (!this.isValidDate(dDateEnd)) {
+      this.sError = 'Введите дату выезда';
+      return;
+    }
+
+    if (dDateEnd < dDateBegin) {
+      this.sError = 'Исправьте даты в периоде';
+      return;
+
+    }
+
+    this.auth.setInfoDate(strDateBegin, strDateEnd, dDateBegin, dDateEnd);
+    this.auth.setInfoGuests(this.numberOfAdults, this.numberOfChildren);
+    this.router.navigate(['/order']);
+
+  }
+
+  toDate(dateStr) {
+    const parts = dateStr.split('.');
+    return new Date(parts[2], parts[1] - 1, parts[0]);
+  }
+
+  isValidDate(d) {
+    return d instanceof Date && !isNaN( d.getTime());
   }
 
 

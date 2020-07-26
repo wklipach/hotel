@@ -33,6 +33,19 @@ public setInfoNumber(infonumber: any) {
   window.localStorage.setItem('infonumber', JSON.stringify(infonumber));
   }
 
+  // заносим данные в строковом виде в локальное хранилище
+  public  setInfoDate(strDateBegin, strDateEnd, DateBegin, DateEnd) {
+
+    const DateRoom = {strDateBegin, strDateEnd, DateBegin, DateEnd};
+    window.localStorage.setItem('DateRoom', JSON.stringify(DateRoom));
+  }
+
+// заносим количество гостей в хранилище
+public  setInfoGuests(Adult, Children) {
+  const InfoGuests = {Adult, Children};
+  window.localStorage.setItem('InfoGuests', JSON.stringify(InfoGuests));
+}
+
 // получаем данные о комнате из хранилища
 public getInfoNumber(): any {
   if (window.localStorage.getItem('infonumber')) {
@@ -42,6 +55,22 @@ public getInfoNumber(): any {
   }
 }
 
+// получаем данные о датах из хранилища
+public getInfoDate(): any {
+  if (window.localStorage.getItem('DateRoom')) {
+    return JSON.parse(window.localStorage.getItem('DateRoom'));
+    } else {
+    return {};
+  }
+}
 
+// получаем количество гостей из хранилища
+getInfoGuests(): any {
+  if (window.localStorage.getItem('InfoGuests')) {
+    return JSON.parse(window.localStorage.getItem('InfoGuests'));
+    } else {
+    return {Adult: 1, Children: 0};
+  }
+}
 
 }

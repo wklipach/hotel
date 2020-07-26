@@ -30,6 +30,7 @@ import { NumberService } from './services/number.service';
 import { ReservationService } from './services/reservation.service';
 import { AuthService } from './services/auth.service';
 import { OrderComponent } from './order/order.component';
+import { OrderService } from './services/order.service';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
   {path: 'header', component: HeaderComponent},
   {path: 'main', component: MainComponent},
   {path: 'about-room', component: AboutRoomComponent},
-  {path: 'admin', component: AddroomsComponent}
+  {path: 'admin', component: AddroomsComponent},
+  {path: 'order', component: OrderComponent}
 ];
 
 
@@ -76,7 +78,7 @@ const appRoutes: Routes = [
 
 
   ],
-  providers: [GlobalRef, ListGuideService, NumberService, ReservationService, AuthService],
+  providers: [GlobalRef, ListGuideService, NumberService, ReservationService, AuthService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,1 @@
+GET http://127.0.0.1:3001/order?get_additional_services=get_additional_services&id_city=1
