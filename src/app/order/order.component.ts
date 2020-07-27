@@ -4,6 +4,7 @@ import { GlobalRef } from '../services/globalref';
 import { FormGroup, FormControl } from '@angular/forms';
 import { analyzeFileForInjectables } from '@angular/compiler';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -12,6 +13,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class OrderComponent implements OnInit {
 
+  sError = '';
   idCity = 1;
   addserv: any;
   orderForm: FormGroup;
@@ -27,7 +29,7 @@ export class OrderComponent implements OnInit {
   listSelectedServices: any[] = []; // {id, name, count, price, cost};
 
   constructor(private os: OrderService,  public gr: GlobalRef,
-              private auth: AuthService) {
+              private auth: AuthService, private router: Router) {
 
     this.orderForm  = new FormGroup({
       name: new FormControl(''),
@@ -190,6 +192,80 @@ export class OrderComponent implements OnInit {
   }
 
 
+  apply() {
+
+
+    // получаем имя фамилию и емайл
+   this.sError = '';
+   const name = this.orderForm.controls.name.value;
+   const surname = this.orderForm.controls.surname.value;
+   const email = this.orderForm.controls.email.value;
+   const phone = this.orderForm.controls.phone.value;
+   const orderdescription = this.orderForm.controls.wishes.value;
+
+   if (!name || name === '') {
+    this.sError = 'Введите ваше имя.';
+    return;
+   }
+
+   if (!surname || surname === '') {
+    this.sError = 'Введите вашу фамилию.';
+    return;
+   }
+
+   if (!surname || surname === '') {
+    this.sError = 'Введите ваш email.';
+    return;
+   }
+
+   if (!phone || phone === '') {
+    this.sError = 'Введите ваш телефон.';
+    return;
+   }
+
+    // SELECT id AS id_user FROM tuser WHERE ifnull(bitDelete,0)=0 and name='' and surname='' and phone=''
+   this.os.getUserToOrder(name, surname, email, phone).subscribe( (finduser: any[]) => {
+      const id_user = finduser[0][0].id_user;
+
+      console.log('id_user=', id_user, finduser);
+
+      // вносим заказ
+      if (id_user) {
+
+        const idnumber = this.room.id;
+        const datebegin = new Date(this.DateRoom.DateBegin);
+
+        const dateend = new Date(this.DateRoom.DateEnd);
+
+        const iduser = id_user;
+        const coupon = this.orderForm.controls.coupon.value;
+        const couponsuccess = false;
+        const totalrub = this.totalCost;
+        const description = orderdescription;
+
+        this.os.setInsertOrder(idnumber, datebegin, dateend, iduser, coupon,
+                                couponsuccess, totalrub, description ).subscribe( numberorder => {
+
+          if (numberorder) {
+            const id_order  = numberorder[0][0].id_order;
+            console.log('id_order=', id_order, numberorder);
+            // после получения заказа заносим услуги (даже если их нет возвращаем true)
+            this.os.setAddService(id_order, this.listSelectedServices).subscribe( addserv => {
+              if (addserv) {
+                this.os.setDateToNumber(id_order, this.room.id, datebegin, dateend).subscribe( DateToNumber => {
+                  console.log('!!!!!');
+                  this.router.navigate(['/reservation']);
+                });
+              }
+            });
+
+
+          }
+          });
+
+      }
+    });
+  }
 
 
 }
