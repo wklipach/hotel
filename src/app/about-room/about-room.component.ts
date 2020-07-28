@@ -7,6 +7,7 @@ import {NgxGalleryAnimation} from '@kolkov/ngx-gallery';
 import { AuthService } from '../services/auth.service';
 import { GlobalRef } from '../services/globalref';
 import { Router } from '@angular/router';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-about-room',
@@ -27,9 +28,20 @@ export class AboutRoomComponent implements OnInit {
   numberOfChildren = 0;
   room: any;
   sError = '';
+  arCheckedDate = ['10.04.2020', '11.04.2020'];
 
 
-  constructor(private auth: AuthService, private gr: GlobalRef, private router: Router) { }
+  test() {
+    console.log('a1');
+    this.arCheckedDate.push('12.04.2020');
+    console.log('a2');
+
+  }
+
+  constructor(private auth: AuthService,
+              private gr: GlobalRef,
+              private router: Router,
+              private os: OrderService) { }
 
   ngOnInit(): void {
     this.galleryOptions = [
@@ -80,6 +92,7 @@ export class AboutRoomComponent implements OnInit {
 
     this.galleryImages = varPhoto;
 
+    this.reloadBooking(new Date());
 
   }
 
@@ -105,6 +118,26 @@ export class AboutRoomComponent implements OnInit {
     document.getElementById('textCalenarEnd').textContent = strDate;
     this.boolEndCalendar = false;
 
+  }
+
+  clickCalendarBook(d: Date) {
+      this.reloadBooking(d);
+  }
+
+
+  reloadBooking(d: Date) {
+    if (!this.room) {
+      if (!this.room.id) {
+        return;
+      }
+    }
+    this.os.getBookingNumber(this.room.id, d.getMonth() + 1, d.getFullYear()).subscribe( (booking: any[]) => {
+        const barr = [];
+        booking.forEach(b => {
+          barr.push(b.date_str);
+        });
+        this.arCheckedDate = barr;
+    });
   }
 
   addAdult() {

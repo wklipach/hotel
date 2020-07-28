@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, IterableDiffers, IterableDiffer, DoCheck } from '@angular/core';
 
 
 @Component({
@@ -6,9 +6,17 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   templateUrl: './easycalendar.component.html',
   styleUrls: ['./easycalendar.component.css']
 })
-export class EasycalendarComponent implements OnInit {
+export class EasycalendarComponent implements OnInit, DoCheck  {
 
   @Output() clickDay = new EventEmitter<string>();
+  @Output() clickPrev = new EventEmitter<Date>();
+  @Output() clickNext = new EventEmitter<Date>();
+  @Output() clickNow = new EventEmitter<Date>();
+  @Output() easyinit = new EventEmitter<Date>();
+
+  // даты занятые пользователем
+  @Input() checkedDate = [];
+  private differ: IterableDiffer<[]>;
 
   weekCount = 0;
   weekFirst = 0;
@@ -16,24 +24,31 @@ export class EasycalendarComponent implements OnInit {
   arrarWeekMonth: any;
   curDate: Date;
 
-  // даты занятые пользователем
-  checkedDate = [];
-
-  // даты занятые другим человеком
+    // даты занятые другим человеком
   busyDate = [];
 
   // выбранная дата для начала промежутка
   strDateBegin = '';
 
-  constructor() {
+  constructor(private iterableDiffers: IterableDiffers) {
+    this.differ = iterableDiffers.find([]).create(null);
     this.curDate = new Date();
   }
 
   ngOnInit(): void {
-    this.initMethod ( this.curDate );
+    console.log('this.initMethod', 'easycalendar');
+    this.initMethod (this.curDate);
+    this.easyinit.emit(this.curDate);
   }
 
 
+  ngDoCheck() {
+    const changes = this.differ.diff(this.checkedDate);
+    if (changes) {
+        console.log('Changes detected!');
+        this.initMethod ( this.curDate );
+    }
+}
 
   public initMethod(curDate: Date) {
 
@@ -221,17 +236,20 @@ prev() {
   this.curDate.setDate(1);
   this.curDate.setMonth(this.curDate.getMonth() - 1);
   this.initMethod ( this.curDate );
+  this.clickPrev.emit(this.curDate);
 }
 
 next() {
   this.curDate.setDate(1);
   this.curDate.setMonth(this.curDate.getMonth() + 1);
   this.initMethod ( this.curDate );
+  this.clickNext.emit(this.curDate);
 }
 
 now() {
   this.curDate = new Date();
   this.initMethod ( this.curDate );
+  this.clickNow.emit(this.curDate);
 }
 
 /*

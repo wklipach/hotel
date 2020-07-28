@@ -138,10 +138,20 @@
 
 <div *ngIf="boolBeginCalendar || boolEndCalendar" class="calendar-block">
   <div *ngIf="boolBeginCalendar" class="easy-calendar-left">
-    <app-easycalendar #beginCalendar (clickDay)="clickDayBegin($event)"></app-easycalendar>
+    <app-easycalendar #beginCalendar (clickDay)="clickDayBegin($event)" 
+                                     (clickPrev)="clickCalendarBook($event)"
+                                     (clickNext)="clickCalendarBook($event)"
+                                     (clickNow)="clickCalendarBook($event)"
+                                     (easyinit)="clickCalendarBook($event)"
+                                     [checkedDate]="arCheckedDate" ></app-easycalendar>
   </div>
   <div *ngIf="boolEndCalendar" class="easy-calendar-left">
-    <app-easycalendar #endCalendar (clickDay)="clickDayEnd($event)"></app-easycalendar>
+    <app-easycalendar #endCalendar (clickDay)="clickDayEnd($event)"
+                                   (clickPrev)="clickCalendarBook($event)"
+                                   (clickNext)="clickCalendarBook($event)"
+                                   (clickNow)="clickCalendarBook($event)"
+                                   (easyinit)="clickCalendarBook($event)"
+                                   [checkedDate]="arCheckedDate"  ></app-easycalendar>
   </div>
 </div>
 
@@ -150,5 +160,5 @@
 </div>
 
 
-
+<button (click)="test()">!!!!!!!!!!!!!!!!!!</button>
 <app-footer></app-footer>

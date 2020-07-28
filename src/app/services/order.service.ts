@@ -27,6 +27,16 @@ export class OrderService {
       return this.http.get(this.gr.sUrlGlobal + 'order', {params: varparams});
   }
 
+    getBookingNumber(idnumber, monthnumber, yearnumber) {
+      const varparams = new HttpParams()
+      .set('get_booking_number', 'get_booking_number')
+      .set('id_number', idnumber)
+      .set('month_number', monthnumber)
+      .set('year_number', yearnumber);
+      return this.http.get(this.gr.sUrlGlobal + 'order', {params: varparams});
+  }
+
+
   setInsertOrder(idnumber: number, datebegin: Date, dateend: Date, iduser: number,
                  coupon: string, couponsuccess: boolean,
                  totalrub: number, description: string) {
