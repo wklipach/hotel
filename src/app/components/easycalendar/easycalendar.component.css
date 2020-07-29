@@ -10,6 +10,24 @@
   background-color: white;
   z-index: 9;
 }
+.triangle2 {
+  width: 0;
+  height: 0;
+  border-width: 14.5px 0 14.5px 25.1px;
+  border-color: transparent transparent transparent #E65918;
+  border-style: solid;
+  margin: -36px 0 0 256px;
+  position: absolute;
+}
+
+.triangle {
+  margin: -39px 0 0 256px;
+  position: absolute;
+  border-top: 15px dashed #dadcdc;
+  border-bottom: 15px dashed #dadcdc;
+  border-left: 16px solid #fff;
+}
+
 .top{
   height: 32px;
   padding: 0 6px;
@@ -131,5 +149,3 @@ ul {list-style-type: none;}
   font-weight: bold;
   border: 1px solid black;
 }
-
-

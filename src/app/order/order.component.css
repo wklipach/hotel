@@ -68,7 +68,7 @@ img {
 }
 label, span {
   font-size: 14px;
-  color: #777777;
+  color: #373737;
 }
 .dinner{
   width: 80px;
@@ -94,5 +94,9 @@ label, span {
 .btn-coupon {
   color: #33a2dc;
   font-size: 14px;
-
 }
+.client-info {
+  width: 570px;
+  margin: 50px 0;
+}
+

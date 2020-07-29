@@ -1,163 +1,167 @@
 <form [formGroup]="orderForm">
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-7 additional-features">
-      <h2>Добавьте дополнительные возможности</h2>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-7 additional-features">
+        <h2>Добавьте дополнительные возможности</h2>
 
 
-  
-<div *ngIf="addserv && addserv.length>0">
-<div *ngFor="let curElemAddServ of addserv">
 
-  <div class="block">
-    <img src="{{gr.sUrlImageAddServGlobal}}{{curElemAddServ.file_name}}" height="79" width="109"/>
-    <div class=" charge">
-      <span class="name">{{curElemAddServ.name}}</span>
-      <span class="prise ml-1">{{curElemAddServ.price}} руб</span>
-      <p class="text">
-        {{curElemAddServ.description}}
-      </p>
-    </div>
+        <div *ngIf="addserv && addserv.length>0">
+          <div *ngFor="let curElemAddServ of addserv">
 
-    <div class="amount">
-      <div *ngIf="curElemAddServ.ItIsBoolean.data[0] === 0">
-        <label>Количество</label>
-        <input formControlName="addserv{{curElemAddServ.id}}" type="text" 
-               class="form-control dinner" placeholder="0"
-               (change)="clickAmountElement($event, curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)">
-      </div>        
+            <div class="block">
+              <img src="{{gr.sUrlImageAddServGlobal}}{{curElemAddServ.file_name}}" height="79" width="109"/>
+              <div class=" charge">
+                <span class="name">{{curElemAddServ.name}}</span>
+                <span class="prise ml-1">{{curElemAddServ.price}} руб</span>
+                <p class="text">
+                  {{curElemAddServ.description}}
+                </p>
+              </div>
 
-      <div *ngIf="curElemAddServ.ItIsBoolean.data[0] === 1">
-        <label>Выбрать</label>
-        <div class="custom-control custom-checkbox d-flex flex-column">
-          <input formControlName="addserv{{curElemAddServ.id}}" type="checkbox"  
-                (change)="clickCheckElement($event, curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)">
+              <div class="amount">
+                <div *ngIf="curElemAddServ.ItIsBoolean.data[0] === 0">
+                  <label>Количество</label>
+                  <input formControlName="addserv{{curElemAddServ.id}}" type="text"
+                         class="form-control dinner" placeholder="0"
+                         (change)="clickAmountElement($event, curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)">
+                </div>
+
+                <div *ngIf="curElemAddServ.ItIsBoolean.data[0] === 1">
+                  <label>Выбрать</label>
+                  <div class="custom-control custom-checkbox d-flex flex-column">
+                    <input formControlName="addserv{{curElemAddServ.id}}" type="checkbox"
+                           (change)="clickCheckElement($event, curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="d-flex flex-column client-info">
+          <h2>Введите свои данные</h2>
+
+          <div class="d-flex justify-content-start">
+
+            <div class="p-0">
+              <label>Имя</label>
+              <input formControlName="name" type="text" class="form-control w-50" placeholder="">
+            </div>
+
+            <div class="p-0">
+              <label>Фамилия</label>
+              <input formControlName="surname" type="text" class="form-control w-50" placeholder="">
+            </div>
+
+          </div>
+
+          <div class="d-flex justify-content-start">
+
+            <div class="p-0">
+              <label>E-Mail</label>
+              <input formControlName="email" type="text" class="form-control w-50" placeholder="">
+            </div>
+
+            <div class="d4">
+              <label>Телефон</label>
+              <input formControlName="phone" type="text" class="form-control" placeholder="">
+            </div>
+
+          </div>
+
+          <div class="d5">
+            <label>Пожелания</label>
+            <textarea formControlName="wishes" class="form-control" aria-label="Пожелания"></textarea>
+          </div>
+
+          <span>• Совершая бронирование, я подтверждаю, что мною прочитаны и приняты правила и условия.</span>
+
+        </div>
+
       </div>
 
-    </div>        
+      <div class="col-4 order-details">
 
+        <h2>Детали заказа</h2>
 
-    </div>
+        <div class="image">
+          <img style="margin:0" src="{{gr.sUrlImageGlobal}}{{sPhoto}}" height="200" width="290"/></div>
 
-
-  </div>
-
-
-</div>
-</div>      
-
-
-
-      <div class="d-flex flex-column">
-
-
-        <div class="d-flex w-50">
-          <label>Имя</label>
-          <input formControlName="name" type="text" class="form-control" placeholder="">
+        <div class="d-flex justify-content-between pt-3">
+          <span>Тип номера</span>
+          <span class="information">{{this.room.name}}</span>
         </div>
 
-        <div class="d-flex w-50">
-          <label>Фамилия</label>
-          <input formControlName="surname" type="text" class="form-control" placeholder="">
-        </div>
-
-        <div class="d-flex w-50">
-          <label>E-Mail</label>
-          <input formControlName="email" type="text" class="form-control" placeholder="">
-        </div>
-
-        <div class="d-flex w-50">
-          <label>Телефон</label>
-          <input formControlName="phone" type="text" class="form-control" placeholder="">
-        </div>
-        <div class="d-flex w-50">
-          <label>Пожелания</label>
-          <textarea formControlName="wishes" class="form-control" aria-label="Пожелания"></textarea>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="col-4 order-details">
-
-     <h2>Детали заказа</h2>
-
-     <div class="image">
-        <img style="margin:0" src="{{gr.sUrlImageGlobal}}{{sPhoto}}" height="200" width="290"/></div>
-
-      <div class="d-flex justify-content-between pt-3">
-      <span>Тип номера</span>
-        <span class="information">{{this.room.name}}</span>
-      </div>
-
-      <div class="d-flex justify-content-between pt-3">
-        <span>Адрес</span>
+        <div class="d-flex justify-content-between pt-3">
+          <span>Адрес</span>
           <span class="information">{{this.room.address}}</span>
         </div>
-  
 
 
-      <div class="d-flex justify-content-between py-1">
-      <span>Даты</span>
-      <span class="information">{{strInfoDate}}</span>
-      </div>
 
-      <div class="d-flex justify-content-between py-1">
-      <span>Ночей</span>
-        <span class="information">{{strNight}}</span>
-      </div>
-
-      <div class="d-flex justify-content-between py-1">
-      <span>Гостей</span>
-       <span class="information">{{countAdult}} взрослых</span>
-       <span class="information">{{countChildren}} детей</span>
-      </div>
-      
-      <div class="d-flex justify-content-between py-1">
-      <span>Без налога</span> 	<span class="information">{{costWithoutServices}} руб</span>
-      </div>
-
-      <div class="d-flex justify-content-between py-1">
-       <span>Налог (0 %)</span> 	<span class="information">0 руб</span>
-      </div>
-
-
-    <div class="additionally">
-        <span>Дополнительно:</span>
-
-      <div *ngFor="let LE of listSelectedServices">
         <div class="d-flex justify-content-between py-1">
-         <span>{{LE.name}}</span>  <span class="information">  × {{LE.count}}	= {{LE.cost}} руб</span>
+          <span>Даты</span>
+          <span class="information">{{strInfoDate}}</span>
         </div>
-      </div>
 
+        <div class="d-flex justify-content-between py-1">
+          <span>Ночей</span>
+          <span class="information">{{strNight}}</span>
+        </div>
+
+        <div class="d-flex justify-content-between py-1">
+          <span>Гостей</span>
+          <span class="information">{{countAdult}} взрослых</span>
+          <span class="information">{{countChildren}} детей</span>
+        </div>
+
+        <div class="d-flex justify-content-between py-1">
+          <span>Без налога</span>  <span class="information">{{costWithoutServices}} руб</span>
+        </div>
+
+        <div class="d-flex justify-content-between py-1">
+          <span>Налог (0 %)</span>  <span class="information">0 руб</span>
+        </div>
+
+
+        <div class="additionally">
+          <span>Дополнительно:</span>
+
+          <div *ngFor="let LE of listSelectedServices">
+            <div class="d-flex justify-content-between py-1">
+              <span>{{LE.name}}</span>  <span class="information">  × {{LE.count}}  = {{LE.cost}} руб</span>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="d-flex justify-content-between py-1">
+          <input formControlName="coupon" type="text" class="form-control coupon" placeholder="Код купона">
+          <!--
+          <a href="#" class="btn-coupon">Добавить</a>
+          -->
+        </div>
+
+        <div class="d-flex justify-content-between py-1">
+          <span> Итого</span>  <span class="information">{{totalCost}} руб</span>
+        </div>
+
+        <div class="d-flex justify-content-between py-1">
+          <span>Залог</span>   <span class="information">{{room.price_weekend}} руб</span>
+        </div>
+
+
+
+      </div>
     </div>
 
-
-      <div class="d-flex justify-content-between py-1">
-        <input formControlName="coupon" type="text" class="form-control coupon" placeholder="Код купона">
-        <!--
-        <a href="#" class="btn-coupon">Добавить</a>
-        -->
-      </div>
-
-      <div class="d-flex justify-content-between py-1">
-        <span> Итого</span> 	<span class="information">{{totalCost}} руб</span>
-      </div>
-
-      <div class="d-flex justify-content-between py-1">
-        <span>Залог</span> 	<span class="information">{{room.price_weekend}} руб</span>
-      </div>
-
-
-
-    </div>
+    {{sError}}
+    <button class="btn btn-outline-primary mb-5 mx-5" type="button" (click)="apply()" >Продолжить</button>
   </div>
-
-  {{sError}}
-  <button class="btn btn-outline-primary mb-5 mx-5" type="button" (click)="apply()" >Продолжить</button>
-</div>
 
 </form>

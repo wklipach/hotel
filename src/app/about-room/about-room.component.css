@@ -13,7 +13,7 @@ h2 {
   width: 43px;
   height: 26px;
   border-right: solid 2px #dadcdc;
-   margin-right: 20px;
+  margin-right: 20px;
 }
 
 .ngx-block {
@@ -114,6 +114,7 @@ span img {
 .to {
   font-family: 'Open Sans', sans-serif;
   font-size: 15px;
+  line-height: 2.9;
 
   color: #414141;
 }
@@ -147,12 +148,34 @@ span img {
 .map-middle {
   position: relative;
   padding: 45px 0 30px 0;
+  width: auto;
+  height: 370px;
+}
+.address {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #414141;
 }
 .ngx-block {
   width: 648px;
-  height: 408px;
+  height: auto;
 }
 .ngx-gallery-thumbnail {
   height: 50px;
   width: 50px;
 }
+
+.calendar-block {
+  margin: -21px 15px 20px -350px;
+  position: absolute;
+}
+.calendar-block-one {
+  margin: 100px 15px 20px -350px;
+  position: absolute;
+}
+.calendar-block-two {
+  margin: 135px 15px 20px -350px;
+  position: absolute;
+}
+
