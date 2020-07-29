@@ -199,7 +199,7 @@ export class AboutRoomComponent implements OnInit {
       return;
     }
 
-    if (dDateEnd < dDateBegin) {
+    if (dDateEnd <= dDateBegin) {
       this.sError = 'Исправьте даты в периоде';
       return;
     }
