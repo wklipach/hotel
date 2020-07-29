@@ -26,7 +26,9 @@
                   <input formControlName="addserv{{curElemAddServ.id}}" type="text"
                          class="form-control dinner" placeholder="0"
                          (change)="clickAmountElement($event, curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)">
+
                 </div>
+
 
                 <div *ngIf="curElemAddServ.ItIsBoolean.data[0] === 1">
                   <label>Выбрать</label>
@@ -45,40 +47,43 @@
         <div class="d-flex flex-column client-info">
           <h2>Введите свои данные</h2>
 
-          <div class="d-flex justify-content-start">
+          <div class="d-flex justify-content-start mb-3">
 
-            <div class="p-0">
+            <div class="mr-auto">
               <label>Имя</label>
-              <input formControlName="name" type="text" class="form-control w-50" placeholder="">
+              <input formControlName="name" type="text" class="form-control" placeholder="">
             </div>
 
             <div class="p-0">
               <label>Фамилия</label>
-              <input formControlName="surname" type="text" class="form-control w-50" placeholder="">
+              <input formControlName="surname" type="text" class="form-control" placeholder="">
             </div>
 
           </div>
 
-          <div class="d-flex justify-content-start">
+          <div class="d-flex justify-content-start mb-3">
 
-            <div class="p-0">
+            <div class="mr-auto">
               <label>E-Mail</label>
-              <input formControlName="email" type="text" class="form-control w-50" placeholder="">
+              <input formControlName="email" type="text" class="form-control" placeholder="">
             </div>
 
-            <div class="d4">
+            <div class=" mb-3">
               <label>Телефон</label>
               <input formControlName="phone" type="text" class="form-control" placeholder="">
             </div>
 
           </div>
 
-          <div class="d5">
-            <label>Пожелания</label>
-            <textarea formControlName="wishes" class="form-control" aria-label="Пожелания"></textarea>
+          <div class="mb-3">
+            <label>Особые пожелания</label>
+            <textarea formControlName="wishes" class="form-control" rows="4" aria-label="Особые пожелания"></textarea>
           </div>
 
-          <span>• Совершая бронирование, я подтверждаю, что мною прочитаны и приняты правила и условия.</span>
+          <span>• Совершая бронирование, я подтверждаю, что мною прочитаны и приняты <a href="">правила и условия</a>.</span>
+
+          <button class="btn-pay my-5" type="button" (click)="apply()" >Перейти к оплате</button>
+
 
         </div>
 
@@ -89,7 +94,7 @@
         <h2>Детали заказа</h2>
 
         <div class="image">
-          <img style="margin:0" src="{{gr.sUrlImageGlobal}}{{sPhoto}}" height="200" width="290"/></div>
+          <img src="{{gr.sUrlImageGlobal}}{{sPhoto}}" height="200" width="290"/></div>
 
         <div class="d-flex justify-content-between pt-3">
           <span>Тип номера</span>
@@ -160,8 +165,14 @@
       </div>
     </div>
 
-    {{sError}}
-    <button class="btn btn-outline-primary mb-5 mx-5" type="button" (click)="apply()" >Продолжить</button>
+    <div class="error">{{sError}}</div>
+
+
   </div>
 
 </form>
+
+<div class="d-flex flex-column arrows">
+  <span><img class="arr mt-1" src="../../assets/img/chevron-up.svg"/></span>
+  <span><img class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/></span>
+</div>

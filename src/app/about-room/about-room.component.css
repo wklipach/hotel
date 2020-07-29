@@ -55,6 +55,7 @@ span img {
   color: #414141;
   width: 190px;
   font-weight: 700;
+  padding-top: 35px;
 }
 
 .part-2 {
@@ -156,6 +157,7 @@ span img {
   font-size: 16px;
   font-weight: 600;
   color: #414141;
+  margin-bottom: 15px;
 }
 .ngx-block {
   width: 648px;

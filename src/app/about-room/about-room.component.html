@@ -5,7 +5,7 @@
     <div class="col-8 px-0" style="max-width: 670px">
 
       <div class="d-flex justify-content-start title-room">
-        <a href="#" class="btn-back"><img src="../../assets/img/room-back.png" height="26" width="26"/></a>
+        <a href="#" class="btn-back"><img src="../../assets/img/room-back.png" height="26" width="26" title="Назад"/></a>
         <h2 *ngIf="room">{{room.name}}</h2>
       </div>
 
@@ -31,14 +31,23 @@
       </div>
 
 
-      <div class="part-1">Удобства:</div>
+
       <div *ngIf="room.features_mas && room.features_mas.length > 0">
         <div class="d-flex justify-content-start mt-1 comfort-block">
+          <div class="part-1">Удобства:</div>
+
           <div *ngFor="let feature of room.features_mas">
+
+
             <span *ngIf="feature === '1'" class="p-0 comfort-image"><img src="../../assets/img/wi-fi.png" height="30" width="30"/></span>
             <span *ngIf="feature === '2'" class="p-0 comfort-image"><img src="../../assets/img/tv.png" height="30" width="30"/></span>
+
+
+
             <span *ngIf="feature === '3'" class="p-0 comfort-image"><img src="../../assets/img/bar.png" height="30" width="30"/></span>
             <span *ngIf="feature === '4'" class="p-0 comfort-image"><img src="../../assets/img/shower.png" height="30" width="30"/></span>
+
+
             <span *ngIf="feature === '5'" class="p-0 comfort-image"><img src="../../assets/img/kitchen.png" height="30" width="30"/></span>
             <span *ngIf="feature === '6'" class="p-0 comfort-image"><img src="../../assets/img/towels.png" height="30" width="30"/></span>
             <span *ngIf="feature === '7'" class="p-0 comfort-image"><img src="../../assets/img/appliances.png" height="30" width="30"/></span>
@@ -70,7 +79,9 @@
 
       <div class="map-middle">
         <div class="address" *ngIf="room">{{room.address}}</div>
+
         <app-map-page></app-map-page>
+
       </div>
 
 
@@ -147,18 +158,14 @@
         </div>
 
         {{sError}}
+
         <button type="button" class="btn-order" (click)="findRooms()">
           Бронировать
         </button>
 
 
-
-
-
       </div> <!-- Конец виджета -->
     </div>
-
-
 
 
   </div>
@@ -166,4 +173,4 @@
 
 
 <button (click)="test()">!!!!!!!!!!!!!!!!!!</button>
-<app-footer></app-footer>
+

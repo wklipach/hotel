@@ -143,9 +143,11 @@ p{
 }
 
 ul {
+  height: 38px;
   font-size: 13px;
   padding-left: 13px;
   padding-bottom: 2px;
+  overflow: hidden;
 }
 img {
   color: #7FCCF7;
