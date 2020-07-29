@@ -28,13 +28,12 @@ export class AboutRoomComponent implements OnInit {
   numberOfChildren = 0;
   room: any;
   sError = '';
-  arCheckedDate = ['10.04.2020', '11.04.2020'];
+  arCheckedDate = [];
 
 
   test() {
     console.log('a1');
-    this.arCheckedDate.push('12.04.2020');
-    console.log('a2');
+
 
   }
 
@@ -203,8 +202,35 @@ export class AboutRoomComponent implements OnInit {
     if (dDateEnd < dDateBegin) {
       this.sError = 'Исправьте даты в периоде';
       return;
-
     }
+
+    // проверка - не являются ли какие-то даты уже зарезервированными
+    const dValDateBegin = new Date(dDateBegin);
+    let boolBooking = false;
+    while (dValDateBegin < dDateEnd) {
+      const datestr = this.DateToStr(dValDateBegin);
+
+      const promArr = this.arCheckedDate.find(elem => {
+        console.log('elem=', elem, datestr);
+        return datestr === elem;
+        });
+
+      console.log('promArr=', promArr);
+      if (promArr) {
+
+        boolBooking = true;
+      }
+      dValDateBegin.setDate(dValDateBegin.getDate() + 1);
+    }
+
+    if (boolBooking) {
+      this.sError = 'В период попали забронированные даты.';
+      return;
+    }
+
+
+    return;
+
 
     this.auth.setInfoDate(strDateBegin, strDateEnd, dDateBegin, dDateEnd);
     this.auth.setInfoGuests(this.numberOfAdults, this.numberOfChildren);
@@ -219,6 +245,22 @@ export class AboutRoomComponent implements OnInit {
 
   isValidDate(d) {
     return d instanceof Date && !isNaN( d.getTime());
+  }
+
+   DateToStr(d: Date) {
+    const dd = d.getDate();
+    const mm = d.getMonth() + 1;
+    const yyyy = d.getFullYear();
+    let sDD = dd.toString();
+    let sMM = mm.toString();
+
+    if (dd < 10) {
+      sDD = '0' + dd.toString();
+    }
+    if (mm < 10) {
+      sMM = '0' + mm.toString();
+    }
+    return sDD + '.' + sMM + '.' + yyyy;
   }
 
 

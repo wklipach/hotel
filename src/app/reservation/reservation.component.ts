@@ -32,6 +32,7 @@ export class ReservationComponent implements OnInit {
 
     this.rs.getGuideReservation().subscribe( value => {
       this.roomsArray = value[0];
+      console.log('this.roomsArray=', this.roomsArray);
     });
 
   }
