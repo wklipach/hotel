@@ -46,8 +46,8 @@ export class AboutRoomComponent implements OnInit {
   ngOnInit(): void {
     this.galleryOptions = [
       {
-        width: '258px',
-        height: '248px',
+        width: '649px',
+        height: '545px',
         thumbnailsColumns: 10,
         imageAnimation: NgxGalleryAnimation.Slide
       },

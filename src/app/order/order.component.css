@@ -137,8 +137,8 @@ label, span {
 }
 .arrows {
   position: absolute;
-  top: 202px;
-  left: 920px;
+  top: 180px;
+  right: 511px;
 }
 .arrows img{
   color: #7FCCF7;
@@ -148,6 +148,17 @@ label, span {
 .arrows img:hover{
   cursor: pointer;
 }
+
+.amount-arrows {
+  position: absolute;
+  top: 142px;
+  left: 917px;
+}
+
+.amount-arrows img:hover{
+  cursor: pointer;
+}
+
 
 .btn-pay {
   float: right;
