@@ -121,6 +121,68 @@ export class OrderComponent implements OnInit {
     this.itogoOrder();
   }
 
+
+  clickAmountElementUp(id, name, price) {
+
+    let res = this.orderForm.controls['addserv' + id].value;
+    if (res === '') {
+      this.orderForm.controls['addserv' + id].setValue(0);
+      this.addAddServ(id, name, 0, price);
+      return;
+    }
+
+    if (res.toString() !== '0'.toString() && !Number(res)) {
+      this.orderForm.controls['addserv' + id].setValue(0);
+      this.addAddServ(id, name, 0, price);
+      return;
+    }
+
+
+    if (Number(res) < 0) {
+      this.orderForm.controls['addserv' + id].setValue(0);
+      this.addAddServ(id, name, 0, price);
+      return;
+    }
+
+    res = Number(res) + 1;
+    this.orderForm.controls['addserv' + id].setValue(Number(res));
+
+    // задаем новое количество услуги
+    this.addAddServ(id, name, Number(res), price);
+  }
+
+  clickAmountElementDawn(id, name, price) {
+    let res = this.orderForm.controls['addserv' + id].value;
+    if (res === '') {
+      this.orderForm.controls['addserv' + id].setValue(0);
+      this.addAddServ(id, name, 0, price);
+      return;
+    }
+
+    if (!Number(res)) {
+      this.orderForm.controls['addserv' + id].setValue(0);
+      this.addAddServ(id, name, 0, price);
+      return;
+    }
+
+    if (Number(res) < 0) {
+      this.orderForm.controls['addserv' + id].setValue(0);
+      this.addAddServ(id, name, 0, price);
+      return;
+    }
+
+    res = Number(res) - 1;
+    this.orderForm.controls['addserv' + id].setValue(Number(res));
+
+    // задаем новое количество услуги
+    if (res.toString() === '0') {
+      this.addAddServ(id, name, 0, price);
+    } else {
+      this.addAddServ(id, name, Number(res), price);
+    }
+  }
+
+
   clickAmountElement($event, id, name, price) {
     const res = this.orderForm.controls['addserv' + id].value;
     if (res === '') {
@@ -153,6 +215,7 @@ export class OrderComponent implements OnInit {
    // если количество равно ноль удаляем элемент из массива
     if (count === 0) {
     this.listSelectedServices = this.listSelectedServices.filter( value => value.id !== id);
+    this.itogoOrder();
     return;
     }
 
@@ -175,6 +238,7 @@ export class OrderComponent implements OnInit {
 
     }
 
+    console.log('this.itogoOrder()');
     this.itogoOrder();
 
   }

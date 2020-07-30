@@ -27,6 +27,14 @@
                          class="form-control dinner" placeholder="0"
                          (change)="clickAmountElement($event, curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)">
 
+                  <div>
+                    <span><img (click)="clickAmountElementUp(curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)"
+                               class="arr mt-1" src="../../assets/img/chevron-up.svg"/></span>
+                    <span><img (click)="clickAmountElementDawn(curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)"
+                               class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/></span>
+                  </div>
+
+
                 </div>
 
 
@@ -158,7 +166,7 @@
         </div>
 
         <div class="d-flex justify-content-between py-1">
-          <span>Залог</span>   <span class="information">{{room.price_weekend}} руб</span>
+          <span>Залог</span>   <span class="information">{{room.price_weekdays}} руб</span>
         </div>
 
 
@@ -178,7 +186,3 @@
   <span><img (click)="clickDawnPhoto()" class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/></span>
 </div>
 
-<div class="d-flex flex-column amount-arrows">
-  <span><img  class="arr mt-1" src="../../assets/img/chevron-up.svg"/></span>
-  <span><img  class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/></span>
-</div>
