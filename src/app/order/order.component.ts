@@ -22,10 +22,12 @@ export class OrderComponent implements OnInit {
   strInfoDate = '';
   strNight = 1;
   sPhoto = '';
+  sPhotoPointer = 1;
   countAdult = 0;
   countChildren = 0;
   costWithoutServices = 0;
   totalCost = 0;
+  boolRules = false;
   listSelectedServices: any[] = []; // {id, name, count, price, cost};
 
   constructor(private os: OrderService,  public gr: GlobalRef,
@@ -61,6 +63,7 @@ export class OrderComponent implements OnInit {
       if (this.room.photo_mas) {
         if (this.room.photo_mas[0]) {
              this.sPhoto = this.room.photo_mas[0];
+             this.sPhotoPointer = 1;
         }
       }
     }
@@ -267,5 +270,30 @@ export class OrderComponent implements OnInit {
     });
   }
 
+  clickUpPhoto() {
+    if (this.room) {
+      if (this.room.photo_mas) {
+              if (this.room.photo_mas.length > this.sPhotoPointer) {
+                this.sPhotoPointer = this.sPhotoPointer + 1;
+                this.sPhoto = this.room.photo_mas[this.sPhotoPointer - 1];
+              }
+      }
+    }
+  }
+
+  clickDawnPhoto() {
+    if (this.room) {
+      if (this.room.photo_mas) {
+        if (this.sPhotoPointer > 1) {
+          this.sPhotoPointer = this.sPhotoPointer - 1;
+          this.sPhoto = this.room.photo_mas[this.sPhotoPointer - 1];
+        }
+      }
+    }
+  }
+
+  clickRules() {
+    this.boolRules = !this.boolRules;
+  }
 
 }

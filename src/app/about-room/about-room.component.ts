@@ -29,6 +29,7 @@ export class AboutRoomComponent implements OnInit {
   room: any;
   sError = '';
   arCheckedDate = [];
+  boolRules = false;
 
 
   test() {
@@ -45,16 +46,16 @@ export class AboutRoomComponent implements OnInit {
   ngOnInit(): void {
     this.galleryOptions = [
       {
-        width: '649px',
-        height: '408px',
+        width: '258px',
+        height: '248px',
         thumbnailsColumns: 10,
         imageAnimation: NgxGalleryAnimation.Slide
       },
       // max-width 800
       {
         breakpoint: 800,
-        width: '100%',
-        height: '600px',
+        width: '649px',
+        height: '408px',
         imagePercent: 80,
         thumbnailsPercent: 20,
         thumbnailsMargin: 20,
@@ -62,7 +63,7 @@ export class AboutRoomComponent implements OnInit {
       },
       // max-width 400
       {
-        breakpoint: 400,
+        breakpoint: 200,
         preview: false
       }
     ];
@@ -229,8 +230,6 @@ export class AboutRoomComponent implements OnInit {
     }
 
 
-    return;
-
 
     this.auth.setInfoDate(strDateBegin, strDateEnd, dDateBegin, dDateEnd);
     this.auth.setInfoGuests(this.numberOfAdults, this.numberOfChildren);
@@ -264,4 +263,7 @@ export class AboutRoomComponent implements OnInit {
   }
 
 
+  clickRules() {
+    this.boolRules = !this.boolRules;
+  }
 }

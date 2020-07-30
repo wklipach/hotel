@@ -80,7 +80,8 @@
             <textarea formControlName="wishes" class="form-control" rows="4" aria-label="Особые пожелания"></textarea>
           </div>
 
-          <span>• Совершая бронирование, я подтверждаю, что мною прочитаны и приняты <a href="">правила и условия</a>.</span>
+          <span>• Совершая бронирование, я подтверждаю, что мною прочитаны и приняты <label (click)="clickRules()">правила и условия</label>.</span>
+          <div *ngIf="boolRules">ТУТ НАПИСАНЫ ПРАВИЛА</div>
 
           <button class="btn-pay my-5" type="button" (click)="apply()" >Перейти к оплате</button>
 
@@ -173,6 +174,6 @@
 </form>
 
 <div class="d-flex flex-column arrows">
-  <span><img class="arr mt-1" src="../../assets/img/chevron-up.svg"/></span>
-  <span><img class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/></span>
+  <span><img (click)="clickUpPhoto()" class="arr mt-1" src="../../assets/img/chevron-up.svg"/></span>
+  <span><img (click)="clickDawnPhoto()" class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/></span>
 </div>

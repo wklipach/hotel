@@ -5,7 +5,7 @@
     <div class="col-8 px-0" style="max-width: 670px">
 
       <div class="d-flex justify-content-start title-room">
-        <a href="#" class="btn-back"><img src="../../assets/img/room-back.png" height="26" width="26" title="Назад"/></a>
+        <a href="/reservation" class="btn-back"><img src="../../assets/img/room-back.png" height="26" width="26" title="Назад"/></a>
         <h2 *ngIf="room">{{room.name}}</h2>
       </div>
 
@@ -72,7 +72,8 @@
 
       <div class="d-flex justify-content-start description-block ">
         <div class="part-1">Условия:</div>
-        <div class="part-5">Познакомьтесь с нашими правилами</div>
+        <div (click)="clickRules()" class="part-5">Познакомьтесь с нашими правилами</div>
+        <div *ngIf="boolRules" class="part-5">Это наши правила</div>
       </div>
 
 
