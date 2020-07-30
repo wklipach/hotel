@@ -14,6 +14,7 @@ export class MapPageComponent implements OnInit {
 
   @ViewChild('mapRef', {static: true }) mapElement: ElementRef;
   @ViewChild('pano', {static: true }) mapPano: ElementRef;
+  refstyle = '';
 
   locations = [
     {
@@ -113,6 +114,8 @@ export class MapPageComponent implements OnInit {
 
     if (this.router.url === '/about-room') {
 
+      this.refstyle = 'ref-about-room';
+
       const room = this.auth.getInfoNumber();
       const idAddress = room.id_address;
       this.lsg.getGuideOneAddress(idAddress).subscribe(listaddress => {
@@ -140,6 +143,8 @@ export class MapPageComponent implements OnInit {
       }); // subscribe!
 
     } else {
+
+      this.refstyle = 'ref-main';
 
       this.lsg.getGuideAddress(1).subscribe(listaddress => {
       this.locations = [];
@@ -191,7 +196,7 @@ export class MapPageComponent implements OnInit {
 
   loadMap = (latVar, lngVar) => {
 
-    this.mapElement.nativeElement.height = 200;
+    // this.mapElement.nativeElement.height = 200;
 
     const map = new window.google.maps.Map(this.mapElement.nativeElement, {
       center: {lat: latVar, lng: lngVar},
