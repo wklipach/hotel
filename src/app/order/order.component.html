@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <form [formGroup]="orderForm">
 
   <div class="container-fluid">
@@ -27,11 +29,11 @@
                          class="form-control dinner" placeholder="0"
                          (change)="clickAmountElement($event, curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)">
 
-                  <div>
-                    <span><img (click)="clickAmountElementUp(curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)"
-                               class="arr mt-1" src="../../assets/img/chevron-up.svg"/></span>
-                    <span><img (click)="clickAmountElementDawn(curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)"
-                               class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/></span>
+                  <div class="arrow-block">
+                    <img (click)="clickAmountElementUp(curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)"
+                               class="arr mt-1" src="../../assets/img/chevron-up.svg"/>
+                    <img (click)="clickAmountElementDawn(curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)"
+                               class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/>
                   </div>
 
 
@@ -88,8 +90,28 @@
             <textarea formControlName="wishes" class="form-control" rows="4" aria-label="Особые пожелания"></textarea>
           </div>
 
-          <span>• Совершая бронирование, я подтверждаю, что мною прочитаны и приняты <label (click)="clickRules()">правила и условия</label>.</span>
-          <div *ngIf="boolRules">ТУТ НАПИСАНЫ ПРАВИЛА</div>
+          <div class="rules">• Совершая бронирование, я подтверждаю, что мною прочитаны и приняты <label class="blue" (click)="clickRules()">правила и условия</label>.</div>
+          <div class="d-flex flex-column rules-block" *ngIf="boolRules">
+            <h2>Правила бронирования</h2>
+
+            <h2 style="color: #33a2dc; margin: 20px auto;">Время заезда 13:00 | Время выезда 12:00</h2>
+          <br><br>
+            <p>Бронирование осуществляется:
+             <p> на сайте <a href="https://victoria-sbor.ru">victoria-sbor.ru</a> <br>
+            <a href="vk.com">ВКонтакте</a>  <br>
+              по тел: <strong>+ 7 911 744 88 13</strong></p>
+
+            <p>* бронь гарантируется при полной оплате стоимости проживания.</p>
+
+            <h2>Отмена бронирования</h2>
+
+            <p>
+              Оплата брони за первые сутки не возвращается
+            </p>
+
+          </div>
+
+
 
           <button class="btn-pay my-5" type="button" (click)="apply()" >Перейти к оплате</button>
 
