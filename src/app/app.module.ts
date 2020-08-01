@@ -31,6 +31,8 @@ import { ReservationService } from './services/reservation.service';
 import { AuthService } from './services/auth.service';
 import { OrderComponent } from './order/order.component';
 import { OrderService } from './services/order.service';
+import { SuccessfulPaymentComponent } from './successful-payment/successful-payment.component';
+import { UnsuccessfulPaymentComponent } from './unsuccessful-payment/unsuccessful-payment.component';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -67,7 +69,9 @@ const appRoutes: Routes = [
     MainComponent,
     IntroTopComponent,
     AboutRoomComponent,
-    OrderComponent
+    OrderComponent,
+    SuccessfulPaymentComponent,
+    UnsuccessfulPaymentComponent
   ],
   imports: [
     HttpClientModule,

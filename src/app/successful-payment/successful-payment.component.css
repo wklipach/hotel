@@ -14,19 +14,19 @@ h1 {
   padding-bottom: 14px;
 }
 .description-pay-block {
-padding: 0 0 0 120px;
+  padding: 0 0 0 120px;
 }
-.text-unsuccess {
+.text-success {
   margin: 10px 0 30px 0;
   font-size: 20px;
-  color: red;
+  color: #88bd1f !important;
 }
 
 .payment-state-success {
 
 }
 .text-success-one, span {
- font-size: 20px;
+  font-size: 20px;
   color: #777c87;
 }
 p {
