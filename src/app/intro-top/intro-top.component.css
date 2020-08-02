@@ -1,4 +1,37 @@
-img {
+.video-block {
+  position: relative;
   width: 100%;
   height: auto;
+
 }
+
+.video {
+  height: 1070px;
+  opacity: 0.7;
+  z-index: -999 !important;
+}
+
+.logo-video {
+  position: absolute;
+  margin: 250px auto;
+  z-index: 1000!important;
+}
+.controlsContainer {
+  opacity: 0;
+  height: 0;
+}
+.adv {
+  position: absolute;
+  color:#86B0CC;
+  font-size: 26px;
+  bottom: 420px;
+}
+.socnet {
+  position: absolute;
+  width: 180px;
+  bottom: 60px;
+}
+img {
+  border-radius: 5px;
+}
+
