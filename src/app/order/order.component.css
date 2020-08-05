@@ -202,4 +202,10 @@ border-radius: 20px;
   margin-left: 250px;
   top: 920px;
 }
-
+.close {
+  margin-top: -20px;
+  margin-right: -20px;
+}
+.close:hover {
+  cursor: pointer;
+}

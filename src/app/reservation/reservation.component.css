@@ -41,6 +41,30 @@ h1{
   cursor: pointer;
 }
 
+.search-results {
+  height: 70px;
+  padding: 20px 0;
+  margin: 0 208px 0 42px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #dadcdc;
+}
+.search-results span{
+  font-weight: bold;
+}
+.btn-clear-results {
+  font-weight: 500;
+  color: #FF7F41;
+  margin-top: -6px;
+  text-decoration: underline;
+
+}
+.btn-clear-results:hover {
+  cursor: pointer;
+  color: #414141;
+}
 .room-block{
   position: relative;
   width:860px;
@@ -57,7 +81,7 @@ h1{
 }
 .room-description{
   width: 410px;
-  height: 126px;
+  height: 133px;
   border-bottom: solid 1px #dadcdc;
 }
 .room-title{
@@ -67,7 +91,7 @@ h1{
   cursor: pointer;
   font-size:20px;
   font-weight: 600;
-  padding-bottom: 4px;
+  padding-bottom: 1px;
   vertical-align: top;
 }
 p{
@@ -76,7 +100,7 @@ p{
   font-size: 13px;
   line-height: 1.3;
   margin-bottom: 2px;
-  height: 36px;
+  height: 49px;
   overflow: hidden;
 }
 .room-about{
@@ -121,7 +145,8 @@ p{
 .comfort-block {
   width: 410px;
   height: 35px;
-  padding-top: 8px;
+  padding-top: 4px;
+  margin-top: 18px;
   overflow: hidden;
 }
 .comfort-image {
@@ -141,13 +166,21 @@ p{
 .arr, .arr2:hover {
   cursor: pointer;
 }
-
-ul {
+.features {
   height: 38px;
+  padding: 3px 0 4px 2px;
+}
+ul {
+margin: 0;
   font-size: 13px;
-  padding-left: 13px;
-  padding-bottom: 2px;
+  padding-left: 18px;
   overflow: hidden;
+  list-style: disc;
+
+}
+
+li {
+  display: inline;
 }
 img {
   color: #7FCCF7;

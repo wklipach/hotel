@@ -106,8 +106,48 @@
       </div>
     </div>
   </div>
+</div>
 
+<div class="transfer-order">
+<div class="d-flex flex-column client-info">
+  <h3>Заказать трансфер</h3>
 
+  <div class="d-flex justify-content-start mb-3">
+
+    <div class="mr-auto">
+      <label>Имя</label>
+      <input formControlName="name" type="text" class="form-control" placeholder="">
+    </div>
+
+    <div class="p-0">
+      <label>Фамилия</label>
+      <input formControlName="surname" type="text" class="form-control" placeholder="">
+    </div>
+
+  </div>
+
+  <div class="d-flex justify-content-start mb-3">
+
+    <div class="mr-auto">
+      <label>E-Mail</label>
+      <input formControlName="email" type="text" class="form-control" placeholder="">
+    </div>
+
+    <div class=" mb-3">
+      <label>Телефон</label>
+      <input formControlName="phone" type="text" class="form-control" placeholder="">
+    </div>
+
+  </div>
+
+  <div class="mb-3">
+    <label>Добавьте сообщение... </label>
+    <textarea formControlName="wishes" class="form-control" rows="4" aria-label="Особые пожелания"></textarea>
+  </div>
+
+  <button class="btn-transfer-order" type="button">Заказать</button>
+
+</div>
 </div>
 
 <app-footer></app-footer>

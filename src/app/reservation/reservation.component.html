@@ -53,6 +53,13 @@
     </div>
   </div>
 
+  <!-- Результат поиска доступных номеров-->
+
+  <div class="search-results">
+    <div class="search-info">Результаты: <span> сентябрь 1</span> - <span>октябрь 2, 2020 | 32 ночи(ей)</span></div>
+
+    <button type="button" class="btn btn-link btn-clear-results">Очистить</button>
+  </div>
 
   <!-- ЗАГЛУШКА ДЛЯ РАБОТЫ С БАЗОЙ-->
   <div class="zaglushka" *ngFor="let room of roomsArray">
@@ -81,35 +88,35 @@
         </p>
 
 
-        <ul class="features">
-          <li>Площадь: <span class="metr">{{room.size}}</span> кв. м</li>
-          <li> Кровати: <span class="beds"></span></li>
-
-          <!-- выводим кровати номера-->
-          <div *ngIf="room.beds_mas && room.beds_mas.length>0">
-            <li *ngFor="let bed of room.beds_mas"><span class="beds"> {{bed.name}} : {{bed.amount}}  шт.</span></li>
-          </div>
-
+        <div class="features">
+        <ul>
+             <li>Площадь: <span class="metr">{{room.size}}</span> кв. м</li>
         </ul>
 
+          <!-- выводим кровати номера-->
+          <ul class="colbeds" *ngIf="room.beds_mas && room.beds_mas.length>0">
+             <li>Кровати:</li>
+             <li *ngFor="let bed of room.beds_mas"><span class="beds"> {{bed.name}} : {{bed.amount}}  шт.</span></li>
+          </ul>
+      </div>
 
 
-        <div class="d-flex justify-content-start mt-1 comfort-block" *ngIf="room.features_mas && room.features_mas.length > 0">
+        <div class="d-flex justify-content-start comfort-block" *ngIf="room.features_mas && room.features_mas.length > 0">
           <div *ngFor="let feature of room.features_mas">
             <span *ngIf="feature === '1'" class="p-0 comfort-image"><img src="../../assets/img/wi-fi.png" height="30" width="30" title="Wi-Fi"/></span>
-            <span *ngIf="feature === '2'" class="p-0 comfort-image"><img src="../../assets/img/tv.png" height="30" width="30" title="Wi-Fi"/></span>
-            <span *ngIf="feature === '3'" class="p-0 comfort-image"><img src="../../assets/img/bar.png" height="30" width="30" title="Wi-Fi"/></span>
-            <span *ngIf="feature === '4'" class="p-0 comfort-image"><img src="../../assets/img/shower.png" height="30" width="30" title="Wi-Fi"/></span>
-            <span *ngIf="feature === '5'" class="p-0 comfort-image"><img src="../../assets/img/kitchen.png" height="30" width="30" title="Wi-Fi"/></span>
-            <span *ngIf="feature === '6'" class="p-0 comfort-image"><img src="../../assets/img/towels.png" height="30" width="30" title="Wi-Fi"/></span>
-            <span *ngIf="feature === '7'" class="p-0 comfort-image"><img src="../../assets/img/appliances.png" height="30" width="30" title="Wi-Fi"/></span>
-            <span *ngIf="feature === '8'" class="p-0 comfort-image"><img src="../../assets/img/conditioner.png" height="30" width="30" title="Wi-Fi"/></span>
-            <span *ngIf="feature === '9'" class="p-0 comfort-image"><img src="../../assets/img/safe.png" height="30" width="30" title="Wi-Fi"/></span>
-            <span *ngIf="feature === '10'" class="p-0 comfort-image"><img src="../../assets/img/phone.png" height="30" width="30" title="Wi-Fi"/></span>
-            <span *ngIf="feature === '11'" class="p-0 comfort-image"><img src="../../assets/img/bath.png" height="30" width="30" title="Wi-Fi"/></span>
-            <span *ngIf="feature === '12'" class="p-0 comfort-image"><img src="../../assets/img/work-zone.png" height="30" width="30" title="Wi-Fi"/></span>
-            <span *ngIf="feature === '13'" class="p-0 comfort-image"><img src="../../assets/img/smokers.png" height="30" width="30" title="Wi-Fi"/></span>
-            <span *ngIf="feature === '14'" class="p-0 comfort-image"><img src="../../assets/img/toilet.png" height="30" width="30" title="Wi-Fi"/></span>
+            <span *ngIf="feature === '2'" class="p-0 comfort-image"><img src="../../assets/img/tv.png" height="30" width="30" title="Телевизор"/></span>
+            <span *ngIf="feature === '3'" class="p-0 comfort-image"><img src="../../assets/img/bar.png" height="30" width="30" title="Мини-бар"/></span>
+            <span *ngIf="feature === '4'" class="p-0 comfort-image"><img src="../../assets/img/shower.png" height="30" width="30" title="Душ"/></span>
+            <span *ngIf="feature === '5'" class="p-0 comfort-image"><img src="../../assets/img/kitchen.png" height="30" width="30" title="Кухня"/></span>
+            <span *ngIf="feature === '6'" class="p-0 comfort-image"><img src="../../assets/img/towels.png" height="30" width="30" title="Полотенца"/></span>
+            <span *ngIf="feature === '7'" class="p-0 comfort-image"><img src="../../assets/img/appliances.png" height="30" width="30" title="Бытовая техника"/></span>
+            <span *ngIf="feature === '8'" class="p-0 comfort-image"><img src="../../assets/img/conditioner.png" height="30" width="30" title="Кондиционер"/></span>
+            <span *ngIf="feature === '9'" class="p-0 comfort-image"><img src="../../assets/img/safe.png" height="30" width="30" title="Сейф"/></span>
+            <span *ngIf="feature === '10'" class="p-0 comfort-image"><img src="../../assets/img/phone.png" height="30" width="30" title="Телефон"/></span>
+            <span *ngIf="feature === '11'" class="p-0 comfort-image"><img src="../../assets/img/bath.png" height="30" width="30" title="Ванна"/></span>
+            <span *ngIf="feature === '12'" class="p-0 comfort-image"><img src="../../assets/img/work-zone.png" height="30" width="30" title="Рабочая зона"/></span>
+            <span *ngIf="feature === '13'" class="p-0 comfort-image"><img src="../../assets/img/smokers.png" height="30" width="30" title="Можно курить"/></span>
+            <span *ngIf="feature === '14'" class="p-0 comfort-image"><img src="../../assets/img/toilet.png" height="30" width="30" title="Санузел"/></span>
           </div>
         </div>
       </div>

@@ -1,36 +1,22 @@
-h1 {
-  font-size: 24px;
+.comfort-block {
+  width: 648px;
+  height: auto;
   font-family: 'Open Sans', sans-serif;
-  font-weight: normal;
-  color: #212529;
-  width: 860px;
-  margin: 41px 0 0 42px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid #dadcdc;
+  font-size: 16px;
+  margin-top: 42px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #bfc0c4;
+  display: flex;
 }
-
-.mbank-logo {
-  margin: 41px 0 32px 42px;
-  padding-bottom: 14px;
+.comfort-name {
+  color: #414141;
+  width: 160px;
+  font-weight: 700;
 }
-.description-pay-block {
-padding: 0 0 0 120px;
+span {
+  width: 230px;
+  padding-bottom: 15px;
 }
-.text-unsuccess {
-  margin: 10px 0 30px 0;
-  font-size: 20px;
-  color: red;
-}
-
-.payment-state-success {
-
-}
-.text-success-one, span {
- font-size: 20px;
-  color: #777c87;
-}
-p {
-  width: 700px;
-  font-size: 14px;
-  color: #777c87;
+.comfort-images {
+  width: 468px;
 }
