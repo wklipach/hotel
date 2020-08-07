@@ -5,6 +5,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { analyzeFileForInjectables } from '@angular/compiler';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { PamentService } from '../services/pament.service';
 
 @Component({
   selector: 'app-order',
@@ -31,7 +32,7 @@ export class OrderComponent implements OnInit {
   listSelectedServices: any[] = []; // {id, name, count, price, cost};
 
   constructor(private os: OrderService,  public gr: GlobalRef,
-              private auth: AuthService, private router: Router) {
+              private ps: PamentService, private auth: AuthService, private router: Router) {
 
     this.orderForm  = new FormGroup({
       name: new FormControl(''),
@@ -321,7 +322,14 @@ export class OrderComponent implements OnInit {
               if (addserv) {
                 this.os.setDateToNumber(id_order, this.room.id, datebegin, dateend).subscribe( DateToNumber => {
                   console.log('!!!!!');
-                  this.router.navigate(['/reservation']);
+
+                  // после того как завели заказ начинаем процесс оплаты
+                  this.ps.processPayment(id_order, totalrub).subscribe( valuePay => {
+                    console.log(valuePay);
+                    document.write(valuePay.toString());
+                    });
+
+                  // this.router.navigate(['/reservation']);
                 });
               }
             });

@@ -33,6 +33,8 @@ import { OrderComponent } from './order/order.component';
 import { OrderService } from './services/order.service';
 import { SuccessfulPaymentComponent } from './successful-payment/successful-payment.component';
 import { UnsuccessfulPaymentComponent } from './unsuccessful-payment/unsuccessful-payment.component';
+import { TestpageComponent } from './testpage/testpage.component';
+import { PamentService } from './services/pament.service';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
   {path: 'main', component: MainComponent},
   {path: 'about-room', component: AboutRoomComponent},
   {path: 'admin', component: AddroomsComponent},
-  {path: 'order', component: OrderComponent}
+  {path: 'order', component: OrderComponent},
+  {path: 'test', component: TestpageComponent}
 ];
 
 
@@ -71,7 +74,8 @@ const appRoutes: Routes = [
     AboutRoomComponent,
     OrderComponent,
     SuccessfulPaymentComponent,
-    UnsuccessfulPaymentComponent
+    UnsuccessfulPaymentComponent,
+    TestpageComponent
   ],
   imports: [
     HttpClientModule,
@@ -82,7 +86,9 @@ const appRoutes: Routes = [
 
 
   ],
-  providers: [GlobalRef, ListGuideService, NumberService, ReservationService, AuthService, OrderService],
+  providers: [GlobalRef, ListGuideService, NumberService,
+              ReservationService, AuthService,
+              OrderService, PamentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
