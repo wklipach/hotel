@@ -35,6 +35,11 @@ import { SuccessfulPaymentComponent } from './successful-payment/successful-paym
 import { UnsuccessfulPaymentComponent } from './unsuccessful-payment/unsuccessful-payment.component';
 import { TestpageComponent } from './testpage/testpage.component';
 import { PamentService } from './services/pament.service';
+import {DatePipe, registerLocaleData} from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+import { TransferService } from './services/transfer.service';
+
+registerLocaleData(localeRu);
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -86,9 +91,10 @@ const appRoutes: Routes = [
 
 
   ],
-  providers: [GlobalRef, ListGuideService, NumberService,
+  providers: [
+              DatePipe, GlobalRef, ListGuideService, NumberService,
               ReservationService, AuthService,
-              OrderService, PamentService],
+              OrderService, PamentService, TransferService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,7 @@ import { ReservationService } from '../services/reservation.service';
 import { GlobalRef } from '../services/globalref';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-reservation',
@@ -22,6 +23,11 @@ export class ReservationComponent implements OnInit {
   roomsArray = [];
   sUrlImage = '';
   sError = '';
+  bFind = false;
+
+  sddBegin = '';
+  sddEnd = '';
+  daysLag = 0;
 
   constructor(private rs: ReservationService, private gr: GlobalRef,
               private auth: AuthService,  private router: Router) {
@@ -112,7 +118,19 @@ export class ReservationComponent implements OnInit {
 
     this.rs.getFindReservation(dDateBegin, dDateEnd, this.numberOfAdults, this.numberOfChildren).subscribe( value => {
       this.roomsArray = value[0];
-      console.log('this.roomsArray=', this.roomsArray);
+      // console.log('this.roomsArray=', this.roomsArray);
+
+
+     // описываем результаты поиска
+      const currentDate = new Date();
+      const dPipe = new DatePipe('ru');
+
+
+      // >Результаты: <span> сентябрь 1</span> - <span>октябрь 2, 2020 | 32 ночи(ей)
+      this.sddBegin = dPipe.transform(dDateBegin, 'LLLL dd');
+      this.sddEnd = dPipe.transform(dDateEnd, 'LLLL dd, yyyy');
+      this.daysLag = Math.ceil(Math.abs(dDateEnd.getTime() - dDateBegin.getTime()) / (1000 * 3600 * 24));
+      this.bFind = true;
     });
   }
 
@@ -130,6 +148,35 @@ export class ReservationComponent implements OnInit {
 
   isValidDate(d) {
     return d instanceof Date && !isNaN( d.getTime());
+  }
+
+  clearfind() {
+    console.log('clearfind()');
+    if (this.beginCalendar) {
+      this.beginCalendar.clear();
+      }
+
+    document.getElementById('textCalenarBegin').textContent = 'Заезд';
+    this.boolBeginCalendar = false;
+
+    if (this.endCalendar) {
+      this.endCalendar.clear();
+      }
+
+    this.sddBegin = '';
+    this.sddEnd = '';
+    this.daysLag = 0;
+
+    this.bFind = false;
+
+    document.getElementById('textCalenarEnd').textContent = 'Выезд';
+    this.boolEndCalendar = false;
+    this.numberOfChildren = 0;
+    this.numberOfAdults = 1;
+    this.rs.getGuideReservation().subscribe( value => {
+      this.roomsArray = value[0];
+    });
+
   }
 
 }

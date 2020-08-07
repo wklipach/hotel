@@ -1,5 +1,7 @@
 <app-header></app-header>
 
+<form [formGroup]="transferForm">
+
 <div class="container-fluid">
 
   <div class="row text-center">
@@ -34,7 +36,7 @@
           <span>2700 руб.</span>
 
 
-          <a href="#" class="btn-order"> Заказать</a>
+          <a class="btn-order" (click)="transfertVitebsk()" > Заказать</a>
 
         </div>
 
@@ -61,7 +63,7 @@
           <span>2600 руб.</span>
 
 
-          <a href="#" class="btn-order"> Заказать</a>
+          <a class="btn-order" (click)="transfertLadoga()"> Заказать </a>
 
         </div>
 
@@ -87,7 +89,7 @@
           <span>2400 руб.</span>
 
 
-          <a href="#" class="btn-order"> Заказать</a>
+          <a class="btn-order" (click)="transfertPulkovo()"> Заказать</a>
 
         </div>
 
@@ -139,16 +141,20 @@
     </div>
 
   </div>
-
+   
   <div class="mb-3">
     <label>Добавьте сообщение... </label>
     <textarea formControlName="wishes" class="form-control" rows="4" aria-label="Особые пожелания"></textarea>
   </div>
 
-  <button class="btn-transfer-order" type="button">Заказать</button>
+  {{sError}}
+  <button id="transfer_anchor" #transfer_anchor class="btn-transfer-order" type="button" (click)="transfert()">Заказать</button>
+  {{sResultEmail}}
 
 </div>
 </div>
+
+</form>
 
 <app-footer></app-footer>
 

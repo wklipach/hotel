@@ -55,10 +55,10 @@
 
   <!-- Результат поиска доступных номеров-->
 
-  <div class="search-results">
-    <div class="search-info">Результаты: <span> сентябрь 1</span> - <span>октябрь 2, 2020 | 32 ночи(ей)</span></div>
+  <div *ngIf="bFind" class="search-results">
+    <div class="search-info">Результаты: <span>{{sddBegin}}</span> - <span>{{sddEnd}} | {{daysLag}} ночи(ей)</span></div>
 
-    <button type="button" class="btn btn-link btn-clear-results">Очистить</button>
+    <button type="button" class="btn btn-link btn-clear-results" (click)="clearfind()">Очистить</button>
   </div>
 
   <!-- ЗАГЛУШКА ДЛЯ РАБОТЫ С БАЗОЙ-->
