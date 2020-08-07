@@ -108,7 +108,7 @@ h3 {
   background-color: #ffffff;
 }
 .btn-transfer-order {
-display: block;
+  display: block;
   width: 275px;
   height: 40px;
   background-color: #33a2dc;
@@ -118,5 +118,5 @@ display: block;
   border: 0;
   cursor: pointer;
   border-radius: 20px;
-  margin: 35px 0 25px 0;
+  margin: 35px 10px 25px auto;
 }

@@ -60,13 +60,14 @@ ul {list-style-type: none;}
 }
 
 .days span {
-  list-style-type: none;
+
   display: inline-block;
-  width: 13.6%;
+  width: 32px;
+  height: 26px;
   text-align: center;
-  margin-bottom: 5px;
   font-size:12px;
-  color: black;
+  color: #414141;
+  border: 1px solid #dadcdc;
 }
 
 /* Highlight the "current" day */
@@ -85,16 +86,19 @@ ul {list-style-type: none;}
 /* стили клеток в календаре */
 
 
-/* 1 обычный день не входящий в месяц */
+/* 1 обычный день не входящий в месяц background: white;
+  color: lightgray !important;*/
 .uncheckedNotMonthDay {
-  background: white;
-  color: lightgray !important;
+  opacity: 0;
+}
+.uncheckedNotMonthDay:hover {
+  cursor: default !important;
 }
 
 /* 2 забронированный день не входящий в месяц */
 .busyNotMonthDay {
   background: white;
-  color: red !important;
+  color: #FF7F41;
   text-decoration: line-through;
   font-weight: bold;
 }
@@ -110,7 +114,7 @@ ul {list-style-type: none;}
 /* 4 забронированный день входящий в месяц */
 .busyMonthDay {
   background: white;
-  color: red !important;
+  color: #FF7F41;
   text-decoration: line-through;
   font-weight: bold;
 }
@@ -118,9 +122,9 @@ ul {list-style-type: none;}
 /* сегодняшний день занятый кем-то */
 .busyMonthNowDay {
   background: white;
-  color: red !important;
+  color: #FF7F41;
   font-weight: bold;
-  border: 1px solid black;
+  border: 1px solid #dadcdc;;
   text-decoration: line-through;
 }
 
@@ -138,14 +142,14 @@ ul {list-style-type: none;}
   background: white;
   color: rgb(35, 182, 67) !important;
   font-weight: bold;
-  border: 1px solid black;
+  border: 1px solid #dadcdc;;
   text-decoration: line-through;
 }
 
 /* 7 день СЕГОДНЯ */
 .uncheckedNowMonthDay {
   background: white;
-  color: black !important;
+  color: #414141;
   font-weight: bold;
-  border: 1px solid black;
+  border: 1px solid #FF7F41 !important;
 }

@@ -180,20 +180,18 @@ label, span {
   margin-left: 55px;
   margin-top: -36px;
 }
-
-
-
 .btn-pay {
   float: right;
   width: 275px;
-height: 40px;
-background-color: #33a2dc;
-background: linear-gradient(to bottom,#36a7dd 0,#2f9ad8 100%);
-color: #fff;
-font-size: 14px;
-border: 0;
-cursor: pointer;
-border-radius: 20px;
+  height: 40px;
+  margin: 30px 10px 35px auto;
+  background-color: #33a2dc;
+  background: linear-gradient(to bottom,#36a7dd 0,#2f9ad8 100%);
+  color: #fff;
+  font-size: 14px;
+  border: 0;
+  cursor: pointer;
+  border-radius: 20px;
 }
 .error {
   position: absolute;

@@ -7,8 +7,6 @@
       <div class="col-7 additional-features">
         <h2>Добавьте дополнительные возможности</h2>
 
-
-
         <div *ngIf="addserv && addserv.length>0">
           <div *ngFor="let curElemAddServ of addserv">
 
@@ -31,14 +29,12 @@
 
                   <div class="arrow-block">
                     <img (click)="clickAmountElementUp(curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)"
-                               class="arr mt-1" src="../../assets/img/chevron-up.svg"/>
+                         class="arr mt-1" src="../../assets/img/chevron-up.svg"/>
                     <img (click)="clickAmountElementDawn(curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)"
-                               class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/>
+                         class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/>
                   </div>
 
-
                 </div>
-
 
                 <div *ngIf="curElemAddServ.ItIsBoolean.data[0] === 1">
                   <label>Выбрать</label>
@@ -95,10 +91,10 @@
             <h2>Правила бронирования<img class="close" (click)="clickRules()" src="../../assets/img/x-square.svg" height="20" width="20" title="Закрыть"/></h2>
 
             <h2 style="color: #33a2dc; margin: 20px auto;">Время заезда 13:00 | Время выезда 12:00</h2>
-          <br><br>
+            <br><br>
             <p>Бронирование осуществляется:
-             <p> на сайте <a href="https://victoria-sbor.ru">victoria-sbor.ru</a> <br>
-            <a href="vk.com/hotelvictoriasb">ВКонтакте</a>  <br>
+            <p> на сайте <a href="https://victoria-sbor.ru">victoria-sbor.ru</a> <br>
+              <a href="vk.com/hotelvictoriasb">ВКонтакте</a>  <br>
               по тел: <strong>+ 7 911 744 88 13</strong></p>
 
             <p>* бронь гарантируется при полной оплате стоимости проживания.</p>
@@ -111,7 +107,7 @@
 
           </div>
 
-          <button class="btn-pay my-5" type="button" (click)="apply()" >Перейти к оплате</button>
+          <button class="btn-pay" type="button" (click)="apply()" >Перейти к оплате</button>
 
         </div>
 
@@ -133,8 +129,6 @@
           <span>Адрес</span>
           <span class="information">{{this.room.address}}</span>
         </div>
-
-
 
         <div class="d-flex justify-content-between py-1">
           <span>Даты</span>
