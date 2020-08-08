@@ -13,14 +13,16 @@
 
 .logo-video {
   position: absolute;
-  margin: 250px auto;
-  z-index: 1000!important;
+  opacity: .5;
+  z-index: 2;
 }
+/*
 .controlsContainer {
   opacity: 0;
   height: 0;
 }
-.adv {
+*/
+.advert {
   position: absolute;
   color:#86B0CC;
   font-size: 26px;
@@ -34,4 +36,3 @@
 img {
   border-radius: 5px;
 }
-
