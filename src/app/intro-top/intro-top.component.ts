@@ -8,6 +8,7 @@ import seeThru from 'seethru';
 })
 export class IntroTopComponent implements OnInit, AfterViewInit {
 
+  boolLoader = false;
   @ViewChild('myvideo', { static: false }) videoplayer: ElementRef;
   constructor() { }
 
@@ -17,11 +18,13 @@ export class IntroTopComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
+    // this.boolLoader = true;
+    const myVideo = document.getElementById('myvideo') as HTMLFormElement;
+    // myVideo.muted = false;
+    // myVideo.loop = true;
 
-
-    const myVideo = document.getElementById('myvideo');
     seeThru
-    .create(myVideo, { width: 400, height: 300, alphaMask: true})
+    .create(myVideo, {alphaMask: true})
     // tslint:disable-next-line: only-arrow-functions
     .ready(function(instance, video, canvas) {
         // tslint:disable-next-line: only-arrow-functions

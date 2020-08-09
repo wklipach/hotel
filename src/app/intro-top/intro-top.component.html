@@ -8,12 +8,16 @@
 
       <video width="100%" height="auto" 
              poster="../../assets/img/logo-video.png" 
-             controls="controls" muted="muted" tabindex="0"
+             autoplay
+             tabindex="0"
              #myvideo
              muted  
              oncanplay="this.play()" 
              onloadedmetadata="this.muted = true"
              id='myvideo'>
+
+
+ 
 
         <source src="../../assets/img/intro-logo.mp4" type="video/mp4">
         <source src="../../assets/img/intro.webm" type="video/webm">
