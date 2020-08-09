@@ -1,15 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import seeThru from 'seethru';
 
 @Component({
   selector: 'app-intro-top',
   templateUrl: './intro-top.component.html',
   styleUrls: ['./intro-top.component.css']
 })
-export class IntroTopComponent implements OnInit {
+export class IntroTopComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('myvideo', { static: false }) videoplayer: ElementRef;
   constructor() { }
 
   ngOnInit(): void {
+
+
   }
+
+  ngAfterViewInit(){
+
+
+    const myVideo = document.getElementById('myvideo');
+    seeThru
+    .create(myVideo, { width: 400, height: 300, alphaMask: true})
+    // tslint:disable-next-line: only-arrow-functions
+    .ready(function(instance, video, canvas) {
+        // tslint:disable-next-line: only-arrow-functions
+        canvas.addEventListener('click', function() {
+          instance.revert();
+        });
+    });
+
+
+/*
+    const promise = this.videoplayer.nativeElement.play();
+    if (promise !== undefined) {
+        promise.then(() => {
+            // Autoplay started!
+        }).catch( error => {
+            // Autoplay was prevented. Show a "Play" button so that user can start playback.
+        });
+     }
+*/
+
+ 
+}
 
 }
