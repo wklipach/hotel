@@ -70,7 +70,6 @@ export class AboutRoomComponent implements OnInit {
 
     this.room = this.auth.getInfoNumber();
 
-
     const varPhoto: NgxGalleryImage[] = [];
 
     if (this.room.photo_mas) {
