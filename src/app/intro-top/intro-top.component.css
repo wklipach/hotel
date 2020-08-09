@@ -1,3 +1,4 @@
+
 .video-block {
   position: relative;
   width: 100%;
@@ -13,13 +14,16 @@
 
 .logo-video {
   position: absolute;
-  opacity: .5;
+  width:680px;
+  height:auto;
+  opacity: 1;
   z-index: 2;
+  margin-top: 85px;
 }
 /*
 .controlsContainer {
-  opacity: 0;
-  height: 0;
+opacity: 0;
+height: 0;
 }
 */
 .advert {
@@ -36,3 +40,4 @@
 img {
   border-radius: 5px;
 }
+
