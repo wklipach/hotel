@@ -23,9 +23,9 @@ export class IntroTopComponent implements OnInit, AfterViewInit {
     // myVideo.muted = false;
     // myVideo.loop = true;
 
-/*
+/*    
     seeThru
-    .create(myVideo, {alphaMask: true})
+    .create(myVideo, {width: 400, height: 300, alphaMask: true})
     // tslint:disable-next-line: only-arrow-functions
     .ready(function(instance, video, canvas) {
         // tslint:disable-next-line: only-arrow-functions
@@ -33,9 +33,9 @@ export class IntroTopComponent implements OnInit, AfterViewInit {
           instance.revert();
         });
     });
-*/    
+*/
 
-  seeThru.create(myVideo, {alphaMask: true});
+   // seeThru.create(myVideo, {width: 400, height: 300, alphaMask: false});
 
 
 /*

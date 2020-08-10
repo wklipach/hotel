@@ -12,6 +12,7 @@ export class TransferComponent implements OnInit {
   transferForm: FormGroup;
   sError = '';
   sResultEmail = '';
+  orderPay = false;
 
   constructor(private ts: TransferService) {
     this.transferForm  = new FormGroup({
@@ -28,31 +29,42 @@ export class TransferComponent implements OnInit {
 
   transfertLadoga() {
     console.log('transfertLadoga');
+    this.orderPay = true;
     this.sError = '';
     this.sResultEmail = '';
     this.transferForm.controls.wishes.setValue('Трансфер от Ладожского вокзала до Соснового Бора ' +
                                                   '(гостиницы) и обратно.');
-    document.querySelector('#transfer_anchor').scrollIntoView();
+    setTimeout(() => {
+      document.querySelector('#transfer_anchor').scrollIntoView();
+    }, 0);
   }
 
   transfertVitebsk() {
     console.log('transfertVitebsk');
+    this.orderPay = true;
     this.sError = '';
     this.sResultEmail = '';
     this.transferForm.controls.wishes.setValue('Трансфер от Витебского вокзала до Соснового Бора ' +
                                                   '(гостиницы) и обратно.');
 
-    document.querySelector('#transfer_anchor').scrollIntoView();
+    setTimeout(() => {
+        document.querySelector('#transfer_anchor').scrollIntoView();
+      }, 0);
   }
 
   transfertPulkovo() {
     console.log('transferPulkovo');
+    this.orderPay = true;
     this.sError = '';
     this.sResultEmail = '';
     this.transferForm.controls.wishes.setValue('Трансфер от аэропорта Пулково до Соснового Бора ' +
                                                   '(гостиницы) и обратно.');
 
+    setTimeout(() => {
     document.querySelector('#transfer_anchor').scrollIntoView();
+    }, 0);
+
+
   }
 
   transfert() {
