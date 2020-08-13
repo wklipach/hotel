@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import * as $ from 'jquery';
 
@@ -38,6 +39,12 @@ import { PamentService } from './services/pament.service';
 import {DatePipe, registerLocaleData} from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 import { TransferService } from './services/transfer.service';
+import { LoginComponent } from './entrance/login/login.component';
+import { ForgotPasswordComponent } from './entrance/forgot-password/forgot-password.component';
+import { ForgotpasswordService } from './services/forgotpassword.service';
+import { RegisterComponent } from './entrance/register/register.component';
+import { PersonalMenuComponent } from './header/personal-menu/personal-menu.component';
+import { ParlorComponent } from './parlor/parlor.component';
 
 registerLocaleData(localeRu);
 
@@ -54,6 +61,11 @@ const appRoutes: Routes = [
   {path: 'about-room', component: AboutRoomComponent},
   {path: 'admin', component: AddroomsComponent},
   {path: 'order', component: OrderComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'forgot-password', component: ForgotPasswordComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'parlor', component: ParlorComponent},
+  
   {path: 'test', component: TestpageComponent}
 ];
 
@@ -80,6 +92,11 @@ const appRoutes: Routes = [
     OrderComponent,
     SuccessfulPaymentComponent,
     UnsuccessfulPaymentComponent,
+    LoginComponent,
+    ForgotPasswordComponent,
+    RegisterComponent,
+    PersonalMenuComponent,
+    ParlorComponent,
     TestpageComponent
   ],
   imports: [
@@ -87,13 +104,14 @@ const appRoutes: Routes = [
     NgxGalleryModule,
     BrowserModule,
     ReactiveFormsModule,
+    CommonModule,
     RouterModule.forRoot(appRoutes)
 
 
   ],
   providers: [
               DatePipe, GlobalRef, ListGuideService, NumberService,
-              ReservationService, AuthService,
+              ReservationService, AuthService,  ForgotpasswordService,
               OrderService, PamentService, TransferService],
   bootstrap: [AppComponent]
 })
