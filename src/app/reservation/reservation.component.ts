@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { EasycalendarComponent } from '../components/easycalendar/easycalendar.component';
 import { ReservationService } from '../services/reservation.service';
 import { GlobalRef } from '../services/globalref';
@@ -30,8 +30,22 @@ export class ReservationComponent implements OnInit {
   daysLag = 0;
 
   constructor(private rs: ReservationService, private gr: GlobalRef,
-              private auth: AuthService,  private router: Router) {
+              private auth: AuthService,  private router: Router,
+              private renderer: Renderer2) {
     this.sUrlImage = gr.sUrlImageGlobal;
+
+
+    this.renderer.listen('window', 'click', (e: Event) => {
+        if (this.boolBeginCalendar && e.target !== document.getElementById('iconCalendarBegin') ) {
+            this.boolBeginCalendar = false;
+        }
+        if (this.boolEndCalendar && e.target !== document.getElementById('iconCalendarEnd') ) {
+          this.boolEndCalendar = false;
+      }
+
+    });
+
+
   }
 
   ngOnInit(): void {
@@ -57,6 +71,7 @@ export class ReservationComponent implements OnInit {
     this.beginCalendar.clear();
     document.getElementById('textCalenarBegin'). textContent = strDate;
     this.boolBeginCalendar = false;
+    this.boolEndCalendar = true;
 
   }
 

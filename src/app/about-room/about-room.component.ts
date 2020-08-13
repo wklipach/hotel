@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { EasycalendarComponent } from '../components/easycalendar/easycalendar.component';
 
 import {NgxGalleryOptions} from '@kolkov/ngx-gallery';
@@ -41,7 +41,20 @@ export class AboutRoomComponent implements OnInit {
   constructor(private auth: AuthService,
               private gr: GlobalRef,
               private router: Router,
-              private os: OrderService) { }
+              private os: OrderService,
+              private renderer: Renderer2) { 
+
+                this.renderer.listen('window', 'click', (e: Event) => {
+                  if (this.boolBeginCalendar && e.target !== document.getElementById('iconCalendarBegin') ) {
+                      this.boolBeginCalendar = false;
+                  }
+                  if (this.boolEndCalendar && e.target !== document.getElementById('iconCalendarEnd') ) {
+                    this.boolEndCalendar = false;
+                }
+
+              });
+
+              }
 
   ngOnInit(): void {
     this.galleryOptions = [
@@ -109,6 +122,7 @@ export class AboutRoomComponent implements OnInit {
     this.beginCalendar.clear();
     document.getElementById('textCalenarBegin').textContent = strDate;
     this.boolBeginCalendar = false;
+    this.boolEndCalendar = true;
 
   }
 
