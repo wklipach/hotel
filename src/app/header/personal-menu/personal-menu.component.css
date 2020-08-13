@@ -1,5 +1,4 @@
-a {color: #9b9a9e; padding: 0;}
-a:hover{  font-weight: 800;  background-color: #c6c8ca; color: white; }
+a {color: #A3BAC9;}
 
 .rounded-circle:hover{
   background: white;
@@ -8,7 +7,45 @@ a:hover{  font-weight: 800;  background-color: #c6c8ca; color: white; }
   background-color: #f9f9f9;
   color: #c6c8ca;
 }
-.nicon-menu{
-  width: 32px;
-  height:24px;
+.dropdown-menu {
+  width: 212px;
+  padding-left: 6px;
+}
+.nav {
+
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+
+span {
+  font-family: proxima-n-w01-reg, sans-serif;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  color: #A3BAC9;
+}
+span:hover {
+  color: #FF7F41;
+}
+
+header .nav-link {
+  color: #A3BAC9;
+}
+header .nav-link:hover {
+  color: #FF7F41;
+}
+.dropdown-menu a::after{
+  content: '';
+  display: block;
+  width: 50%;
+  background-color: #A3BAC9;
+  height: 1px;
+  transform: scale(0);
+  transition: all .3s;
+}
+.dropdown-menu a:hover::after{
+  transform: scale(1);
 }

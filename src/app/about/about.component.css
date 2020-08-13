@@ -1,5 +1,6 @@
 .container-fluid {
   max-width: 1180px;
+  margin-bottom: 30px;
 }
 h1 {
   color: #FF7F41;
@@ -21,10 +22,7 @@ p {
 a:hover{
   cursor: pointer;
 }
-.footer {
-  margin:0;
-  padding:0;
-}
+
 
 @media screen and (min-width:992px) and (max-width:1199px) {
 

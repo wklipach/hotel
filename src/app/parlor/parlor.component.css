@@ -1,3 +1,28 @@
+.leftside {
+  padding: 15px 10px 20px 50px;
+}
+.rightside {
+
+}
+.card-body {
+  border: 1px solid #dadcdc;
+  border-radius: 20px;
+  margin-bottom: 25px;
+}
+.buttons-pass {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 80px;
+}
+.buttons-card {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+.edit {
+  border: 1px solid #FF7F41;
+  border-radius: 20px;
+}
 @media screen and (min-width: 300px) and (max-width: 575.98px) {
 
  h3{

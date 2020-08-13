@@ -42,7 +42,7 @@ export class AboutRoomComponent implements OnInit {
               private gr: GlobalRef,
               private router: Router,
               private os: OrderService,
-              private renderer: Renderer2) { 
+              private renderer: Renderer2) {
 
                 this.renderer.listen('window', 'click', (e: Event) => {
                   if (this.boolBeginCalendar && e.target !== document.getElementById('iconCalendarBegin') ) {
@@ -62,6 +62,7 @@ export class AboutRoomComponent implements OnInit {
         width: '649px',
         height: '545px',
         thumbnailsColumns: 10,
+        thumbnailsPercent: 14,
         imageAnimation: NgxGalleryAnimation.Slide
       },
       // max-width 800

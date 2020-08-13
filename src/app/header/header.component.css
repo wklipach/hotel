@@ -1,6 +1,6 @@
 .navbar{
   padding: 0;
-  width: 1180px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 #navbar-content{
@@ -11,6 +11,7 @@ header .navbar-light {
 }
 header .navbar-brand{
   margin-right: 76px;
+  padding-top: 0;
 }
 
 header .nav-item{
@@ -20,6 +21,7 @@ header .nav-item{
   display: -webkit-inline-flex;
   display: inline-flex;
   margin-right: 35px;
+  padding-top: 8px;
 }
 
 header .nav-link {
@@ -44,16 +46,47 @@ header .nav-item a::after{
 header .nav-item a:hover::after{
   transform: scale(1);
 }
-
 .arrow{
   margin-left: 6px;
 }
+@media screen and (min-width:992px) and (max-width:1199px) {
+  .navbar {
+    width: 992px;
+    margin: 0 auto;
+  }
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-left: 0;
+  }
+  header .nav-item{
+    margin-right: 25px;
+  }
+  header .navbar-brand{
+    margin-right: 20px;
+  }
+  li:last-child {
+    margin: -3px 0 0 21px;
+  }
+  button {
+    margin-left: auto;
+    padding-right: 15px;
+  }
 
+}  /* КОНЕЦ 992 - 1200  */
 
 @media screen and (min-width:480px) and (max-width:800px) {
 
-}
+}  /* КОНЕЦ 480 - 800  */
 
 @media screen and (max-width:479px) {
+  .container-fluid {
+    padding: 0;
+  }
+  header .navbar-brand{
+    margin-right: 3px;
+    width: 220px;
+  }
+  button {
+    margin-right: 10px;
+  }
+}  /* КОНЕЦ 320 - 479  */
 
-}

@@ -1,22 +1,21 @@
-<div class="container-fluid">
+<app-header></app-header>
+<div class="container">
 
   <h3 class="alert mb-3 d-flex justify-content-between my-3 px-3" style="background-color: #eef1f2;">
     <span>Личный кабинет</span>
     <span>{{nick}}</span>
   </h3>
 
-  <div style="opacity:0; position: absolute;">{{id_user_vict}}</div>
-
   <div class="row">
 
-
+    <div style="opacity:0; position: absolute;">{{id_user_vict}}</div>
     <div class="col-10 pl-0">
 
       <!-- ВТОРАЯ ФОРМА НЕ СВЯЗАННАЯ С ФОТО class="rounded float-left" alt="Фото" -->
      <div class="row">
       <div class="col-sm-12 col-lg-9
                         order-2
-                        order-sm-2 order-lg-1">
+                        order-sm-2 order-lg-1 leftside">
         <form [formGroup]="parlorForm">
 
 
@@ -115,17 +114,17 @@
 
         </form>
 
-
+      <div class="buttons-pass">
         <button type="submit" class="btn btn-outline-primary my-3 mr-3" (click)="savecv()" [disabled]="parlorForm.invalid" style="width:120px">Сохранить</button>
         <button type="submit" class="btn btn-outline-primary my-3" (click)="back()" style="width:120px">Отмена</button>
       </div>
-
+     </div>
 
        <div class="col-sm-12 col-lg-3
                         order-1
                         order-sm-1 order-lg-2">
 
-        <div class="d-flex justify-content-center mt-3">
+        <div class="d-flex justify-content-center mt-3 rightside">
 
           <form [formGroup]="form">
 
@@ -152,38 +151,52 @@
     </div>
 
   </div>
-
 </div>
-  </div>
+
+  <div class="row">
+    <div class="col-12">
 
   <form [formGroup]="formReviewParlor">
 
-    <button (click)="clickaddreview()"> Добавить комментарий </button>
 
-    <div *ngIf="memoBool">
-      <textarea formControlName="messageInput" rows="7" cols="45" name="messageInput"></textarea>
+    <button type="button" class="btn btn-outline-primary my-3" (click)="clickaddreview()" style="width:220px">Добавить отзыв</button>
+
+       <div *ngIf="memoBool">
+      <textarea class="form-control" formControlName="messageInput" rows="6" cols="15" name="messageInput"></textarea>
+
       <p>
-        <button (click)="saveMessage()">Сохранить</button>
-        <button (click)="cancelMessage()">Отмена</button>
+        <button type="button" class="btn btn-outline-primary my-3 mr-2" (click)="saveMessage()">Сохранить</button>
+        <button type="button" class="btn btn-outline-primary my-3" (click)="cancelMessage()">Отмена</button>
        </p>
-    </div>
-    
 
-    <div *ngFor="let review of reviews">     
-      {{review.datemessage | date: 'dd.MM.yyyy HH:mm' }} {{review.message}} 
-      <button (click)="clickEditMessage(review.id, review.message)" >редактировать</button>
-      <button (click)="clickDeleteMessage(review.id)">удалить</button>
-    </div>
-
-    <div *ngIf="memoEditBool">
-      <textarea formControlName="messageEditInput" rows="7" cols="45" name="messageInput"></textarea>
-      <p>
-        <button (click)="saveEditMessage()">Сохранить</button>
-        <button (click)="cancelEditMessage()">Отмена</button>
-       </p>
     </div>
 
 
+    <div class="card-body" *ngFor="let review of reviews">
+     <div class="d-flex justify-content-between date">{{review.datemessage | date: 'dd.MM.yyyy HH:mm' }} </div>
+      <p>{{review.message}}</p>
+
+    <div class="buttons-card">
+      <button type="button" class="btn btn-outline-primary mb-1 mr-2" (click)="clickEditMessage(review.id, review.message)" >Редактировать</button>
+      <button type="button" class="btn btn-outline-danger mb-1" (click)="clickDeleteMessage(review.id)">Удалить</button>
+    </div>
+
+    </div>
+
+    <div  class="card-body" *ngIf="memoEditBool">
+      <textarea class="form-control edit" formControlName="messageEditInput" rows="6" cols="15" name="messageInput"></textarea>
+
+      <div class="buttons-card">
+        <button type="button" class="btn btn-outline-primary my-3 mr-2" (click)="saveEditMessage()">Сохранить</button>
+        <button type="button" class="btn btn-outline-primary my-3" (click)="cancelEditMessage()">Отмена</button>
+      </div>
+
+    </div>
 
   </form>
 
+
+
+  </div>
+  </div>
+</div>
