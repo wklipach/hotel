@@ -45,6 +45,7 @@ import { ForgotpasswordService } from './services/forgotpassword.service';
 import { RegisterComponent } from './entrance/register/register.component';
 import { PersonalMenuComponent } from './header/personal-menu/personal-menu.component';
 import { ParlorComponent } from './parlor/parlor.component';
+import { ReviewService } from './services/review.service';
 
 registerLocaleData(localeRu);
 
@@ -112,7 +113,7 @@ const appRoutes: Routes = [
   providers: [
               DatePipe, GlobalRef, ListGuideService, NumberService,
               ReservationService, AuthService,  ForgotpasswordService,
-              OrderService, PamentService, TransferService],
+              OrderService, PamentService, TransferService, ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

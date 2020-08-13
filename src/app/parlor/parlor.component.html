@@ -156,4 +156,34 @@
 </div>
   </div>
 
+  <form [formGroup]="formReviewParlor">
+
+    <button (click)="clickaddreview()"> Добавить комментарий </button>
+
+    <div *ngIf="memoBool">
+      <textarea formControlName="messageInput" rows="7" cols="45" name="messageInput"></textarea>
+      <p>
+        <button (click)="saveMessage()">Сохранить</button>
+        <button (click)="cancelMessage()">Отмена</button>
+       </p>
+    </div>
+    
+
+    <div *ngFor="let review of reviews">     
+      {{review.datemessage | date: 'dd.MM.yyyy HH:mm' }} {{review.message}} 
+      <button (click)="clickEditMessage(review.id, review.message)" >редактировать</button>
+      <button (click)="clickDeleteMessage(review.id)">удалить</button>
+    </div>
+
+    <div *ngIf="memoEditBool">
+      <textarea formControlName="messageEditInput" rows="7" cols="45" name="messageInput"></textarea>
+      <p>
+        <button (click)="saveEditMessage()">Сохранить</button>
+        <button (click)="cancelEditMessage()">Отмена</button>
+       </p>
+    </div>
+
+
+
+  </form>
 

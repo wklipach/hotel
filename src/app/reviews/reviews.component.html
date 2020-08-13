@@ -71,6 +71,32 @@
       <hr class="d-flex justify-content-center ln-rb">
 
 
+
+      <div *ngFor="let review of reviews">     
+  
+        <div class="d-flex justify-content-start reviews-block">
+          <div class="photo">
+            <img src="{{sUrlAvatarGlobal}}{{review.avatar_name}}" height="60" width="60"/>
+          </div>
+          <div class="reviews-description">
+          <span class="title-rb">{{review.name}}  {{review.surname}}</span><span class="date">
+            {{review.datemessage | date: 'dd.MM.yyyy HH:mm' }}
+          </span>
+          <div class="txt-rb">
+            {{review.message}} 
+          </div>
+          </div>
+          </div>
+        <!--
+        -->
+      </div>
+
+
+
+
+
+
+
     </div>
   </div>
 </div>

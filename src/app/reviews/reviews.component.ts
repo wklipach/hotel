@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalRef } from '../services/globalref';
+import { ReviewService } from '../services/review.service';
 
 @Component({
   selector: 'app-reviews',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewsComponent implements OnInit {
 
-  constructor() { }
+  reviews = [];
+  sUrlAvatarGlobal = '';
+
+  constructor(private gr: GlobalRef, private rv: ReviewService) {
+
+    this.sUrlAvatarGlobal = gr.sUrlAvatarGlobal;
+
+  }
 
   ngOnInit(): void {
+    this.rv.getAllReview().subscribe( (reviewres: Array<any>) => {
+      this.reviews = reviewres;
+      console.log('this.reviews =', this.reviews);
+   });
   }
 
 }

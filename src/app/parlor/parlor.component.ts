@@ -4,6 +4,7 @@ import {AuthService} from '../services/auth.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {GlobalRef} from '../services/globalref';
 import * as CryptoJS from 'crypto-js';
+import { ReviewService } from '../services/review.service';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class ParlorComponent implements OnInit {
 
   form: FormGroup;
   parlorForm: FormGroup;
+  formReviewParlor: FormGroup;
   genderList = [];
 
   loading = false;
@@ -28,37 +30,38 @@ export class ParlorComponent implements OnInit {
   public bErrorRepeatPassword = false;
   public bErrorEmptyPassword = false;
 
+  public reviews = [];
+  public memoBool = false;
+  public memoEditBool = false;
+  id_edit = -1;
+
 
   constructor(private router: Router, private authService: AuthService,
               private fb: FormBuilder, private gr: GlobalRef,
+              private rv: ReviewService,
               private cd: ChangeDetectorRef) {
     this.createForm();
   }
 
   createParlorForm() {
     this.parlorForm = new FormGroup({
-      inputUserName: new FormControl({}, []),
       inputName: new FormControl('', []),
       inputLastName: new FormControl('', []),
-      inputPatronymic: new FormControl('', []),
-      inputZip: new FormControl('', []),
-      inputAddress: new FormControl('', []),
       inputPhone: new FormControl('', []),
-      inputPhone2: new FormControl('', []),
       inputNewPassword1: new FormControl('', []),
       inputNewPassword2: new FormControl('', [], [this.password2AsyncValidator.bind(this)]),
       inputEmail: new FormControl(null, [
         Validators.required,
         Validators.email
       ], [this.userEmailAsyncValidator.bind(this)]),
-      inputGender: new FormControl('', []),
-      inputBirth: new FormControl('', [])
     });
 
 
+    this.formReviewParlor = new FormGroup({
+      messageInput: new FormControl('', []),
+      messageEditInput: new FormControl('', [])
+    });
 
-    this.genderList = [{id: 1, name: 'Мужской'}, {id: 0, name: 'Женский'}];
-    this.parlorForm.controls.inputUserName.disable();
     this.loadUserInfo();
   }
 
@@ -106,6 +109,7 @@ export class ParlorComponent implements OnInit {
       this.id_user_vict = Number(Res.id_user_hotel);
       this.onLoadFromBaseAvatar();
       this.createParlorForm();
+      this.refreshMessage();
 
   }
 
@@ -327,6 +331,78 @@ export class ParlorComponent implements OnInit {
   accessPassword() {
     this.bShowChangePassword = !this.bShowChangePassword;
     this.cd.detectChanges();  // чтобы разрешить изменения во фрейме, иначе ошибка
+  }
+
+  clickaddreview() {
+    this.memoBool = true;
+    this.memoEditBool = false;
+  }
+
+  cancelMessage() {
+    this.formReviewParlor.controls.messageInput.setValue('');
+    this.memoBool = false;
+    this.memoEditBool = false;
+  }
+
+  saveMessage() {
+
+    const iduser = this.id_user_vict;
+    const review = this.formReviewParlor.controls.messageInput.value;
+
+    if (review.length === 0) {
+      return;
+    }
+
+    this.rv.setReview(iduser, review).subscribe( reviewres => {
+         console.log('reviewres', reviewres);
+         this.refreshMessage();
+      });
+
+  }
+
+  clickEditMessage(id, message) {
+    this.memoBool = false;
+    this.memoEditBool = true;
+    this.formReviewParlor.controls.messageEditInput.setValue(message);
+    this.id_edit = id;
+  }
+
+  clickDeleteMessage(id) {
+
+    if (confirm('Вы уверены что желаете удалить комментарий?')) {
+      // Save it!
+      this.rv.deleteReview(id).subscribe( reviewres => {
+        this.refreshMessage();
+     });
+    }
+
+  }
+
+  refreshMessage() {
+    console.log('refreshMessage', this.id_user_vict);
+    this.rv.getUserReview(this.id_user_vict).subscribe( (reviewres: Array<any>) => {
+      this.reviews = reviewres;
+      console.log('this.reviews =', this.reviews);
+   });
+  }
+
+  cancelEditMessage() {
+    this.memoBool = false;
+    this.memoEditBool = false;
+  }
+
+  saveEditMessage() {
+    const review = this.formReviewParlor.controls.messageEditInput.value.trim();
+    if (review.length === 0) {
+      return;
+    }
+
+    this.rv.setUpdateReview(this.id_edit, review).subscribe( reviewres => {
+      this.id_edit = -1;
+      this.memoBool = false;
+      this.memoEditBool = false;
+      this.refreshMessage();
+   });
   }
 
 
