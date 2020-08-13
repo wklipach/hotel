@@ -10,7 +10,7 @@
   background-color: white;
   z-index: 9;
 }
-
+/*
 .calendar-panel::before, ::after {
   content: '';
   border: 10px solid transparent;
@@ -24,8 +24,7 @@
   border: 10px solid transparent;
   border-left: 10px solid #fff;
   right: -20px;
-}
-
+}*/
 .top{
   height: 32px;
   padding: 0 6px;

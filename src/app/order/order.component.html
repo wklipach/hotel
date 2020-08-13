@@ -4,7 +4,8 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-7 additional-features">
+      <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-2
+                        order-md-2 order-lg-1 additional-features">
         <h2>Добавьте дополнительные возможности</h2>
 
         <div *ngIf="addserv && addserv.length>0">
@@ -113,12 +114,24 @@
 
       </div>
 
-      <div class="col-4 order-details">
+      <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-1
+                        order-md-1 order-lg-2 order-details">
 
         <h2>Детали заказа</h2>
 
         <div class="image">
-          <img src="{{gr.sUrlImageGlobal}}{{sPhoto}}" height="200" width="290"/></div>
+          <img src="{{gr.sUrlImageGlobal}}{{sPhoto}}" height="200" width="290"/>
+
+
+          <div class="d-flex flex-column arrows">
+            <span><img (click)="clickUpPhoto()" class="arr mt-1" src="../../assets/img/chevron-up.svg"/></span>
+            <span><img (click)="clickDawnPhoto()" class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/></span>
+          </div>
+
+        </div>
+
+
+
 
         <div class="d-flex justify-content-between pt-3">
           <span>Тип номера</span>
@@ -146,6 +159,9 @@
           <span class="information">{{countChildren}} детей</span>
         </div>
 
+        <hr>
+
+
         <div class="d-flex justify-content-between py-1">
           <span>Без налога</span>  <span class="information">{{costWithoutServices}} руб</span>
         </div>
@@ -154,6 +170,7 @@
           <span>Налог (0 %)</span>  <span class="information">0 руб</span>
         </div>
 
+        <hr>
 
         <div class="additionally">
           <span>Дополнительно:</span>
@@ -173,6 +190,8 @@
           <a href="#" class="btn-coupon">Добавить</a>
           -->
         </div>
+
+        <hr>
 
         <div class="d-flex justify-content-between py-1">
           <span> Итого</span>  <span class="information">{{totalCost}} руб</span>
@@ -194,8 +213,9 @@
 
 </form>
 
+<!--
 <div class="d-flex flex-column arrows">
   <span><img (click)="clickUpPhoto()" class="arr mt-1" src="../../assets/img/chevron-up.svg"/></span>
   <span><img (click)="clickDawnPhoto()" class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/></span>
 </div>
-
+-->

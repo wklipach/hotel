@@ -21,7 +21,7 @@
     "@angular/router": "~9.1.0",
     "@fortawesome/fontawesome-free": "^5.14.0",
     "@kolkov/ngx-gallery": "^1.2.3",
-    "@types/googlemaps": "^3.39.11",
+    "@types/googlemaps": "^3.39.12",
     "bootstrap": "^4.5.0",
     "crypto-js": "^4.0.0",
     "font-awesome": "^4.7.0",
@@ -55,5 +55,5 @@
   "browser": {
     "crypto": false,
     "stream": false
-  } 
+  }
 }

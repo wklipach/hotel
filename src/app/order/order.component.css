@@ -76,12 +76,12 @@ label, span {
 }
 .check-auto {
 }
-
 .order-details {
   max-width: 330px;
   height: 770px;
-  padding: 35px 37px 35px 0;
+  padding: 35px 37px 35px 30px;
   background-color: #fafafa;
+  margin-left: 100px;
 }
 .information {
   font-size: 14px;
@@ -151,9 +151,9 @@ label, span {
   z-index: 2;
 }
 .arrows {
+  top: 175px;
+  right: -28px;
   position: absolute;
-  top: 180px;
-  right: 511px;
 }
 .arr {
   width: 14px;
@@ -207,3 +207,50 @@ label, span {
 .close:hover {
   cursor: pointer;
 }
+@media screen and (min-width:992px) and (max-width:1199px) {
+.additional-features {
+  padding-left: 45px;
+}
+  .block {
+    width: 550px;
+  }
+.order-details {
+
+}
+hr {
+  width: 100%;
+  solid-color: #dadcdc;
+}
+}  /* КОНЕЦ 992 - 1199  lg  */
+
+@media screen and (min-width:577px) and (max-width:991px) {
+  .block {
+    text-align: center;
+    width: 570px;
+    height: auto;
+    min-height: 85px;
+    border: 1px solid #ced0d0;
+    border-radius: 3px;
+    padding: 21px 31px 13px 23px;
+    margin-bottom: 18px;
+  }
+  .additional-features {
+    padding-left: 15px;
+
+  }
+
+}  /* КОНЕЦ 577 - 991  md */
+
+@media screen and (max-width:576px) {
+  .order-details {
+    max-width: 330px;
+    height: 770px;
+    padding: 3px 3px 3px 3px;
+    background-color: #fafafa;
+    margin-left: 1px;
+  }
+  .image {
+    max-width: 300px;
+  }
+}  /* КОНЕЦ 320 - 576  - */
+

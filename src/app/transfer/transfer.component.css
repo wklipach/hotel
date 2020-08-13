@@ -1,3 +1,6 @@
+.container {
+  padding: 0;
+}
 h2{
   font-family: helvetica-w01-roman, helvetica-w02-roman, helvetica-lt-w10-roman, sans-serif;
   font-size: 42px;
@@ -6,20 +9,19 @@ h2{
   color: #212529;
   margin-top: 40px;
 }
-
 hr{
-  width: 10%;
+  width: 190px;
   margin-top: 1px;
   border-top: 1px solid #808080;
   margin-bottom: 46px;
 }
-
 .item-viteb, .item-ladoga, .item-pulkovo {
   font-family:open sans,sans-serif;
   width:336px;
   height: 487px;
   background-color: #fff;
   margin-right: 30px;
+  margin-bottom: 20px;
   padding: 15px;
   box-shadow: 1px 3px 4px 2px #dadcdc;
 }
@@ -35,7 +37,6 @@ hr{
   z-index: 3;
   position: absolute;
 }
-
 .phone {
   font-size: 14px;
   color: #7FCCF7;
@@ -89,8 +90,8 @@ a.btn-order:active {
 .description {
   font-family: helvetica-w01-light,helvetica-w02-light,sans-serif;
   font-size: 20px;
-  max-width: 50%;
-  margin: 100px 0;
+  max-width: 90%;
+  margin: 60px 0;
 }
 
 .transfer-order {
@@ -120,3 +121,84 @@ h3 {
   border-radius: 20px;
   margin: 35px 10px 25px auto;
 }
+
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+  .item-viteb, .item-ladoga, .item-pulkovo {
+    width:336px;
+    height: 487px;
+    margin-right: auto;
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+}  /* КОНЕЦ 992 - 1200  */
+
+@media screen and (min-width:480px) and (max-width:991px) {
+.col-12 {
+  flex-wrap: wrap;
+
+}
+  .item-viteb, .item-ladoga, .item-pulkovo {
+    width:480px;
+    height: auto;
+    margin: 0 auto 20px auto;
+
+  }
+  .description {
+    width: 480px;
+  }
+img {
+  width: 100%;
+  height: auto;
+}
+  .transfer-order {
+    width: 480px;
+    margin: 0 auto;
+  }
+  .client-info {
+    width: 100%;
+    padding: 0 20px 0 10px;
+  }
+  input {
+    padding-right: 6px;
+
+  }
+}  /* КОНЕЦ 480 - 991  */
+
+@media screen and (max-width:479px) {
+  .col-12 {
+    flex-wrap: wrap;
+  }
+  .item-viteb, .item-ladoga, .item-pulkovo {
+    width:300px;
+    height: auto;
+    margin: 0 auto 20px auto;
+  }
+  .description {
+    width: 300px;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+  .transfer-order {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .prise-order {
+    font-size: 22px;
+    font-weight: 700;
+    color: #F37E48;
+    margin-top: 15px;
+    padding-left: 18px;
+    line-height: 0.5;
+  }
+  .client-info {
+    width: 100%;
+    padding: 0 10px 0 6px;
+  }
+ input {
+    padding-right: 3px;
+    width: 140px;
+  }
+}  /* КОНЕЦ 320 - 479  */

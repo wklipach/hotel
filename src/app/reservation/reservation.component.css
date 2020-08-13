@@ -30,17 +30,21 @@ h1{
   margin: auto 0;
   line-height: 34px;
   display: inline-block;
-  border: 1px solid #dadcdc;
+  border-top: 1px solid #dadcdc;
+  border-right: 1px solid #dadcdc;
+  border-bottom: 1px solid #dadcdc;
   border-radius: 1px;
   box-sizing: border-box;
   position: relative;
   text-align: left;
   white-space: nowrap;
 }
+.check-in {
+  border-left: 1px solid #dadcdc;
+}
 .check-in, .check-out:hover {
   cursor: pointer;
 }
-
 .search-results {
   height: 70px;
   padding: 20px 0;
@@ -48,7 +52,6 @@ h1{
   font-size: 18px;
   display: flex;
   justify-content: space-between;
-
   border-bottom: 1px solid #dadcdc;
 }
 .search-results span{
@@ -197,12 +200,60 @@ img {
   height: 350px;
 }
 
-.e2asy-calendar-left{
-  float:left;
+.easy-calendar-left{
+  position: absolute;
   width: 274px;
-  height: 224px;
-  margin: 0 auto;
+  height: auto;
+}
+
+.easy-calendar-right{
+  position: absolute;
+  width: 274px;
+  height: auto;
+  margin-left: 179px;
 }
 .comfort-block img {
   margin-right: 8px;
 }
+
+/*  margin-top: -10px;
+  margin-left: 42px;
+  border: 1px solid #dadcdc;*/
+@media screen and (min-width:992px) and (max-width:1199px) {
+
+}  /* КОНЕЦ 992 - 1199  lg  */
+
+@media screen and (min-width:577px) and (max-width:991px) {
+
+
+}  /* КОНЕЦ 577 - 991  md */
+
+@media screen and (max-width:576px) {
+  h1{
+    width: auto;
+    margin: 10px 0 15px 0;
+  }
+  .choice-block {
+    flex-direction: column;
+    margin-bottom: 20px;
+    height: auto;
+  }
+  .check-in, .check-out, .check-col, .check-chldr {
+    width: 30%;
+    margin: auto 0;
+    border-top: 1px solid #dadcdc;
+    border-left: 1px solid #dadcdc;
+    border-right: 1px solid #dadcdc;
+    border-bottom: none;
+  }
+  .check-chldr {
+    border-bottom: 1px solid #dadcdc;
+}
+  .btn-choice {
+    margin: 15px;
+  }
+  .room-block {
+    flex-direction: column;
+    justify-content: center;
+  }
+}  /* КОНЕЦ 320 - 576  - */

@@ -1,13 +1,19 @@
+.container{
+  min-height: calc(100vh - 160px);
+}
 h1 {
   font-family: proxima-n-w01-reg, sans-serif;
   font-size: 36px;
-  margin-top: 63px;
+  margin-top: 43px;
+  text-align: center;
 }
 .ln {
+  position: relative;
   width: 180px;
   border-top: 1px solid #000000;
   margin-top: 8px;
-  margin-bottom: 90px;
+  margin-bottom: 60px;
+  text-align: center;
 }
 .ln-rb {
   width: 700px;
@@ -44,3 +50,80 @@ h1 {
 .date {
   font-size: 13px;
 }
+
+
+@media screen and (min-width:801px) and (max-width:1199px) {
+  .container {
+    max-width: 1199px;
+    min-height: calc(100vh - 160px);
+  }
+  h1 {
+    font-family: proxima-n-w01-reg, sans-serif;
+    font-size: 36px;
+    margin-top: 43px;
+    text-align: center;
+  }
+  .ln {
+    width: 180px;
+    border-top: 1px solid #000000;
+    margin-top: 8px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}  /* КОНЕЦ 992 - 1199  */
+
+@media screen and (min-width:480px) and (max-width:800px) {
+
+.container {
+  max-width: 800px;
+  min-height: calc(100vh - 160px);
+}
+h1 {
+  font-size: 28px;
+  margin-top: 18px;
+}
+.ln {
+  width: 180px;
+  border-top: 1px solid #000000;
+  margin-top: 8px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.reviews-block {
+  width: auto;
+  height: auto;
+  margin: 10px auto 0 auto;
+  padding: 4px;
+  border-radius: 6px;
+  margin-right: 9px;
+}
+}  /* КОНЕЦ 480 - 800  */
+
+@media screen and (min-width:300px) and (max-width:479px) {
+.container {
+  padding: 0;
+}
+h1 {
+  font-size: 28px;
+  margin-top: 18px;
+}
+.ln {
+  width: 180px;
+  border-top: 1px solid #000000;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.reviews-block {
+  width: auto;
+  height: auto;
+  margin: 10px auto 0 auto;
+  padding: 4px;
+  border-radius: 6px;
+  margin-right: 9px;
+}
+.date {
+  position: absolute;
+  opacity: 0;
+}
+}  /* КОНЕЦ 300 - 479  */
