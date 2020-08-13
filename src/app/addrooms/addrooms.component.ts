@@ -110,6 +110,7 @@ export class AddroomsComponent implements OnInit {
     reader.onload = (event) => {
       const img = new Image();
       img.id = 'img' + indexImg.toString();
+      img.width = 250;
 
       let ext = '';
       const  parts = files[0].name.split('.');
