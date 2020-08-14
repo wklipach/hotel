@@ -44,11 +44,16 @@ export class AboutRoomComponent implements OnInit {
               private os: OrderService,
               private renderer: Renderer2) {
 
+                const elemNext = document.getElementById('imgEasyCalendarNext');
+                const elemPrev =  document.getElementById('imgEasyCalendarPrev');
+
                 this.renderer.listen('window', 'click', (e: Event) => {
-                  if (this.boolBeginCalendar && e.target !== document.getElementById('iconCalendarBegin') ) {
+                  if (this.boolBeginCalendar && e.target !== document.getElementById('iconCalendarBegin') &&
+                      e.target !== elemNext && e.target !== elemPrev) {
                       this.boolBeginCalendar = false;
                   }
-                  if (this.boolEndCalendar && e.target !== document.getElementById('iconCalendarEnd') ) {
+                  if (this.boolEndCalendar && e.target !== document.getElementById('iconCalendarEnd') &&
+                      e.target !== elemNext && e.target !== elemPrev) {
                     this.boolEndCalendar = false;
                 }
 
@@ -120,7 +125,19 @@ export class AboutRoomComponent implements OnInit {
 
 
   clickDayBegin(strDate) {
+
+    const dDateBegin = this.toDate(strDate);
+    dDateBegin.setHours(0, 0, 0, 0);
+    const curDate = new Date();
+    curDate.setHours(0, 0, 0, 0);
     this.beginCalendar.clear();
+
+    if (curDate > dDateBegin) {
+      document.getElementById('textCalenarBegin').textContent = 'Заезд';
+      this.boolBeginCalendar = false;
+      return;
+    }
+
     document.getElementById('textCalenarBegin').textContent = strDate;
     this.boolBeginCalendar = false;
     this.boolEndCalendar = true;
@@ -128,7 +145,19 @@ export class AboutRoomComponent implements OnInit {
   }
 
   clickDayEnd(strDate) {
+
+    const dDateEnd = this.toDate(strDate);
+    dDateEnd.setHours(0, 0, 0, 0);
+    const curDate = new Date();
+    curDate.setHours(0, 0, 0, 0);
     this.endCalendar.clear();
+
+    if (curDate > dDateEnd) {
+      document.getElementById('textCalenarEnd').textContent = 'Выезд';
+      this.boolEndCalendar = false;
+      return;
+    }
+
     document.getElementById('textCalenarEnd').textContent = strDate;
     this.boolEndCalendar = false;
 

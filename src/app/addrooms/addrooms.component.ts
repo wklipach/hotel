@@ -3,6 +3,7 @@ import { ListGuideService } from '../services/list-guide.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import { NumberService } from '../services/number.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-addrooms',
@@ -21,7 +22,8 @@ export class AddroomsComponent implements OnInit {
   indexImg = 0;
   addroomsForm: FormGroup;
 
-  constructor(private lg: ListGuideService, private ns: NumberService, private router: Router) {
+  constructor(private lg: ListGuideService, private ns: NumberService, 
+              private router: Router, private authService: AuthService) {
     this.addroomsForm  = new FormGroup({
       nameRoom: new FormControl(''),
       maxGuest: new FormControl(''),
@@ -39,6 +41,12 @@ export class AddroomsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    const editor = this.authService.getEditorStorage();
+    if (editor !== 1) {
+       this.router.navigate(['/']);
+    }
+
     this.loadBlanc();
   }
 

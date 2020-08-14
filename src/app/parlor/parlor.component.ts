@@ -40,7 +40,13 @@ export class ParlorComponent implements OnInit {
               private fb: FormBuilder, private gr: GlobalRef,
               private rv: ReviewService,
               private cd: ChangeDetectorRef) {
-    this.createForm();
+
+                const editor = this.authService.getEditorStorage();
+                if (editor !== 1) {
+                   this.router.navigate(['/']);
+                }
+
+                this.createForm();
   }
 
   createParlorForm() {
@@ -103,13 +109,13 @@ export class ParlorComponent implements OnInit {
 
   ngOnInit(): void {
 
-      const Res = this.authService.loginUserStorage();
-      this.nick = Res.hotelUserName;
-      console.log('Res=', Res);
-      this.id_user_vict = Number(Res.id_user_hotel);
-      this.onLoadFromBaseAvatar();
-      this.createParlorForm();
-      this.refreshMessage();
+     const Res = this.authService.loginUserStorage();
+     this.nick = Res.hotelUserName;
+     console.log('Res=', Res);
+     this.id_user_vict = Number(Res.id_user_hotel);
+     this.onLoadFromBaseAvatar();
+     this.createParlorForm();
+     this.refreshMessage();
 
   }
 
@@ -175,6 +181,10 @@ export class ParlorComponent implements OnInit {
 
       if (Array(aRes).length === 0 ) {
         return;
+      }
+
+      if (!aRes[0]) {
+         return;
       }
 
       const S = aRes[0].avatar_name;

@@ -46,6 +46,8 @@ import { RegisterComponent } from './entrance/register/register.component';
 import { PersonalMenuComponent } from './header/personal-menu/personal-menu.component';
 import { ParlorComponent } from './parlor/parlor.component';
 import { ReviewService } from './services/review.service';
+import { CashlessComponent } from './cashless/cashless.component';
+import { OrderlistComponent } from './orderlist/orderlist.component';
 
 registerLocaleData(localeRu);
 
@@ -66,7 +68,8 @@ const appRoutes: Routes = [
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'parlor', component: ParlorComponent},
-  
+  {path: 'cashless', component: CashlessComponent},
+  {path: 'orderlist', component: OrderlistComponent},
   {path: 'test', component: TestpageComponent}
 ];
 
@@ -98,7 +101,9 @@ const appRoutes: Routes = [
     RegisterComponent,
     PersonalMenuComponent,
     ParlorComponent,
-    TestpageComponent
+    TestpageComponent,
+    CashlessComponent,
+    OrderlistComponent
   ],
   imports: [
     HttpClientModule,

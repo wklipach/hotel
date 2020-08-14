@@ -40,7 +40,8 @@ export class OrderComponent implements OnInit {
       email: new FormControl(''),
       phone: new FormControl(''),
       wishes: new FormControl(''),
-      coupon: new FormControl('')
+      coupon: new FormControl(''),
+      cashless: new FormControl('')
     });
 
    }
@@ -270,6 +271,13 @@ export class OrderComponent implements OnInit {
    const email = this.orderForm.controls.email.value;
    const phone = this.orderForm.controls.phone.value;
    const orderdescription = this.orderForm.controls.wishes.value;
+   const orderpay = this.orderForm.controls.cashless.value;
+
+   let boolCashless = false;
+   if (orderpay) {
+    boolCashless = true;
+   }
+
 
    if (!name || name === '') {
     this.sError = 'Введите ваше имя.';
@@ -310,9 +318,13 @@ export class OrderComponent implements OnInit {
         const couponsuccess = false;
         const totalrub = this.totalCost;
         const description = orderdescription;
+        let deposit = 0;
+        if (this.room.price_weekdays) {
+          deposit = this.room.price_weekdays;
+        }
 
         this.os.setInsertOrder(idnumber, datebegin, dateend, iduser, coupon,
-                                couponsuccess, totalrub, description ).subscribe( numberorder => {
+                                couponsuccess, totalrub, description, boolCashless, deposit).subscribe( numberorder => {
 
           if (numberorder) {
             const id_order  = numberorder[0][0].id_order;
@@ -323,13 +335,18 @@ export class OrderComponent implements OnInit {
                 this.os.setDateToNumber(id_order, this.room.id, datebegin, dateend).subscribe( DateToNumber => {
                   console.log('!!!!!');
 
-                  // после того как завели заказ начинаем процесс оплаты
+                    // после того как завели заказ начинаем процесс оплаты
+                  if (!boolCashless) {
                   this.ps.processPayment(id_order, totalrub).subscribe( valuePay => {
-                    console.log(valuePay);
-                    document.write(valuePay.toString());
-                    });
+                      console.log(valuePay);
+                      document.write(valuePay.toString());
+                      });
+                   }
 
-                  // this.router.navigate(['/reservation']);
+                  if (boolCashless) {
+                   this.router.navigate(['/cashless'], { queryParams: {id_order} });
+                  }
+
                 });
               }
             });

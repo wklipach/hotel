@@ -1,0 +1,27 @@
+
+
+<div *ngFor="let order of orderlist">
+    Заказчик: {{order.surname+ ' '+order.tname+' '+order.phone+' '+order.email}}<br>
+    Заказ №{{order.id}} {{order.name}} {{order.date_begin | date: 'dd.MM.yyyy'}} {{order.date_end | date: 'dd.MM.yyyy'}} 
+    Сумма: {{order.total_rub}} 
+    Залог: {{order.deposit}} 
+    
+    <div *ngIf="order.bitCashless && order.bitCashless.data[0]===1">Безналичный платеж</div>
+    <div *ngIf="!order.bitCashless">Наличный платеж</div>
+    <br>
+    <div *ngIf="order.paysuccess === 0">
+        Платеж не подтвержден
+    </div>
+    <div *ngIf="order.paysuccess === 1">
+        Платеж подтвержден
+    </div>
+
+    <button (click)="deleteorder(order.id)">Удалить</button>
+
+    <div *ngIf="order.paysuccess === 0">
+       <button (click)="payorder(order.id)">Подтвердить</button>
+    </div>
+
+    <div>------------------------</div>
+
+</div>               

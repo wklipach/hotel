@@ -3,11 +3,11 @@
   <div class="d-flex justify-content-start top">
 
     <span class="mr-auto prev" (click)="prev()">
-      <img class="arr" src="../../assets/img/arrow-left-fill.svg" height="20" width="20"/></span>
+      <img id="imgEasyCalendarPrev" class="arr" src="../../assets/img/arrow-left-fill.svg" height="20" width="20"/></span>
     <span class="month-year mr-2">{{this.curDate.toLocaleString('ru', { month: 'long'})}}</span>
     <span class="year mr-auto">{{curDate.getFullYear()}}</span>
     <span class="next" (click)="next()" >
-      <img class="arr" src="../../assets/img/arrow-right-fill.svg" height="20" width="20"/></span>
+      <img id="imgEasyCalendarNext" class="arr" src="../../assets/img/arrow-right-fill.svg" height="20" width="20"/></span>
 
   </div>
 
@@ -59,8 +59,8 @@
 
   <!--   Потом решим оставить или нет -->
   <div class="d-flex justify-content-between">
-    <span class="today" (click)="now()">сегодня</span>
-    <span class="clear" (click)="clear()">очистить</span>
+    <span id="elemEasyNow" class="today" (click)="now()">сегодня</span>
+    <span id="elemEasyClear" class="clear" (click)="clear()">очистить</span>
   </div>
 
 

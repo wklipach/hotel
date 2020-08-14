@@ -17,6 +17,12 @@ export class OrderService {
     return this.http.get(this.gr.sUrlGlobal + 'order', {params: varparams});
   }
 
+  getOrderList() {
+    const varparams = new HttpParams()
+    .set('get_order_list', 'get_order_list');
+    return this.http.get(this.gr.sUrlGlobal + 'order', {params: varparams});
+  }
+
   getUserToOrder(name: string, surname: string, email: string, phone: string) {
       const varparams = new HttpParams()
       .set('get_user_toorder', 'get_user_toorder')
@@ -36,10 +42,25 @@ export class OrderService {
       return this.http.get(this.gr.sUrlGlobal + 'order', {params: varparams});
   }
 
+  getOrder(idorder) {
+    const varparams = new HttpParams()
+    .set('get_order', 'get_order')
+    .set('id_order', idorder);
+    return this.http.get(this.gr.sUrlGlobal + 'order', {params: varparams});
+  }
+
+  getAdditionalOrder(idorder) {
+    const varparams = new HttpParams()
+    .set('get_additional_order', 'get_additional_order')
+    .set('id_order', idorder);
+    return this.http.get(this.gr.sUrlGlobal + 'order', {params: varparams});
+  }
+
+
 
   setInsertOrder(idnumber: number, datebegin: Date, dateend: Date, iduser: number,
                  coupon: string, couponsuccess: boolean,
-                 totalrub: number, description: string) {
+                 totalrub: number, description: string, boolCashless: boolean, deposit: number) {
 
                   console.log('datebegin=', datebegin);
 
@@ -52,7 +73,9 @@ export class OrderService {
                          date_begin: isoDateBegin, date_end: isoDateEnd,
                          id_user: iduser, coupon, coupon_success: couponsuccess,
                          total_rub: totalrub,
-                         description};
+                         description,
+                         boolCashless,
+                         deposit};
                   return this.http.post(this.gr.sUrlGlobal + 'order', datamessage);
 
 }
@@ -61,6 +84,18 @@ setAddService(idnumber, addserv: any) {
 
    const datamessage = {insert_addserv: 'insert_addserv', id_number: idnumber, addserv};
    return this.http.post(this.gr.sUrlGlobal + 'order', datamessage);
+}
+
+setPayOrder(idorder) {
+
+  const datamessage = {pay_order: 'pay_order', id_order: idorder};
+  return this.http.post(this.gr.sUrlGlobal + 'order', datamessage);
+}
+
+setDeleteOrder(idorder) {
+
+  const datamessage = {delete_order: 'delete_order', id_order: idorder};
+  return this.http.post(this.gr.sUrlGlobal + 'order', datamessage);
 }
 
 setDateToNumber(idorder, idnumber, datebegin, dateend)  {

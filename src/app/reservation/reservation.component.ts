@@ -36,10 +36,18 @@ export class ReservationComponent implements OnInit {
 
 
     this.renderer.listen('window', 'click', (e: Event) => {
-        if (this.boolBeginCalendar && e.target !== document.getElementById('iconCalendarBegin') ) {
+
+
+      const elemNext = document.getElementById('imgEasyCalendarNext');
+      const elemPrev =  document.getElementById('imgEasyCalendarPrev');
+
+      if (this.boolBeginCalendar && e.target !== document.getElementById('iconCalendarBegin') &&
+            e.target !== elemNext && e.target !== elemPrev) {
             this.boolBeginCalendar = false;
         }
-        if (this.boolEndCalendar && e.target !== document.getElementById('iconCalendarEnd') ) {
+
+      if (this.boolEndCalendar && e.target !== document.getElementById('iconCalendarEnd') &&
+          e.target !== elemNext && e.target !== elemPrev) {
           this.boolEndCalendar = false;
       }
 
@@ -68,15 +76,37 @@ export class ReservationComponent implements OnInit {
 
 
   clickDayBegin(strDate) {
+    const dDateBegin = this.toDate(strDate);
+    dDateBegin.setHours(0, 0, 0, 0);
+    const curDate = new Date();
+    curDate.setHours(0, 0, 0, 0);
     this.beginCalendar.clear();
-    document.getElementById('textCalenarBegin'). textContent = strDate;
+
+    if (curDate > dDateBegin) {
+      document.getElementById('textCalenarBegin').textContent = 'Заезд';
+      this.boolBeginCalendar = false;
+      return;
+    }
+
+    document.getElementById('textCalenarBegin').textContent = strDate;
     this.boolBeginCalendar = false;
     this.boolEndCalendar = true;
 
   }
 
   clickDayEnd(strDate) {
+    const dDateEnd = this.toDate(strDate);
+    dDateEnd.setHours(0, 0, 0, 0);
+    const curDate = new Date();
+    curDate.setHours(0, 0, 0, 0);
     this.endCalendar.clear();
+
+    if (curDate > dDateEnd) {
+      document.getElementById('textCalenarEnd').textContent = 'Выезд';
+      this.boolEndCalendar = false;
+      return;
+    }
+
     document.getElementById('textCalenarEnd'). textContent = strDate;
     this.boolEndCalendar = false;
 

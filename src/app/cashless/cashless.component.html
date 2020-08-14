@@ -1,0 +1,17 @@
+
+  <p>Заказ № {{id_order}}</p>
+  <p>Общая стоимость всего заказа {{totalrub}}</p>
+  <p>Номер {{name}}</p>
+  <p>Дата заезда {{datebegin | date:'dd.MM.yyyy'}}</p>
+  <p>Дата покидания {{dateend | date:'dd.MM.yyyy'}}</p>
+  <p>Задаток {{deposit}}</p>
+  <p>Безнальный платеж {{sCashless}}</p>
+  <p></p>
+  <p>Дополнительные услуги:</p>
+<div *ngFor="let ar of addorder" >
+
+    <p>
+    {{ar.name}} {{ar.amount}} {{ar.total}}
+    </p>
+
+</div>

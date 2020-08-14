@@ -33,6 +33,13 @@
           </p>
         </a>
 
+        <a *ngIf="editor === 1" class="nav-link" href="orderlist" [style] = "getStyleName(102)">
+          <p class="icon icon-admin">
+            <span>Список заказов</span>
+          </p>
+        </a>
+
+
         <a  *ngIf="idUser > 0" class="nav-link" (click)="logout()" [style] = "getStyleName(103)">
           <p class="icon icon-exit" style="cursor: pointer;">
             <span>Выход</span>
