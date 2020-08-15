@@ -174,11 +174,13 @@ p{
   padding: 3px 0 4px 2px;
 }
 ul {
-margin: 0;
+  height: 20px;
+  margin: 0;
   font-size: 13px;
   padding-left: 18px;
   overflow: hidden;
   list-style: disc;
+
 
 }
 
