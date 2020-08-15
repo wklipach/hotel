@@ -1,0 +1,63 @@
+.container{
+  font-family: Arial,sans-serif;
+  max-width: 1300px;
+  min-height: calc(100vh - 160px);
+}
+h2 {
+  font-family: Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 1px solid #ced0d0;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 27px;
+  color: #373737;
+}
+.order-details {
+  text-align: center;
+  width: 100%;
+  height: auto;
+  padding: 35px 37px 35px 20px;
+  margin-left: 40px;
+}
+.card {
+  max-width: 650px;
+  background-color: #fafafa;
+  padding: 30px 35px;
+  margin-bottom: 30px;
+}
+.data-line {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+label, span {
+  font-size: 15px;
+  color: #373737;
+}
+.info {
+  font-size: 15px;
+  font-weight: bold;
+  color: #373737;
+}
+.alert {
+  width: 700px;
+  height: 60%;
+  position: absolute;
+  vertical-align: middle;
+  align-content: center;
+  margin: 0 auto;
+  z-index: 2;
+}
+@media screen and (min-width:992px) and (max-width:1199px) {
+
+}  /* КОНЕЦ 992 - 1199  lg  */
+
+@media screen and (min-width:577px) and (max-width:991px) {
+
+}  /* КОНЕЦ 577 - 991  md */
+
+@media screen and (max-width:576px) {
+
+}  /* КОНЕЦ 320 - 576  - */
+

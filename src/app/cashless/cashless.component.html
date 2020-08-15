@@ -1,17 +1,59 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
 
-  <p>Заказ № {{id_order}}</p>
-  <p>Общая стоимость всего заказа {{totalrub}}</p>
-  <p>Номер {{name}}</p>
-  <p>Дата заезда {{datebegin | date:'dd.MM.yyyy'}}</p>
-  <p>Дата покидания {{dateend | date:'dd.MM.yyyy'}}</p>
-  <p>Задаток {{deposit}}</p>
-  <p>Безнальный платеж {{sCashless}}</p>
-  <p></p>
-  <p>Дополнительные услуги:</p>
-<div *ngFor="let ar of addorder" >
+    <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-details">
 
-    <p>
-    {{ar.name}} {{ar.amount}} {{ar.total}}
-    </p>
+      <h2>Заказ № {{id_order}}</h2>
 
+
+      <div class="d-flex justify-content-between pt-3">
+        <span>Общая стоимость всего заказа, руб.</span>
+        <span class="info">{{totalrub}}</span>
+      </div>
+
+      <div class="d-flex justify-content-between pt-3">
+        <span>Номер</span>
+        <span class="info">{{name}}</span>
+      </div>
+
+      <div class="d-flex justify-content-between pt-3">
+        <span>Дата заезда</span>
+        <span class="info">{{datebegin | date:'dd.MM.yyyy'}}</span>
+      </div>
+
+      <div class="d-flex justify-content-between pt-3">
+        <span>Дата выезда</span>
+        <span class="info"> {{dateend | date:'dd.MM.yyyy'}}</span>
+      </div>
+
+      <div class="d-flex justify-content-between pt-3">
+        <span>Задаток, руб.</span>
+        <span class="info">{{deposit}}</span>
+      </div>
+
+      <div class="d-flex justify-content-between pt-3">
+        <span>Безнальный платеж</span>
+        <span class="info">{{sCashless}}</span>
+      </div>
+
+    </div>
+
+    <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-details">
+      <h2>Дополнительные услуги:</h2>
+      <div *ngFor="let ar of addorder" >
+
+        <div class="d-flex justify-content-start pt-3">
+          <span class="mr-auto">{{ar.name}}</span>
+          <span class="mr-5 info">{{ar.amount}}</span>
+          <span class="info">{{ar.total}}</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
+
+<app-footer></app-footer>
+
+

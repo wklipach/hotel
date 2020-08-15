@@ -1,3 +1,228 @@
+
+
+
+<app-header></app-header>
+
+<form [formGroup]="orderForm">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-2
+                        order-md-2 order-lg-1 additional-features">
+        <h2>Добавьте дополнительные возможности</h2>
+
+        <div *ngIf="addserv && addserv.length>0">
+          <div *ngFor="let curElemAddServ of addserv">
+
+            <div class="block">
+              <img src="{{gr.sUrlImageAddServGlobal}}{{curElemAddServ.file_name}}" height="79" width="109"/>
+              <div class=" charge">
+                <span class="name">{{curElemAddServ.name}}</span>
+                <span class="prise ml-1">{{curElemAddServ.price}} руб</span>
+                <p class="text">
+                  {{curElemAddServ.description}}
+                </p>
+              </div>
+
+              <div class="amount">
+                <div *ngIf="curElemAddServ.ItIsBoolean.data[0] === 0">
+                  <label>Количество</label>
+                  <input formControlName="addserv{{curElemAddServ.id}}" type="text"
+                         class="form-control dinner" placeholder="0"
+                         (change)="clickAmountElement($event, curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)">
+
+                  <div class="arrow-block">
+                    <img (click)="clickAmountElementUp(curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)"
+                         class="arr mt-1" src="../../assets/img/chevron-up.svg"/>
+                    <img (click)="clickAmountElementDawn(curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)"
+                         class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/>
+                  </div>
+
+                </div>
+
+                <div *ngIf="curElemAddServ.ItIsBoolean.data[0] === 1">
+                  <label>Выбрать</label>
+                  <div class="custom-control custom-checkbox d-flex flex-column">
+                    <input formControlName="addserv{{curElemAddServ.id}}" type="checkbox"
+                           (change)="clickCheckElement($event, curElemAddServ.id, curElemAddServ.name, curElemAddServ.price)">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="d-flex flex-column client-info">
+          <h2>Введите свои данные</h2>
+
+          <div class="d-flex justify-content-start mb-3">
+
+            <div class="mr-auto">
+              <label>Имя</label>
+              <input formControlName="name" type="text" class="form-control" placeholder="">
+            </div>
+
+            <div class="p-0">
+              <label>Фамилия</label>
+              <input formControlName="surname" type="text" class="form-control" placeholder="">
+            </div>
+
+          </div>
+
+          <div class="d-flex justify-content-start mb-3">
+
+            <div class="mr-auto">
+              <label>E-Mail</label>
+              <input formControlName="email" type="text" class="form-control" placeholder="">
+            </div>
+
+            <div class=" mb-3">
+              <label>Телефон</label>
+              <input formControlName="phone" type="text" class="form-control" placeholder="">
+            </div>
+
+          </div>
+
+          <div class="mb-3">
+            <label>Особые пожелания</label>
+            <textarea formControlName="wishes" class="form-control" rows="4" aria-label="Особые пожелания"></textarea>
+          </div>
+
+          <div class="rules">• Совершая бронирование, я подтверждаю, что мною прочитаны и приняты <label class="blue" (click)="clickRules()">правила и условия</label>.</div>
+          <div class="d-flex flex-column rules-block" *ngIf="boolRules">
+            <h2>Правила бронирования<img class="close" (click)="clickRules()" src="../../assets/img/x-square.svg" height="20" width="20" title="Закрыть"/></h2>
+
+            <h2 style="color: #33a2dc; margin: 20px auto;">Время заезда 13:00 | Время выезда 12:00</h2>
+            <br><br>
+            <p>Бронирование осуществляется:
+            <p> на сайте <a href="https://victoria-sbor.ru">victoria-sbor.ru</a> <br>
+              <a href="vk.com/hotelvictoriasb">ВКонтакте</a>  <br>
+              по тел: <strong>+ 7 911 744 88 13</strong></p>
+
+            <p>* бронь гарантируется при полной оплате стоимости проживания.</p>
+
+            <h2>Отмена бронирования</h2>
+
+            <p>
+              Оплата брони за первые сутки не возвращается
+            </p>
+
+          </div>
+
+          <button class="btn-pay" type="button" (click)="apply()" >Перейти к оплате</button>
+
+        </div>
+
+      </div>
+
+      <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-1
+                        order-md-1 order-lg-2 order-details">
+
+        <h2>Детали заказа</h2>
+
+        <div class="image">
+          <img class="img-fluid" src="{{gr.sUrlImageGlobal}}{{sPhoto}}" height="auto" width="100%"/>
+
+
+          <div class="d-flex flex-column arrows">
+            <span><img (click)="clickUpPhoto()" class="arr mt-1" src="../../assets/img/chevron-up.svg"/></span>
+            <span><img (click)="clickDawnPhoto()" class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/></span>
+          </div>
+
+        </div>
+
+
+        <div class="d-flex justify-content-between pt-3 line">
+          <span>Тип номера</span>
+          <span class="information">{{this.room.name}}</span>
+        </div>
+
+        <div class="d-flex justify-content-between pt-3 line">
+          <span>Адрес</span>
+          <span class="information">{{this.room.address}}</span>
+        </div>
+
+        <div class="d-flex justify-content-between py-1 line">
+          <span>Даты</span>
+          <span class="information">{{strInfoDate}}</span>
+        </div>
+
+        <div class="d-flex justify-content-between py-1 line">
+          <span>Ночей</span>
+          <span class="information">{{strNight}}</span>
+        </div>
+
+        <div class="d-flex justify-content-between py-1 line">
+          <span>Гостей</span>
+          <span class="information">{{countAdult}} взрослых</span>
+          <span class="information">{{countChildren}} детей</span>
+        </div>
+
+        <hr>
+
+
+        <div class="d-flex justify-content-between py-1 line">
+          <span>Без налога</span>  <span class="information">{{costWithoutServices}} руб</span>
+        </div>
+
+        <div class="d-flex justify-content-between py-1 line">
+          <span>Налог (0 %)</span>  <span class="information">0 руб</span>
+        </div>
+
+        <hr>
+
+        <div class="additionally">
+          <span>Дополнительно:</span>
+
+          <div *ngFor="let LE of listSelectedServices">
+            <div class="d-flex justify-content-between py-1 line">
+              <span>{{LE.name}}</span>  <span class="information">  × {{LE.count}}  = {{LE.cost}} руб</span>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="d-flex justify-content-between py-1 line">
+          <input formControlName="coupon" type="text" class="form-control coupon" placeholder="Код купона">
+          <!--
+          <a href="#" class="btn-coupon">Добавить</a>
+          -->
+        </div>
+
+        <hr>
+
+        <div class="d-flex justify-content-between py-1 line">
+          <span> Итого</span>  <span class="information">{{totalCost}} руб</span>
+        </div>
+
+        <div class="d-flex justify-content-between py-1 line">
+          <span>Залог</span>   <span class="information">{{room.price_weekdays}} руб</span>
+        </div>
+
+        <div class="d-flex justify-content-start py-2 line">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="check-invoice">
+            <label class="custom-control-label" for="check-invoice">Безналичный расчет</label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="error">{{sError}}</div>
+
+
+  </div>
+
+</form>
+
+<app-footer></app-footer>
+
+
+<!--
 <app-header></app-header>
 
 <form [formGroup]="orderForm">
@@ -188,7 +413,7 @@
           <input formControlName="coupon" type="text" class="form-control coupon" placeholder="Код купона">
           <!--
           <a href="#" class="btn-coupon">Добавить</a>
-          -->
+          ->
         </div>
 
         <hr>
@@ -218,9 +443,4 @@
 
 </form>
 
-<!--
-<div class="d-flex flex-column arrows">
-  <span><img (click)="clickUpPhoto()" class="arr mt-1" src="../../assets/img/chevron-up.svg"/></span>
-  <span><img (click)="clickDawnPhoto()" class="arr2 mb-3" src="../../assets/img/chevron-down.svg"/></span>
-</div>
 -->

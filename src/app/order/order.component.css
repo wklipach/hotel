@@ -24,6 +24,394 @@ h2 {
   padding-bottom: 10px;
   margin-bottom: 27px;
   color: #373737;
+}
+img {
+  margin-right: 19px;
+  vertical-align: top;
+  display: inline-block;
+}
+.charge {
+  width: 270px;
+  height: auto;
+  display: inline-block;
+  margin-top: -4px;
+}
+.name {
+  font-family: Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #373737;
+  display: inline;
+  vertical-align: top;
+}
+.prise {
+  font-family: Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #373737;
+  display: inline;
+  vertical-align: top;
+}
+.text {
+  font-size: 14px;
+  color: #777777;
+  line-height: 18px;
+  word-wrap: break-word;
+  margin-bottom: 0;
+}
+.amount {
+  display: inline-block;
+  width: 78px;
+  padding-left: 40px;
+  vertical-align: top;
+  margin-top: -5px;
+}
+label, span {
+  font-size: 14px;
+  color: #373737;
+}
+.dinner{
+  width: 80px;
+}
+.check-auto {
+}
+.order-details {
+  max-width: 330px;
+  height: 770px;
+  padding: 35px 37px 35px 30px;
+  background-color: #fafafa;
+  margin-left: 100px;
+}
+.information {
+  font-size: 14px;
+  font-weight: bold;
+  color: #373737;
+}
+.coupon {
+  width: 170px;
+  height: 30px;
+  font-size: 14px;
+  padding-bottom: 8px;
+}
+.btn-coupon {
+  color: #33a2dc;
+  font-size: 14px;
+}
+.client-info {
+  width: 570px;
+  margin: 50px 0;
+  position: relative;
+}
+.client-info input{
+  width: 260px;
+}
+.client-info label{
+  font-size: 16px;
+  color: #373737;
+}
+.client-info span{
+  font-size: 12px;
+  color: #373737;
+}
+.rules {
+  font-size: 12px;
+}
+.rules-block {
+  color: #373737;
+  width: 570px;
+  height: 450px;
+  margin: 30px 0;
+  padding: 30px;
+  border: solid 2px #ced0d0;
+  border-radius: 3px;
+}
+.terms-conditions2 {
+  width: 80%;
+  height: 60%;
+  position: absolute;
+  vertical-align: middle;
+  align-content: center;
+  z-index: 2;
+}
+.blue {
+  font-size: 13px !important;
+  color: #33a2dc !important;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.alert {
+  width: 700px;
+  height: 60%;
+  position: absolute;
+  vertical-align: middle;
+  align-content: center;
+  margin: 0 auto;
+  z-index: 2;
+}
+.arrows {
+  top: 165px;
+  right: -7px;
+  position: absolute;
+}
+.arr {
+  width: 14px;
+  height: 14px;
+  display: block;
+  cursor: pointer;
+}
+.arr2 {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+.arr, .arr2:hover {
+
+}
+.amount-arrows {
+  position: absolute;
+  top: 142px;
+  left: 917px;
+  background-color: #fafafa;
+}
+.arrow-block {
+  position: absolute;
+  margin-left: 55px;
+  margin-top: -36px;
+}
+.btn-pay {
+  float: right;
+  width: 275px;
+  height: 40px;
+  margin: 30px 10px 35px auto;
+  background-color: #33a2dc;
+  background: linear-gradient(to bottom,#36a7dd 0,#2f9ad8 100%);
+  color: #fff;
+  font-size: 14px;
+  border: 0;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.error {
+  position: absolute;
+  font-size: 18px;
+  color: #c20b20;
+  margin-left: 250px;
+  top: 920px;
+}
+.close {
+  margin-top: -20px;
+  margin-right: -20px;
+}
+.close:hover {
+  cursor: pointer;
+}
+@media screen and (min-width:992px) and (max-width:1199px) {
+  .additional-features {
+    padding-left: 45px;
+  }
+  .block {
+    width: 550px;
+  }
+
+  hr {
+    width: 100%;
+    solid-color: #dadcdc;
+  }
+}  /* КОНЕЦ 992 - 1199  lg  */
+
+@media screen and (min-width:577px) and (max-width:991px) {
+  .order-details {
+    text-align: center;
+    width: auto;
+    max-width: 980px;
+    height: auto;
+    padding: 35px 45px;
+    background-color: #fafafa;
+    margin-top: 20px;
+    margin-left: 0;
+  }
+  h2 {
+    margin-bottom: 12px;
+  }
+  .line {
+    width: 97%;
+  }
+  .image {
+    max-width: 950px;
+    height: auto;
+    margin-right: 19px;
+  }
+  .additional-features {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    max-width: 960px;
+    height: auto;
+    padding: 5px;
+    margin-top: 20px;
+    margin-left: 0;
+  }
+  .block {
+    padding: 10px 15px;
+    width: 560px;
+    height: auto;
+    min-height: 85px;
+    border: 1px solid #ced0d0;
+    border-radius: 3px;
+    margin: 0 auto 15px auto;
+  }
+  .client-info {
+    padding: 15px 15px;
+  }
+  .rules-block {
+    width: 530px;
+    height: auto;
+    margin: 20px 0;
+  }
+  .arrows {
+    margin-top: 80px;
+    margin-right: 20px;
+  }
+  .amount {
+    display: inline-block;
+    width: 78px;
+    padding-left: 30px;
+    vertical-align: top;
+    margin-top: -5px;
+  }
+  .client-info {
+    width: 570px;
+    margin: 20px auto 10px auto;
+    position: relative;
+  }
+}  /* КОНЕЦ 577 - 991  md */
+
+@media screen and (max-width:576px) {
+  .order-details {
+    text-align: center;
+    width: auto;
+    max-width: 577px;
+    height: auto;
+    padding: 5px 15px;
+    background-color: #fafafa;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+  h2 {
+    margin-bottom: 12px;
+  }
+  .line {
+    width: 97%;
+  }
+  .image {
+    max-width: 950px;
+    height: auto;
+    margin-right: 19px;
+  }
+  img {
+    margin-right: 1px;
+  }
+  .additional-features {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 570px;
+    height: auto;
+    padding: 5px;
+    margin-top: 20px;
+    margin-left: 0;
+  }
+  .block {
+    padding: 10px 15px;
+    width: 560px;
+    height: auto;
+    min-height: 85px;
+    border: 1px solid #ced0d0;
+    border-radius: 3px;
+    margin: 0 auto 15px auto;
+  }
+  .charge {
+    width: auto;
+    height: auto;
+    display: flex;
+    margin-top: -4px;
+    order: 3;
+  }
+  .name {
+    width: auto;
+  }
+  .client-info {
+    padding: 15px 15px;
+  }
+  .rules-block {
+    width: 530px;
+    height: auto;
+    margin: 20px 0;
+  }
+  .arrows {
+    margin-top: -10px;
+    margin-right: 2px;
+  }
+  .amount {
+
+    width: 78px;
+    padding-left: 0;
+    padding-right: 20px!important;
+    vertical-align: top;
+    margin-top: -5px;
+  }
+  .name, .prise {
+
+  }
+  .client-info {
+    width: 570px;
+    margin: 20px auto 10px auto;
+    position: relative;
+  }
+  .block {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    max-width: 570px;
+    height: auto;
+    min-height: 85px;
+    border: 1px solid #ced0d0;
+    border-radius: 3px;
+    padding: 11px 21px 3px 13px;
+    margin-bottom: 18px;
+  }
+}  /* КОНЕЦ 320 - 576  - */
+
+
+/*
+.container-fluid {
+  font-family: Arial,sans-serif;
+  max-width: 1300px;
+}
+.additional-features {
+  width: 100%;
+  height: auto;
+  padding: 35px 30px 35px 100px;
+}
+.block {
+  width: 570px;
+  height: auto;
+  min-height: 85px;
+  border: 1px solid #ced0d0;
+  border-radius: 3px;
+  padding: 21px 31px 13px 23px;
+  margin-bottom: 18px;
+}
+h2 {
+  font-family: Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 1px solid #ced0d0;
+  padding-bottom: 10px;
+  margin-bottom: 27px;
+  color: #373737;
   background-color: #ffffff;
 }
 img {
@@ -221,7 +609,7 @@ hr {
   width: 100%;
   solid-color: #dadcdc;
 }
-}  /* КОНЕЦ 992 - 1199  lg  */
+}  /* КОНЕЦ 992 - 1199  lg  /
 
 @media screen and (min-width:577px) and (max-width:991px) {
   .block {
@@ -239,7 +627,7 @@ hr {
 
   }
 
-}  /* КОНЕЦ 577 - 991  md */
+}  / КОНЕЦ 577 - 991  md /
 
 @media screen and (max-width:576px) {
   .order-details {
@@ -252,5 +640,6 @@ hr {
   .image {
     max-width: 300px;
   }
-}  /* КОНЕЦ 320 - 576  - */
+}  / КОНЕЦ 320 - 576  - /
 
+*/

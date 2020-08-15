@@ -1,4 +1,3 @@
-
 <form [formGroup]="payForm" method="post" action="https://pay.modulbank.ru/pay">
 
     <input type="hidden" name="testing" value="1">
@@ -21,13 +20,14 @@
     <input type="hidden" name="success_url" value="http://myawesomesite.com/payment_success">
 
     <input type="hidden" name="receipt_contact" value="test@mail.com">
-    
+
     <input type="hidden" name="unix_timestamp" value="1573451160">
 
     <input type="hidden" name="receipt_items"
- value="[{&quot;discount_sum&quot;: 40, &quot;name&quot;: &quot;Товар 1&quot;, &quot;payment_method&quot;: &quot;full_prepayment&quot;, 
+ value="[{&quot;discount_sum&quot;: 40, &quot;name&quot;: &quot;Товар 1&quot;, &quot;payment_method&quot;: &quot;full_prepayment&quot;,
  &quot;payment_object&quot;: &quot;commodity&quot;, &quot;price&quot;: 48, &quot;quantity&quot;: 10, &quot;sno&quot;: &quot;osn&quot;, &quot;vat&quot;: &quot;vat10&quot;},
- {&quot;name&quot;: &quot;Товар 2&quot;, &quot;payment_method&quot;: &quot;full_prepayment&quot;, 
+ {&quot;name&quot;: &quot;Товар 2&quot;, &quot;payment_method&quot;: &quot;full_prepayment&quot;,
  &quot;payment_object&quot;: &quot;commodity&quot;, &quot;price&quot;: 533, &quot;quantity&quot;: 1, &quot;sno&quot;: &quot;osn&quot;, &quot;vat&quot;: &quot;vat10&quot;}]">
     <input type="submit" value="Отправить платеж">
 </form>
+
