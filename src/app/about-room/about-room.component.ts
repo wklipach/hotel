@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer2, AfterViewInit } from '@angular/core';
 import { EasycalendarComponent } from '../components/easycalendar/easycalendar.component';
 
 import {NgxGalleryOptions} from '@kolkov/ngx-gallery';
@@ -14,7 +14,7 @@ import { OrderService } from '../services/order.service';
   templateUrl: './about-room.component.html',
   styleUrls: ['./about-room.component.css']
 })
-export class AboutRoomComponent implements OnInit {
+export class AboutRoomComponent implements OnInit, AfterViewInit {
 
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
@@ -44,14 +44,16 @@ export class AboutRoomComponent implements OnInit {
               private os: OrderService,
               private renderer: Renderer2) {
 
-                const elemNext = document.getElementById('imgEasyCalendarNext');
-                const elemPrev =  document.getElementById('imgEasyCalendarPrev');
-
                 this.renderer.listen('window', 'click', (e: Event) => {
+
+                  const elemNext = document.getElementById('imgEasyCalendarNext');
+                  const elemPrev =  document.getElementById('imgEasyCalendarPrev');
+
                   if (this.boolBeginCalendar && e.target !== document.getElementById('iconCalendarBegin') &&
-                      e.target !== elemNext && e.target !== elemPrev) {
-                      this.boolBeginCalendar = false;
+                  e.target !== elemNext && e.target !== elemPrev) {
+                  this.boolBeginCalendar = false;
                   }
+
                   if (this.boolEndCalendar && e.target !== document.getElementById('iconCalendarEnd') &&
                       e.target !== elemNext && e.target !== elemPrev) {
                     this.boolEndCalendar = false;
@@ -61,7 +63,13 @@ export class AboutRoomComponent implements OnInit {
 
               }
 
+              ngAfterViewInit() {
+                const elemNext = document.getElementById('imgEasyCalendarNext');
+                const elemPrev =  document.getElementById('imgEasyCalendarPrev');
+              }
+
   ngOnInit(): void {
+
     this.galleryOptions = [
       {
         width: '649px',
@@ -111,6 +119,7 @@ export class AboutRoomComponent implements OnInit {
     this.galleryImages = varPhoto;
 
     this.reloadBooking(new Date());
+
 
   }
 

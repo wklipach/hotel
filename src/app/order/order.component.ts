@@ -29,6 +29,7 @@ export class OrderComponent implements OnInit {
   costWithoutServices = 0;
   totalCost = 0;
   boolRules = false;
+  boolCashless = false;
   listSelectedServices: any[] = []; // {id, name, count, price, cost};
 
   constructor(private os: OrderService,  public gr: GlobalRef,
@@ -271,13 +272,6 @@ export class OrderComponent implements OnInit {
    const email = this.orderForm.controls.email.value;
    const phone = this.orderForm.controls.phone.value;
    const orderdescription = this.orderForm.controls.wishes.value;
-   const orderpay = this.orderForm.controls.cashless.value;
-
-   let boolCashless = false;
-   if (orderpay) {
-    boolCashless = true;
-   }
-
 
    if (!name || name === '') {
     this.sError = 'Введите ваше имя.';
@@ -324,7 +318,7 @@ export class OrderComponent implements OnInit {
         }
 
         this.os.setInsertOrder(idnumber, datebegin, dateend, iduser, coupon,
-                                couponsuccess, totalrub, description, boolCashless, deposit).subscribe( numberorder => {
+                                couponsuccess, totalrub, description, this.boolCashless, deposit).subscribe( numberorder => {
 
           if (numberorder) {
             const id_order  = numberorder[0][0].id_order;
@@ -336,14 +330,14 @@ export class OrderComponent implements OnInit {
                   console.log('!!!!!');
 
                     // после того как завели заказ начинаем процесс оплаты
-                  if (!boolCashless) {
+                  if (!this.boolCashless) {
                   this.ps.processPayment(id_order, totalrub).subscribe( valuePay => {
                       console.log(valuePay);
                       document.write(valuePay.toString());
                       });
                    }
 
-                  if (boolCashless) {
+                  if (this.boolCashless) {
                    this.router.navigate(['/cashless'], { queryParams: {id_order} });
                   }
 

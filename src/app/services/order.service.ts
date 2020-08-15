@@ -53,6 +53,7 @@ export class OrderService {
     const varparams = new HttpParams()
     .set('get_additional_order', 'get_additional_order')
     .set('id_order', idorder);
+    console.log('idorder', idorder);
     return this.http.get(this.gr.sUrlGlobal + 'order', {params: varparams});
   }
 

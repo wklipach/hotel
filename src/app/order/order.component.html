@@ -204,7 +204,7 @@
 
         <div class="d-flex justify-content-start py-2 line">
           <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="check-invoice">
+            <input type="checkbox" class="custom-control-input" id="check-invoice" [checked]="boolCashless" (change)="boolCashless = !boolCashless">
             <label class="custom-control-label" for="check-invoice">Безналичный расчет</label>
           </div>
         </div>
