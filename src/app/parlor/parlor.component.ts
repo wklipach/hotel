@@ -41,10 +41,10 @@ export class ParlorComponent implements OnInit {
               private rv: ReviewService,
               private cd: ChangeDetectorRef) {
 
-                const editor = this.authService.getEditorStorage();
-                if (editor !== 1) {
-                   this.router.navigate(['/']);
-                }
+             //   const editor = this.authService.getEditorStorage();
+             //   if (editor !== 1) {
+             //      this.router.navigate(['/']);
+             //   }
 
                 this.createForm();
   }
@@ -365,6 +365,7 @@ export class ParlorComponent implements OnInit {
 
     this.rv.setReview(iduser, review).subscribe( reviewres => {
          console.log('reviewres', reviewres);
+         this.memoBool = false;
          this.refreshMessage();
       });
 
@@ -375,6 +376,9 @@ export class ParlorComponent implements OnInit {
     this.memoEditBool = true;
     this.formReviewParlor.controls.messageEditInput.setValue(message);
     this.id_edit = id;
+    setTimeout(() => {
+      document.querySelector('#message_edit').scrollIntoView();
+    }, 0);
   }
 
   clickDeleteMessage(id) {

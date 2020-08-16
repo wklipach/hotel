@@ -30,6 +30,7 @@ export class AboutRoomComponent implements OnInit, AfterViewInit {
   sError = '';
   arCheckedDate = [];
   boolRules = false;
+  mistakeDateClick = false;
 
 
   test() {
@@ -49,15 +50,18 @@ export class AboutRoomComponent implements OnInit, AfterViewInit {
                   const elemNext = document.getElementById('imgEasyCalendarNext');
                   const elemPrev =  document.getElementById('imgEasyCalendarPrev');
 
-                  if (this.boolBeginCalendar && e.target !== document.getElementById('iconCalendarBegin') &&
+                  if (!this.mistakeDateClick && this.boolBeginCalendar && e.target !== document.getElementById('iconCalendarBegin') &&
                   e.target !== elemNext && e.target !== elemPrev) {
                   this.boolBeginCalendar = false;
                   }
 
-                  if (this.boolEndCalendar && e.target !== document.getElementById('iconCalendarEnd') &&
+                  if (!this.mistakeDateClick && this.boolEndCalendar && e.target !== document.getElementById('iconCalendarEnd') &&
                       e.target !== elemNext && e.target !== elemPrev) {
                     this.boolEndCalendar = false;
-                }
+                  }
+
+                  // любой клик обнуляет ошибочный клик
+                  this.mistakeDateClick = false;
 
               });
 
@@ -139,14 +143,15 @@ export class AboutRoomComponent implements OnInit, AfterViewInit {
     dDateBegin.setHours(0, 0, 0, 0);
     const curDate = new Date();
     curDate.setHours(0, 0, 0, 0);
-    this.beginCalendar.clear();
 
     if (curDate > dDateBegin) {
-      document.getElementById('textCalenarBegin').textContent = 'Заезд';
-      this.boolBeginCalendar = false;
+      // document.getElementById('textCalenarBegin').textContent = 'Заезд';
+      this.mistakeDateClick = true;
       return;
     }
 
+    this.beginCalendar.clear();
+    this.sError = '';
     document.getElementById('textCalenarBegin').textContent = strDate;
     this.boolBeginCalendar = false;
     this.boolEndCalendar = true;
@@ -159,14 +164,15 @@ export class AboutRoomComponent implements OnInit, AfterViewInit {
     dDateEnd.setHours(0, 0, 0, 0);
     const curDate = new Date();
     curDate.setHours(0, 0, 0, 0);
-    this.endCalendar.clear();
 
     if (curDate > dDateEnd) {
-      document.getElementById('textCalenarEnd').textContent = 'Выезд';
-      this.boolEndCalendar = false;
+      // document.getElementById('textCalenarEnd').textContent = 'Выезд';
+      this.mistakeDateClick = true;
       return;
     }
 
+    this.endCalendar.clear();
+    this.sError = '';
     document.getElementById('textCalenarEnd').textContent = strDate;
     this.boolEndCalendar = false;
 
@@ -277,7 +283,7 @@ export class AboutRoomComponent implements OnInit, AfterViewInit {
     }
 
     if (boolBooking) {
-      this.sError = 'В период попали забронированные даты.';
+      this.sError = 'Отказ. Номер занят.';
       return;
     }
 

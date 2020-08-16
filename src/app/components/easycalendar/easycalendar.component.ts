@@ -36,7 +36,6 @@ export class EasycalendarComponent implements OnInit, DoCheck  {
   }
 
   ngOnInit(): void {
-    console.log('this.initMethod', 'easycalendar');
     this.initMethod (this.curDate);
     this.easyinit.emit(this.curDate);
   }
@@ -45,7 +44,6 @@ export class EasycalendarComponent implements OnInit, DoCheck  {
   ngDoCheck() {
     const changes = this.differ.diff(this.checkedDate);
     if (changes) {
-        console.log('Changes detected!');
         this.initMethod ( this.curDate );
     }
 }
@@ -55,8 +53,6 @@ export class EasycalendarComponent implements OnInit, DoCheck  {
     const weekCount = this.getWeeks(curDate.getFullYear(), curDate.getMonth());
     const weekFirst = this.getFirstWeeks(curDate.getFullYear(), curDate.getMonth());
     this.arrarWeekMonth = this.getWeekArrayCount(weekCount, weekFirst, curDate.getFullYear(), curDate);
-
-    // console.log('this.arrarWeekMonth', this.arrarWeekMonth);
   }
 
   public getIncDate(value, addDays) {
@@ -90,6 +86,14 @@ export class EasycalendarComponent implements OnInit, DoCheck  {
 
     public getWeekArrayCount(weekCount, weekFirst, y, curDate) {
 
+
+      // иногда 1-2-3 число относят к предыдущему году. В этом случае выдают для 1 числа неделю большую чем 1, 
+      // то есть последнюю неделю ушедшего года. Напирмер 52, 53 и т.п. 
+      // В этом случае дата создаеься корректно из такой недели и предыдущего года
+
+      if (curDate.getMonth() === 0 && weekFirst > 0) {
+         y = y - 1;
+      }
 
       const strNowDate = this.formatDate(new Date());
 
@@ -316,8 +320,14 @@ getCurrentStyle(boolCurMonth: boolean, boolNow: boolean, boolCheckDay: boolean, 
 // формирование макссива с датами при клике мыши
 flipoverMouseCheckDate(strDate: string, boolCurMonth: boolean) {
 
-
   this.clickDay.emit(strDate);
+
+
+  const nowDate = new Date();
+  nowDate.setHours(0, 0, 0, 0);
+  if (this.stringToDate(strDate) < nowDate) {
+    return;
+  }
 
   setTimeout(() =>   {
 
@@ -398,7 +408,6 @@ checkDayFromPeriod(dateBegin, dateEnd) {
     }
 
     this.checkArarWeekMonth(strNowDate, true);
-    console.log('strNowDate=', strNowDate);
     D.setDate(D.getDate() + 1);
   }
 

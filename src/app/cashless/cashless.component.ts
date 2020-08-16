@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from '../services/order.service';
 
 @Component({
@@ -16,13 +16,14 @@ export class CashlessComponent implements OnInit {
   dateend: Date = null;
   totalrub = 0;
   deposit = 0;
+  description = '';
   sCashless = 'да';
   name = '';
   addorder = [];
 
 
 
-  constructor(private route: ActivatedRoute, private os: OrderService) {
+  constructor(private route: ActivatedRoute, private os: OrderService, private router: Router) {
         this.route.queryParams.subscribe(params => {
             this.id_order = params.id_order;
         });
@@ -35,6 +36,7 @@ export class CashlessComponent implements OnInit {
       this.dateend = valorder[0].date_end;
       this.totalrub = valorder[0].total_rub;
       this.deposit = valorder[0].deposit;
+      this.description = valorder[0].description;
 
       if (Boolean(valorder[0].bitCashless) === false) {
         this.sCashless = 'нет';
@@ -47,6 +49,10 @@ export class CashlessComponent implements OnInit {
     });
 
 
+  }
+
+  clickApply() {
+    this.router.navigate(['/']);
   }
 
 

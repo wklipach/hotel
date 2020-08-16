@@ -21,7 +21,6 @@ export class ReviewsComponent implements OnInit {
   ngOnInit(): void {
     this.rv.getAllReview().subscribe( (reviewres: Array<any>) => {
       this.reviews = reviewres;
-      console.log('this.reviews =', this.reviews);
    });
   }
 

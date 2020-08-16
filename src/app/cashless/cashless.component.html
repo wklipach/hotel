@@ -33,6 +33,11 @@
       </div>
 
       <div class="d-flex justify-content-between pt-3">
+        <span>Особые пожелания</span>
+        <span class="info">{{description}}</span>
+      </div>
+
+      <div class="d-flex justify-content-between pt-3">
         <span>Безнальный платеж</span>
         <span class="info">{{sCashless}}</span>
       </div>
@@ -54,6 +59,8 @@
   </div>
 </div>
 
+<div>Спасибо за заказ! Наш менеждер свяжется с вами в ближайшее время.</div>
+<button (click)="clickApply()">На главную</button>
 <app-footer></app-footer>
 
 
