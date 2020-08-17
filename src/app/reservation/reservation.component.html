@@ -49,7 +49,7 @@
       <app-easycalendar #beginCalendar (clickDay)="clickDayBegin($event)"></app-easycalendar>
     </div>
     <div *ngIf="boolEndCalendar" class="easy-calendar-right">
-      <app-easycalendar #endCalendar (clickDay)="clickDayEnd($event)"></app-easycalendar>
+      <app-easycalendar #endCalendar (clickDay)="clickDayEnd($event)" [currentDate]="getBeginDate()"></app-easycalendar>
     </div>
   </div>
 

@@ -132,6 +132,7 @@
                               (clickNext)="clickCalendarBook($event)"
                               (clickNow)="clickCalendarBook($event)"
                               (easyinit)="clickCalendarBook($event)"
+                              [currentDate]="getBeginDate()"
                               [checkedDate]="arCheckedDate"  ></app-easycalendar>
           </div>
         </div>

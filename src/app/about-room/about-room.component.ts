@@ -324,4 +324,15 @@ export class AboutRoomComponent implements OnInit, AfterViewInit {
   clickRules() {
     this.boolRules = !this.boolRules;
   }
+
+  getBeginDate() {
+    const strDate = document.getElementById('textCalenarBegin').textContent;
+    const dDateBegin = this.toDate(strDate);
+    if (dDateBegin) {
+      dDateBegin.setHours(0, 0, 0, 0);
+      return dDateBegin;
+    } else {
+      return new Date();
+    }
+  }
 }

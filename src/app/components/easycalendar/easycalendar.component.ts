@@ -16,6 +16,7 @@ export class EasycalendarComponent implements OnInit, DoCheck  {
 
   // даты занятые пользователем
   @Input() checkedDate = [];
+  @Input() currentDate: Date;
   private differ: IterableDiffer<[]>;
 
   weekCount = 0;
@@ -32,12 +33,21 @@ export class EasycalendarComponent implements OnInit, DoCheck  {
 
   constructor(private iterableDiffers: IterableDiffers) {
     this.differ = iterableDiffers.find([]).create(null);
-    this.curDate = new Date();
+
   }
 
   ngOnInit(): void {
-    this.initMethod (this.curDate);
+
+    if (this.currentDate) {
+      this.curDate = this.currentDate;
+    } else {
+      this.curDate = new Date();
+    }
+
+
+    this.initMethod(this.curDate);
     this.easyinit.emit(this.curDate);
+
   }
 
 
@@ -87,8 +97,8 @@ export class EasycalendarComponent implements OnInit, DoCheck  {
     public getWeekArrayCount(weekCount, weekFirst, y, curDate) {
 
 
-      // иногда 1-2-3 число относят к предыдущему году. В этом случае выдают для 1 числа неделю большую чем 1, 
-      // то есть последнюю неделю ушедшего года. Напирмер 52, 53 и т.п. 
+      // иногда 1-2-3 число относят к предыдущему году. В этом случае выдают для 1 числа неделю большую чем 1,
+      // то есть последнюю неделю ушедшего года. Напирмер 52, 53 и т.п.
       // В этом случае дата создаеься корректно из такой недели и предыдущего года
 
       if (curDate.getMonth() === 0 && weekFirst > 0) {
@@ -109,7 +119,7 @@ export class EasycalendarComponent implements OnInit, DoCheck  {
         boolCheckDay: this.checkedDate.includes(this.getTag(i + weekFirst, y, 0)),
         boolBusyDay: this.busyDate.includes(this.getTag(i + weekFirst, y, 0))
         },
-  
+
        {tagTu: this.getTag(i + weekFirst, y, 1),
         dayTu: this.getValue(i + weekFirst, y, 1),
         weekISOnumber: i + weekFirst,
@@ -120,7 +130,7 @@ export class EasycalendarComponent implements OnInit, DoCheck  {
         boolCheckDay: this.checkedDate.includes(this.getTag(i + weekFirst, y, 1)),
         boolBusyDay: this.busyDate.includes(this.getTag(i + weekFirst, y, 1))
       },
-  
+
        {tagWe: this.getTag(i + weekFirst, y, 2),
         dayWe: this.getValue(i + weekFirst, y, 2),
         weekISOnumber: i + weekFirst,
@@ -131,7 +141,7 @@ export class EasycalendarComponent implements OnInit, DoCheck  {
         boolCheckDay: this.checkedDate.includes(this.getTag(i + weekFirst, y, 2)),
         boolBusyDay: this.busyDate.includes(this.getTag(i + weekFirst, y, 2))
       },
-  
+
        {tagTh: this.getTag(i + weekFirst, y, 3),
         dayTh: this.getValue(i + weekFirst, y, 3),
         weekISOnumber: i + weekFirst,
@@ -142,7 +152,7 @@ export class EasycalendarComponent implements OnInit, DoCheck  {
         boolCheckDay: this.checkedDate.includes(this.getTag(i + weekFirst, y, 3)),
         boolBusyDay: this.busyDate.includes(this.getTag(i + weekFirst, y, 3))
       },
-  
+
        {tagFr: this.getTag(i + weekFirst, y, 4),
         dayFr: this.getValue(i + weekFirst, y, 4),
         weekISOnumber: i + weekFirst,
