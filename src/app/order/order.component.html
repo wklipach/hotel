@@ -6,6 +6,27 @@
 <form [formGroup]="orderForm">
 
   <div class="container-fluid">
+    <div class="d-flex justify-content-center video-block">
+      <div class="video">
+        <video width="100%" height="auto"
+               poster="/../../assets/img/intro.jpg"
+               autoplay
+               tabindex="0"
+               #myvideo
+               muted
+               loop
+               oncanplay="this.play()"
+               onloadedmetadata="this.muted = true"
+               id='myvideo'>
+
+          <source src="/../../assets/img/order.webm" type="video/webm">
+          <source src="/../../assets/img/victoria-intro.mp4" type="video/mp4">
+
+
+        </video>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-2
                         order-md-2 order-lg-1 additional-features">

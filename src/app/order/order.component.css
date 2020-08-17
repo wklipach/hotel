@@ -2,6 +2,21 @@
   font-family: Arial,sans-serif;
   max-width: 1300px;
 }
+
+.video-block {
+  position: relative;
+  width: 100%;
+  height: auto;
+
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  z-index: -10 !important;
+}
+
 .additional-features {
   width: 100%;
   height: auto;

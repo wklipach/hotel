@@ -1,6 +1,21 @@
 .container {
   padding: 0;
 }
+
+.video-block {
+  position: relative;
+  width: 100%;
+  height: auto;
+
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  z-index: -10 !important;
+}
+
 h2{
   font-family: helvetica-w01-roman, helvetica-w02-roman, helvetica-lt-w10-roman, sans-serif;
   font-size: 42px;
