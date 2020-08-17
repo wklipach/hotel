@@ -132,11 +132,13 @@ p{
   height: 36px;
   background-color: rgba(230,89,24,0.9496549333844865) !important;
   color: rgba(54,56,57,1) !important;
+  border-radius: 8px;
 }
 .btn-choice {
   width: 140px;
   height: 36px;
   margin-top: 20px;
+  border-radius: 6px;
   background-color: rgba(230,89,24,0.9496549333844865) !important;
   color: rgba(54,56,57,1) !important;
 }
@@ -251,9 +253,7 @@ img {
   .check-chldr {
     border-bottom: 1px solid #dadcdc;
 }
-  .btn-choice {
-    margin: 15px;
-  }
+
   .room-block {
     flex-direction: column;
     justify-content: center;

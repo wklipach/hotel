@@ -191,13 +191,14 @@ label, span {
   cursor: pointer;
   border-radius: 20px;
 }
-.error {
+.error2 {
   position: absolute;
   font-size: 18px;
   color: #c20b20;
   margin-left: 250px;
   top: 920px;
 }
+
 .close {
   margin-top: -20px;
   margin-right: -20px;

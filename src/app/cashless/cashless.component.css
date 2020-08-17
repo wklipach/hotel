@@ -38,6 +38,14 @@ label, span {
   margin: 0 auto;
   z-index: 2;
 }
+.alert-success {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  padding: 30px 20px 15px 15px;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
 @media screen and (min-width:992px) and (max-width:1199px) {
 
 }  /* КОНЕЦ 992 - 1199  lg  */

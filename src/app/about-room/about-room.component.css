@@ -175,6 +175,13 @@ span img {
   margin-top: 24px;
   background-color: #E65918;
   color: rgba(54,56,57,1);
+  border-radius: 6px;
+}
+.btn-order:hover{
+  font-weight: 600;
+  background-color: #e65b02;
+
+  border-radius: 6px;
 }
 .map-middle {
   position: relative;

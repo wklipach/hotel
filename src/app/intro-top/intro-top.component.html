@@ -2,22 +2,20 @@
 
 <div class="d-flex justify-content-center video-block">
 
-
+ <!--
   <div class="logo-video">
     <div class="d-flex justify-content-center">
 
-      <video width="100%" height="auto" 
-             poster="../../assets/img/logo-video.png" 
+      <video width="100%" height="auto"
+             poster="../../assets/img/logo-video.png"
              autoplay
              tabindex="0"
              #myvideo
-             muted  
-             oncanplay="this.play()" 
+             muted
+             oncanplay="this.play()"
              onloadedmetadata="this.muted = true"
              id='myvideo'>
 
-
- 
 
         <source src="../../assets/img/intro-logo.mp4" type="video/mp4">
         <source src="../../assets/img/intro.webm" type="video/webm">
@@ -26,19 +24,31 @@
     </div>
   </div>
 
-
+autoplay="autoplay" loop="loop" controls="controls" muted="muted" tabindex="0"
+-->
 
   <div class="video">
-    <video width="100%" height="auto" poster="/../../assets/img/intro.jpg" autoplay="autoplay" loop="loop" controls="controls" muted="muted" tabindex="1">
-      <source src="/../../assets/img/intro.mp4" type="video/mp4">
-      <source src="/../../assets/img/intro.webm" type="video/webm">
+    <video width="100%" height="auto"
+           poster="/../../assets/img/intro.jpg"
+           autoplay
+           tabindex="0"
+           #myvideo
+           muted
+           loop
+           oncanplay="this.play()"
+           onloadedmetadata="this.muted = true"
+           id='myvideo'>
+
+      <source src="/../../assets/img/victoria-intro.webm" type="video/webm">
+      <source src="/../../assets/img/victoria-intro.mp4" type="video/mp4">
+
 
     </video>
   </div>
 
 
 
-  <span class="d-flex justify-content-center advert">Комфортные номера от 1800 рублей в сутки</span>
+  <span class="d-flex justify-content-center advert ml-n5">Комфортные номера от 1800 рублей в сутки</span>
 
 
 
