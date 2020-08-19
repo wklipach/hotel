@@ -422,9 +422,10 @@ export class ParlorComponent implements OnInit {
 
 
   onYesClick(idcomment, stype) {
+
     document.getElementById('closeModalButton').click();
     if (stype === 'delete') {
-      this.rv.deleteReview(idcomment).subscribe( reviewres => {
+      this.rv.deleteReview(idcomment).subscribe(reviewres => {
         this.refreshMessage();
       });
     }
