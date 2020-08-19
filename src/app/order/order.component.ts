@@ -17,6 +17,7 @@ export class OrderComponent implements OnInit {
   sError = '';
   idCity = 1;
   addserv: any;
+  servicegroup: any;
   orderForm: FormGroup;
   room: any;
   DateRoom: any;
@@ -30,6 +31,7 @@ export class OrderComponent implements OnInit {
   totalCost = 0;
   boolRules = false;
   boolCashless = false;
+  boolArrServGroup: boolean [];
   listSelectedServices: any[] = []; // {id, name, count, price, cost};
 
   constructor(private os: OrderService,  public gr: GlobalRef,
@@ -48,14 +50,24 @@ export class OrderComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.os.getAdditionalServices(this.idCity).subscribe( (add: any[]) => {
-      if (add) {
-        add.forEach(elServ => {
-          this.orderForm.addControl('addserv' + elServ.id, new FormControl(''));
-        });
-        this.addserv = add;
-      }
 
+    this.boolArrServGroup = [];
+    this.os.getAdditionalGroupServices().subscribe( (servicegroup: any[]) => {
+          servicegroup.forEach(elServGroup => {
+          this.orderForm.addControl('addservgroup' + elServGroup.id_group, new FormControl(''));
+          this.boolArrServGroup.push(false);
+          });
+          this.servicegroup = servicegroup;
+
+          this.os.getAdditionalServices(this.idCity).subscribe( (add: any[]) => {
+            if (add) {
+              add.forEach(elServ => {
+              this.orderForm.addControl('addserv' + elServ.id, new FormControl(''));
+              });
+              this.addserv = add;
+              console.log(this.addserv);
+          }
+          });
     });
 
     // получаем данные о номере
@@ -109,6 +121,11 @@ export class OrderComponent implements OnInit {
     return cost;
   }
 
+  clickCheckElementGroup($event, id, name) {
+
+    this.boolArrServGroup[id - 1] = !this.boolArrServGroup[id - 1];
+    // console.log('this.boolArrServGroup[id-1]', this.boolArrServGroup[id - 1], id);
+  }
   clickCheckElement($event,  id, curName, curPrice) {
     const res = this.orderForm.controls['addserv' + id].value;
 
@@ -324,6 +341,7 @@ export class OrderComponent implements OnInit {
             const id_order  = numberorder[0][0].id_order;
             console.log('id_order=', id_order, numberorder);
             // после получения заказа заносим услуги (даже если их нет возвращаем true)
+            console.log('listSelectedServices=', this.listSelectedServices);
             this.os.setAddService(id_order, this.listSelectedServices).subscribe( addserv => {
               if (addserv) {
                 this.os.setDateToNumber(id_order, this.room.id, datebegin, dateend).subscribe( DateToNumber => {

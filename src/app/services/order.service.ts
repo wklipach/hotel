@@ -10,6 +10,12 @@ export class OrderService {
   constructor(private http: HttpClient, public gr: GlobalRef) { }
 
 
+  getAdditionalGroupServices() {
+    const varparams = new HttpParams()
+      .set('get_additional_services_group', 'get_additional_services_group');
+    return this.http.get(this.gr.sUrlGlobal + 'order', {params: varparams});
+  }
+
   getAdditionalServices(idCity: number) {
     const varparams = new HttpParams()
     .set('get_additional_services', 'get_additional_services')

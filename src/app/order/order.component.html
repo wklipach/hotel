@@ -30,8 +30,19 @@
                         order-md-2 order-lg-1 additional-features">
         <h2>Добавьте дополнительные возможности</h2>
 
+        <div *ngIf="servicegroup && servicegroup.length>0">
+
+          <div *ngFor="let curElemServiceGroup of servicegroup">
+            {{curElemServiceGroup.name}}
+            <input formControlName="addservgroup{{curElemServiceGroup.id_group}}" type="checkbox"
+                   (change)="clickCheckElementGroup($event, curElemServiceGroup.id_group, curElemServiceGroup.name)">
+
+       <!-- начало блока в группе -->
+       <div *ngIf="this.boolArrServGroup[curElemServiceGroup.id_group - 1]">
         <div *ngIf="addserv && addserv.length>0">
           <div *ngFor="let curElemAddServ of addserv">
+
+            <div *ngIf="curElemServiceGroup.id_group === curElemAddServ.id_group">
 
             <div class="block">
               <img src="{{gr.sUrlImageAddServGlobal}}{{curElemAddServ.file_name}}" height="79" width="109"/>
@@ -42,6 +53,7 @@
                   {{curElemAddServ.description}}
                 </p>
               </div>
+
 
               <div class="amount">
                 <div *ngIf="curElemAddServ.ItIsBoolean.data[0] === 0">
@@ -70,8 +82,18 @@
               </div>
             </div>
 
+            </div>
+
           </div>
         </div>
+
+
+       </div>
+            <!-- конец блока в группе  -->
+
+          </div>
+        </div>
+
 
         <div class="d-flex flex-column client-info">
           <h2>Введите свои данные</h2>

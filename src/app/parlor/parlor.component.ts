@@ -35,6 +35,10 @@ export class ParlorComponent implements OnInit {
   public memoEditBool = false;
   id_edit = -1;
 
+  idcomment = -1;
+  stype = '';
+  sQuestion = '';
+
 
   constructor(private router: Router, private authService: AuthService,
               private fb: FormBuilder, private gr: GlobalRef,
@@ -381,17 +385,6 @@ export class ParlorComponent implements OnInit {
     }, 0);
   }
 
-  clickDeleteMessage(id) {
-
-    if (confirm('Вы уверены что желаете удалить комментарий?')) {
-      // Save it!
-      this.rv.deleteReview(id).subscribe( reviewres => {
-        this.refreshMessage();
-     });
-    }
-
-  }
-
   refreshMessage() {
     console.log('refreshMessage', this.id_user_vict);
     this.rv.getUserReview(this.id_user_vict).subscribe( (reviewres: Array<any>) => {
@@ -417,6 +410,24 @@ export class ParlorComponent implements OnInit {
       this.memoEditBool = false;
       this.refreshMessage();
    });
+  }
+
+  clickDeleteMessage(id) {
+    this.idcomment = id;
+    this.stype = 'delete';
+    this.sQuestion = 'Вы уверены что желаете удалить комментарий?';
+    const modalWindow = document.getElementById('openModalButton');
+    modalWindow.click();
+  }
+
+
+  onYesClick(idcomment, stype) {
+    document.getElementById('closeModalButton').click();
+    if (stype === 'delete') {
+      this.rv.deleteReview(idcomment).subscribe( reviewres => {
+        this.refreshMessage();
+      });
+    }
   }
 
 

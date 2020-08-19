@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 export class OrderlistComponent implements OnInit {
 
   orderlist = [];
+  sQuestion = '';
+  idorder = -1;
+  stype = '';
 
   constructor(private authService: AuthService, private os: OrderService, private router: Router) { }
 
@@ -31,19 +34,36 @@ export class OrderlistComponent implements OnInit {
   }
 
   deleteorder(idorder) {
-    if (confirm('Вы уверены что желаете удалить заказ №' + idorder + '?')) {
-      this.os.setDeleteOrder(idorder).subscribe( () => {
-        this.loadOrderList();
-      });
-    }
+    this.idorder = idorder;
+    this.stype = 'delete';
+    this.sQuestion = 'Вы уверены что желаете удалить заказ №' + idorder + '?';
+    const modalWindow = document.getElementById('openModalButton');
+    modalWindow.click();
   }
 
   payorder(idorder) {
-    if (confirm('Вы готовы подтвердить платеж по заказу №' + idorder + '?')) {
+    this.idorder = idorder;
+    this.stype = 'pay';
+    this.sQuestion = 'Вы готовы подтвердить платеж по заказу №' + idorder + '?';
+    const modalWindow = document.getElementById('openModalButton');
+    modalWindow.click();
+  }
+
+  onYesClick(idorder, stype) {
+    document.getElementById('closeModalButton').click();
+
+    if (stype === 'delete') {
+        this.os.setDeleteOrder(idorder).subscribe( () => {
+        this.loadOrderList();
+      });
+    }
+
+    if (stype === 'pay') {
       this.os.setPayOrder(idorder).subscribe( () => {
         this.loadOrderList();
       });
     }
+
   }
 
 
