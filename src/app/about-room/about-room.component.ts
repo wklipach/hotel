@@ -328,6 +328,9 @@ export class AboutRoomComponent implements OnInit, AfterViewInit {
   getBeginDate() {
     const strDate = document.getElementById('textCalenarBegin').textContent;
     const dDateBegin = this.toDate(strDate);
+    if (isNaN(dDateBegin.getTime())) {
+      return new Date();
+    }
     if (dDateBegin) {
       dDateBegin.setHours(0, 0, 0, 0);
       return dDateBegin;
