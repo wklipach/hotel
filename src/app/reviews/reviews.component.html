@@ -1,29 +1,29 @@
 <app-header></app-header>
 
+      <div class="d-flex justify-content-center video-block">
+        <div class="video">
+          <video width="100%" height="auto"
+                 poster="/../../assets/img/intro.jpg"
+                 autoplay
+                 tabindex="0"
+                 #myvideo
+                 muted
+                 loop
+                 oncanplay="this.play()"
+                 onloadedmetadata="this.muted = true"
+                 id='myvideo'>
+
+            <source src="/../../assets/img/reviews.webm" type="video/webm">
+
+          </video>
+        </div>
+      </div>
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-12">
-
-       <div class="d-flex justify-content-center video-block">
-          <div class="video">
-            <video width="100%" height="auto"
-                   poster="/../../assets/img/intro.jpg"
-                   autoplay
-                   tabindex="0"
-                   #myvideo
-                   muted
-                   loop
-                   oncanplay="this.play()"
-                   onloadedmetadata="this.muted = true"
-                   id='myvideo'>
-
-              <source src="/../../assets/img/reviews.webm" type="video/webm">
-              <source src="/../../assets/img/victoria-intro.mp4" type="video/mp4">
-
-
-            </video>
-          </div>
-        </div>
 
 <h1>Отзывы</h1>
 
@@ -122,5 +122,6 @@
     </div>
   </div>
 </div>
-
+<!--
 <app-footer></app-footer>
+-->

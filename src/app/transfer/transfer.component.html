@@ -1,29 +1,29 @@
 <app-header></app-header>
 
+<div class="d-flex justify-content-center video-block">
+  <div class="video">
+    <video width="100%" height="auto"
+           poster="/../../assets/img/intro.jpg"
+           autoplay
+           tabindex="0"
+           #myvideo
+           muted
+           loop
+           oncanplay="this.play()"
+           onloadedmetadata="this.muted = true"
+           id='myvideo'>
+
+      <source src="/../../assets/img/transfer.webm" type="video/webm">
+<!--       <source src="/../../assets/img/victoria-intro.mp4" type="video/mp4">        -->
+
+
+    </video>
+  </div>
+</div>
+
 <form [formGroup]="transferForm">
 
 <div class="container">
-
-  <div class="d-flex justify-content-center video-block">
-    <div class="video">
-      <video width="100%" height="auto"
-             poster="/../../assets/img/intro.jpg"
-             autoplay
-             tabindex="0"
-             #myvideo
-             muted
-             loop
-             oncanplay="this.play()"
-             onloadedmetadata="this.muted = true"
-             id='myvideo'>
-
-        <source src="/../../assets/img/transfer.webm" type="video/webm">
-        <source src="/../../assets/img/victoria-intro.mp4" type="video/mp4">
-
-
-      </video>
-    </div>
-  </div>
 
   <div class="row text-center">
     <div class="col-12">

@@ -1,34 +1,49 @@
 
 <app-header></app-header>
 
+<div class="d-flex justify-content-center video-block">
+  <div class="video">
+    <video width="100%" height="auto"
+           poster="/../../assets/img/intro.jpg"
+           autoplay
+           tabindex="0"
+           #myvideo
+           muted
+           loop
+           oncanplay="this.play()"
+           onloadedmetadata="this.muted = true"
+           id='myvideo'>
+
+      <source src="/../../assets/img/order.webm" type="video/webm">
+      <source src="/../../assets/img/victoria-intro.mp4" type="video/mp4">
+
+
+    </video>
+  </div>
+</div>
+
+
 <form [formGroup]="orderForm">
 
   <div class="container-fluid">
-    <div class="d-flex justify-content-center video-block">
-      <div class="video">
-        <video width="100%" height="auto"
-               poster="/../../assets/img/intro.jpg"
-               autoplay
-               tabindex="0"
-               #myvideo
-               muted
-               loop
-               oncanplay="this.play()"
-               onloadedmetadata="this.muted = true"
-               id='myvideo'>
-
-          <source src="/../../assets/img/order.webm" type="video/webm">
-          <source src="/../../assets/img/victoria-intro.mp4" type="video/mp4">
-
-
-        </video>
-      </div>
-    </div>
 
     <div class="row">
       <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-2
                         order-md-2 order-lg-1 additional-features">
         <h2>Добавьте дополнительные возможности</h2>
+
+        <div class="alert-info py-2 mb-3">
+          <div class="d-flex justify-content-between">
+            <span>Питание</span>
+            <img class="caret" src="../../assets/img/caret-up-square.svg" height="24" width="24"/></div>
+        </div>
+
+
+        <div class="alert-info py-2">
+          <div class="d-flex justify-content-between">
+            <span>Трансфер</span>
+            <img class="caret" src="../../assets/img/caret-down-square.svg" height="24" width="24"/></div>
+        </div>
 
         <div *ngIf="servicegroup && servicegroup.length>0">
 
@@ -37,7 +52,10 @@
             <input formControlName="addservgroup{{curElemServiceGroup.id_group}}" type="checkbox"
                    (change)="clickCheckElementGroup($event, curElemServiceGroup.id_group, curElemServiceGroup.name)">
 
-       <!-- начало блока в группе -->
+
+
+
+            <!-- начало блока в группе -->
        <div *ngIf="this.boolArrServGroup[curElemServiceGroup.id_group - 1]">
         <div *ngIf="addserv && addserv.length>0">
           <div *ngFor="let curElemAddServ of addserv">
@@ -252,8 +270,18 @@
 
       </div>
     </div>
+<!--
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Внимание!</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+ -->
 
-    <div class="error">{{sError}}</div>
+    <div class="error">
+     <div class="alert-success">{{sError}}</div>
+    </div>
 
 
   </div>

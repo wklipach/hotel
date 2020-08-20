@@ -30,13 +30,13 @@ h1 {
   text-align: center;
 }
 .ln-rb {
-  width: 700px;
+  width: 65%;
   border-top: 1px solid #dadcdc;
   margin-top: 10px;
   margin-bottom: 0;
 }
 .reviews-block {
-  width: 764px;
+  width: 100%;
   height: auto;
   min-height: 85px;
   background: rgb(163, 186, 201);
@@ -104,7 +104,7 @@ h1 {
   text-align: center;
 }
 .reviews-block {
-  width: auto;
+  width: 100%;
   height: auto;
   margin: 10px auto 0 auto;
   padding: 4px;
@@ -129,7 +129,7 @@ h1 {
   text-align: center;
 }
 .reviews-block {
-  width: auto;
+  width: 96%;
   height: auto;
   margin: 10px auto 0 auto;
   padding: 4px;

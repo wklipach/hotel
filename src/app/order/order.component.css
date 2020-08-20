@@ -91,7 +91,7 @@ label, span {
 .check-auto {
 }
 .order-details {
-  max-width: 330px;
+  max-width: 360px;
   height: 770px;
   padding: 35px 37px 35px 30px;
   background-color: #fafafa;
@@ -221,6 +221,10 @@ label, span {
 .close:hover {
   cursor: pointer;
 }
+.caret:hover {
+  cursor: pointer;
+}
+
 @media screen and (min-width:992px) and (max-width:1199px) {
   .additional-features {
     padding-left: 45px;
@@ -233,6 +237,11 @@ label, span {
     width: 100%;
     solid-color: #dadcdc;
   }
+
+  .error {
+    height: 30px;
+  }
+
 }  /* КОНЕЦ 992 - 1199  lg  */
 
 @media screen and (min-width:577px) and (max-width:991px) {

@@ -127,10 +127,10 @@ ul {list-style-type: none;}
 
 /* 5 отмеченный пользователем день текущего месяца */
 .checkedMonthDay {
-  background: white;
-  color: rgb(35, 182, 67) !important;
+  color: #ffffff!important;
   text-decoration: line-through;
   font-weight: bold;
+  background-color: #e65b02;
 }
 
 
