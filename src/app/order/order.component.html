@@ -30,12 +30,13 @@
     <div class="row">
       <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-2
                         order-md-2 order-lg-1 additional-features">
-        <h2>Добавьте дополнительные возможности</h2>
+        <h2>Дополнительные услуги</h2>
 
+<!--
         <div class="alert-info py-2 mb-3">
           <div class="d-flex justify-content-between">
             <span>Питание</span>
-            <img class="caret" src="../../assets/img/caret-up-square.svg" height="24" width="24"/></div>
+            <img class="caret" src="../../assets/img/caret-up-square.svg" height="24"  width="24"/></div>
         </div>
 
 
@@ -44,15 +45,21 @@
             <span>Трансфер</span>
             <img class="caret" src="../../assets/img/caret-down-square.svg" height="24" width="24"/></div>
         </div>
+-->
+
 
         <div *ngIf="servicegroup && servicegroup.length>0">
 
           <div *ngFor="let curElemServiceGroup of servicegroup">
-            {{curElemServiceGroup.name}}
-            <input formControlName="addservgroup{{curElemServiceGroup.id_group}}" type="checkbox"
-                   (change)="clickCheckElementGroup($event, curElemServiceGroup.id_group, curElemServiceGroup.name)">
 
-
+            <div class="alert-warning py-2 mb-3">
+              <div class="d-flex justify-content-between">
+                  <span>{{curElemServiceGroup.name}}</span>
+                  <img class="caret"
+                       (click)="clickCheckElementGroup($event, curElemServiceGroup.id_group, curElemServiceGroup.name)"
+                       src="../../assets/img/{{getImageForGroup(curElemServiceGroup.id_group)}}" height="24"  width="24"/>
+              </div>
+            </div>
 
 
             <!-- начало блока в группе -->

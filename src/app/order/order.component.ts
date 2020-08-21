@@ -397,4 +397,17 @@ export class OrderComponent implements OnInit {
     this.boolRules = !this.boolRules;
   }
 
+
+  getImageForGroup(id) {
+    if (this.boolArrServGroup[id - 1]) {
+      // открыто
+      // return 'caret-up-square.svg';
+      return 'chevron-up.svg';
+    } else {
+      // закрыто
+      // return 'caret-down-square.svg';
+      return 'chevron-down.svg';
+    }
+  }
+
 }
