@@ -52,12 +52,12 @@
 
           <div *ngFor="let curElemServiceGroup of servicegroup">
 
-            <div class="alert-warning py-2 mb-3">
+            <div class="py-2 mb-3 add-features">
               <div class="d-flex justify-content-between">
-                  <span>{{curElemServiceGroup.name}}</span>
+                  <span class="group">{{curElemServiceGroup.name}}</span>
                   <img class="caret"
                        (click)="clickCheckElementGroup($event, curElemServiceGroup.id_group, curElemServiceGroup.name)"
-                       src="../../assets/img/{{getImageForGroup(curElemServiceGroup.id_group)}}" height="24"  width="24"/>
+                       src="../../assets/img/{{getImageForGroup(curElemServiceGroup.id_group)}}" height="20"  width="20"/>
               </div>
             </div>
 

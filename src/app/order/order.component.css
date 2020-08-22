@@ -32,6 +32,7 @@
   margin-bottom: 18px;
 }
 h2 {
+  width: 570px;
   font-family: Arial,sans-serif;
   font-size: 18px;
   font-weight: 600;
@@ -224,43 +225,62 @@ label, span {
 .caret:hover {
   cursor: pointer;
 }
-
+.group {
+  font-size: 16px;
+  color: #373737;
+  font-weight: 500;
+  padding-left: 15px;
+}
+.add-features {
+  width: 570px;
+  background-color: #fafafa;
+  background: linear-gradient(to bottom,#fafafa 0,#fafaff 100%);
+  border: 1px solid #dadcdc;
+  border-radius: 20px;
+}
 @media screen and (min-width:992px) and (max-width:1199px) {
+.row {
+  min-width: 992px;
+}
   .additional-features {
-    padding-left: 45px;
-  }
-  .block {
-    width: 550px;
-  }
-
-  hr {
-    width: 100%;
-    solid-color: #dadcdc;
-  }
-
-  .error {
-    height: 30px;
-  }
+  padding-left: 45px;
+}
+.add-features {
+ width: 550px;
+}
+.block {
+  width: 550px;
+}
+.client-info {
+  width: 550px;
+}
+hr {
+  width: 100%;
+  solid-color: #dadcdc;
+}
+.error {
+  height: 30px;
+}
 
 }  /* КОНЕЦ 992 - 1199  lg  */
 
 @media screen and (min-width:577px) and (max-width:991px) {
-  .order-details {
-    text-align: center;
-    width: auto;
-    max-width: 980px;
-    height: auto;
-    padding: 35px 45px;
-    background-color: #fafafa;
-    margin-top: 20px;
-    margin-left: 0;
-  }
-  h2 {
-    margin-bottom: 12px;
-  }
-  .line {
-    width: 97%;
-  }
+.order-details {
+  text-align: center;
+  width: auto;
+  max-width: 980px;
+  height: auto;
+  padding: 35px 45px;
+  background-color: #fafafa;
+  margin-top: 20px;
+  margin-left: 0;
+}
+h2 {
+  margin-bottom: 12px;
+}
+.line {
+  width: 97%;
+}
   .image {
     max-width: 950px;
     height: auto;
