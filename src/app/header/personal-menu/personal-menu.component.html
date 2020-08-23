@@ -2,7 +2,7 @@
   <ul class="nav">
 
     <li class="nav-item">
-      <a class="nav-link photo dropdown-toggle align-items-lg-end" data-toggle="dropdown" href="#">
+      <a class="nav-link photo dropdown-toggle align-items-lg-end" data-toggle="dropdown" href="#"><span class="entrtxt">Войти</span>
 
         <div class="mr-1" *ngIf="this.sAvatarPath.length>0;then contentLoadAvatar else contentDefault">{{this.sUserName}}</div>
         <ng-template #contentLoadAvatar>

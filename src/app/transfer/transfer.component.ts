@@ -72,11 +72,11 @@ export class TransferComponent implements OnInit {
     this.sResultEmail = '';
     console.log('transfer');
     if (this.transferForm.controls.name.value === '') {
-          this.sError = 'вы должны внести имя';
+          this.sError = 'Вы должны внести имя';
           return;
     }
     if (this.transferForm.controls.phone.value === '') {
-      this.sError = 'вы должны внести телефон';
+      this.sError = 'Вы должны внести телефон';
       return;
     }
 

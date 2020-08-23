@@ -245,3 +245,13 @@ span img {
 .close:hover {
   cursor: pointer;
 }
+.error {
+  position: absolute;
+}
+.alert-danger {
+  width: 218px;
+  background-color: #bf6971;
+  border-color: #f5c6cb;
+  text-align: center;
+  color: white;
+}

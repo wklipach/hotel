@@ -2,21 +2,17 @@
   font-family: Arial,sans-serif;
   max-width: 1300px;
 }
-
 .video-block {
   position: relative;
   width: 100%;
   height: auto;
-
 }
-
 .video {
   width: 100%;
   height: auto;
   opacity: 1;
   z-index: -10 !important;
 }
-
 .additional-features {
   width: 100%;
   height: auto;
@@ -207,14 +203,6 @@ label, span {
   cursor: pointer;
   border-radius: 20px;
 }
-.error2 {
-  position: absolute;
-  font-size: 18px;
-  color: #c20b20;
-  margin-left: 250px;
-  top: 920px;
-}
-
 .close {
   margin-top: -20px;
   margin-right: -20px;
@@ -238,6 +226,27 @@ label, span {
   border: 1px solid #dadcdc;
   border-radius: 20px;
 }
+.message-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.message {
+  background-color: #ffffff;
+}
+.alert-danger {
+  background-color: #bf6971;
+  border-color: #f5c6cb;
+  text-align: center;
+  color: white;
+}
 @media screen and (min-width:992px) and (max-width:1199px) {
 .row {
   min-width: 992px;
@@ -258,10 +267,6 @@ hr {
   width: 100%;
   solid-color: #dadcdc;
 }
-.error {
-  height: 30px;
-}
-
 }  /* КОНЕЦ 992 - 1199  lg  */
 
 @media screen and (min-width:577px) and (max-width:991px) {

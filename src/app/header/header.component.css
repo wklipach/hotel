@@ -50,10 +50,7 @@ header .nav-item a:hover::after{
   margin-left: 6px;
 }
 @media screen and (min-width:992px) and (max-width:1199px) {
-  .navbar {
-    width: 992px;
-    margin: 0 auto;
-  }
+
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-left: 0;
   }
@@ -70,7 +67,13 @@ header .nav-item a:hover::after{
     margin-left: auto;
     padding-right: 15px;
   }
-
+ul {
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 }  /* КОНЕЦ 992 - 1200  */
 
 @media screen and (min-width:480px) and (max-width:800px) {

@@ -41,4 +41,26 @@ p {
   margin-bottom: 5px;
 }
 
-
+@media screen and (max-width:576px) {
+  .page1 {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    flex-direction: column;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  .topic {
+    height: auto;
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+}

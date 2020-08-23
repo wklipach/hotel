@@ -123,6 +123,10 @@
         <div class="d-flex flex-column client-info">
           <h2>Введите свои данные</h2>
 
+          <div class="mb-5 error">
+            <div class="alert-danger">{{sError}}</div>
+          </div>
+
           <div class="d-flex justify-content-start mb-3">
 
             <div class="mr-auto">
@@ -277,18 +281,6 @@
 
       </div>
     </div>
-<!--
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <strong>Внимание!</strong>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
- -->
-
-    <div class="error">
-     <div class="alert-success">{{sError}}</div>
-    </div>
 
 
   </div>
@@ -296,4 +288,3 @@
 </form>
 
 <app-footer></app-footer>
-

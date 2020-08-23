@@ -10,9 +10,14 @@ a {color: #A3BAC9;}
 .dropdown-menu {
   width: 212px;
   padding-left: 6px;
+  margin-bottom: 30px;
 }
-.nav {
-
+.navbar-collapse {
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 p {
   margin: 0;
@@ -49,3 +54,19 @@ header .nav-link:hover {
 .dropdown-menu a:hover::after{
   transform: scale(1);
 }
+ .entrtxt {
+  position: absolute;
+  opacity: 0;
+
+}
+@media screen and (min-width:992px) and (max-width:1199px) {
+
+}  /* КОНЕЦ 992 - 1200  */
+
+@media screen and (min-width:480px) and (max-width:991px) {
+
+}  /* КОНЕЦ 480 - 991  */
+
+@media screen and (max-width:479px) {
+
+}  /* КОНЕЦ 320 - 479  */

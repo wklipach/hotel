@@ -234,32 +234,124 @@ img {
 .comfort-block img {
   margin-right: 8px;
 }
-
-/*  margin-top: -10px;
-  margin-left: 42px;
-  border: 1px solid #dadcdc;*/
+.alert-danger {
+  background-color: #bf6971;
+  border-color: #f5c6cb;
+  width: 77.7%;
+  margin: 0 0 0 40px;
+  text-align: center;
+  z-index: 2;
+  position: inherit;
+  color: white;
+}
 @media screen and (min-width:992px) and (max-width:1199px) {
 
 }  /* КОНЕЦ 992 - 1199  lg  */
 
 @media screen and (min-width:577px) and (max-width:991px) {
-
-
+  .container{
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    width: 96%;
+    margin: 21px 0 0 10px;
+    padding-bottom: 14px;
+  }
+  .choice-block {
+    width: 100%;
+    height: 85px;
+    margin-left: 0;
+    padding: 4px 2%;
+  }
+  .search-results {
+    height: 70px;
+    padding: 20px 0;
+    margin: 0;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .room-block {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+    margin-left: 20px;
+  }
+  .room-image{
+    width: 35%;
+    margin: 0;
+  }
+  .room-image img {
+    width: 100%;
+    height: auto;
+  }
+  .room-description {
+    width: 60%;
+    height: auto;
+    padding: 0 15px;
+    margin-top: -18px;
+  }
+  .room-title {
+    margin: 10px;
+  }
+  .comfort-block {
+    width: auto;
+    height: auto;
+    margin: 20px;
+  }
+  .comfort-block img {
+    margin-right: 3px;
+  }
+  .room-about {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 0;
+  }
+  .room-price-from {
+    padding-top: 0;
+    margin-top: 24px;
+    margin-right: 2%;
+  }
+  .room-price {
+    padding-top: 12px;
+    padding-bottom: 16px;
+    margin-right: auto;
+  }
+  .btn-about{
+    margin: 15px 10% 0 0;
+  }
 }  /* КОНЕЦ 577 - 991  md */
 
 @media screen and (max-width:576px) {
+  .container{
+    max-width: 90%;
+    margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
+  }
   h1{
     width: auto;
     margin: 10px 0 15px 0;
+    text-align: center;
   }
   .choice-block {
     flex-direction: column;
     margin-bottom: 20px;
+    margin-left: 0;
+    width: auto;
     height: auto;
+    padding-top: 8px;
   }
+.btn-choice {
+  margin: 20px 0 20px 15%;
+}
+
   .check-in, .check-out, .check-col, .check-chldr {
-    width: 30%;
-    margin: auto 0;
+    width: 70%;
+    margin: auto;
     border-top: 1px solid #dadcdc;
     border-left: 1px solid #dadcdc;
     border-right: 1px solid #dadcdc;
@@ -268,9 +360,59 @@ img {
   .check-chldr {
     border-bottom: 1px solid #dadcdc;
 }
-
-  .room-block {
-    flex-direction: column;
-    justify-content: center;
+.room-block {
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width:100%;
+  margin: 0 auto 20px 0;
+}
+  .room-image{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .room-image img {
+  width: 100%;
+  height: auto;
+}
+  .room-description {
+    width: auto;
+    height: auto;
+    text-align: center;
+  }
+.room-title {
+  margin: 15px;
+}
+  .comfort-block {
+    width: auto;
+    height: auto;
+    margin: 20px;
+  }
+  .comfort-block img {
+   margin-right: 3px;
+  }
+  .room-about {
+    width: auto;
+    padding: 0;
+  }
+  .room-price-from {
+    padding-top: 13px;
+  }
+  .easy-calendar-left  {
+    top: 5%;
+    right: 20%;
+    position: fixed;
+    z-index: 2;
+  }
+  .easy-calendar-right  {
+    top: 5%;
+    right: 20%;
+    position: fixed;
+    z-index: 2;
+  }
+  .search-results {
+    height: auto;
+    padding: 20px 0;
+    margin: 0;
   }
 }  /* КОНЕЦ 320 - 576  - */
