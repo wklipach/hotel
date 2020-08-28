@@ -154,6 +154,10 @@ h3 {
 }  /* КОНЕЦ 992 - 1200  */
 
 @media screen and (min-width:480px) and (max-width:991px) {
+  .row {
+    margin: 0;
+    padding: 0;
+  }
 .col-12 {
   flex-wrap: wrap;
 
@@ -186,6 +190,10 @@ img {
 }  /* КОНЕЦ 480 - 991  */
 
 @media screen and (max-width:479px) {
+  .row {
+    margin: 0;
+    padding: 0;
+  }
   .col-12 {
     flex-wrap: wrap;
   }

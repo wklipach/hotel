@@ -48,6 +48,7 @@ import { ParlorComponent } from './parlor/parlor.component';
 import { ReviewService } from './services/review.service';
 import { CashlessComponent } from './cashless/cashless.component';
 import { OrderlistComponent } from './orderlist/orderlist.component';
+import { RequisitesComponent } from './requisites/requisites.component';
 
 registerLocaleData(localeRu);
 
@@ -70,6 +71,7 @@ const appRoutes: Routes = [
   {path: 'parlor', component: ParlorComponent},
   {path: 'cashless', component: CashlessComponent},
   {path: 'orderlist', component: OrderlistComponent},
+  {path: 'requisites', component: RequisitesComponent},
   {path: 'test', component: TestpageComponent}
 ];
 
@@ -103,7 +105,8 @@ const appRoutes: Routes = [
     ParlorComponent,
     TestpageComponent,
     CashlessComponent,
-    OrderlistComponent
+    OrderlistComponent,
+    RequisitesComponent
   ],
   imports: [
     HttpClientModule,

@@ -16,6 +16,12 @@ a {
 p {
   text-align: center;
 }
+.requisites {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #ffffff;
+}
 @media screen and (min-width:992px) and (max-width:1199px) {
   .footer {
     height: 100px;
@@ -34,6 +40,9 @@ p {
     padding: 10px 11px;
     bottom: 0;
   }
+  p {
+    margin-bottom: 0;
+  }
 }  /* КОНЕЦ 480 - 991  */
 
 @media screen and (max-width:479px) {
@@ -43,5 +52,8 @@ p {
     color: #ffffff;
     padding: 10px 11px;
     bottom: 0;
+  }
+  p {
+    margin-bottom: 0;
   }
 }  /* КОНЕЦ 320 - 479  */

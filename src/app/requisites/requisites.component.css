@@ -1,0 +1,28 @@
+.container-fluid {
+  font-family: Arial,sans-serif;
+  max-width: 1180px;
+  min-height: calc(100vh - 155px);
+}
+hr {
+  width: 100%;
+  solid-color: #dadcdc;
+}
+p {
+  font-family: Arial,sans-serif;
+  font-size: 18px;
+  color: #545454;
+  margin: 20px 0;
+  padding: 0 58px 0 10px;
+  text-transform: uppercase;
+}
+@media screen and (min-width:992px) and (max-width:1199px) {
+
+}  /* КОНЕЦ 992 - 1200  */
+
+@media screen and (min-width:480px) and (max-width:800px) {
+
+}  /* КОНЕЦ 480 - 800  */
+
+@media screen and (max-width:479px) {
+
+}  /* КОНЕЦ 320 - 479  */
