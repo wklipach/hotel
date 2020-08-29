@@ -160,9 +160,12 @@
             <textarea formControlName="wishes" class="form-control" rows="4" aria-label="Особые пожелания"></textarea>
           </div>
 
-          <div class="rules">• Совершая бронирование, я подтверждаю, что мною прочитаны и приняты <label class="blue" (click)="clickRules()">правила и условия</label>.</div>
+          <div class="rules">• Совершая бронирование, я подтверждаю, что мною прочитаны и приняты 
+                      <label class="blue" (click)="clickRules()">правила и условия
+                      </label>.</div>
           <div class="d-flex flex-column rules-block" *ngIf="boolRules">
-            <h3>Правила бронирования<img class="close" (click)="clickRules()" src="../../assets/img/x-square.svg" height="20" width="20" title="Закрыть"/></h3>
+            <h3>Правила бронирования<img class="close" (click)="clickRules()" src="../../assets/img/x-square.svg" 
+              height="20" width="20" title="Закрыть"/></h3>
 
             <h3 style="color: #33a2dc; margin: 20px auto;">Время заезда 13:00 | Время выезда 12:00</h3>
             <br><br>
@@ -184,9 +187,12 @@
           <button class="btn-pay" type="button" (click)="apply()" >Перейти к оплате</button>
 
 
-          <div class="rules">• Ознакомтесь с <label class="blue">информацией о платеже</label>.</div>
-          <div class="d-flex flex-column rules-block">
-            <h3>Реквизиты платежа<img class="close" src="../../assets/img/x-square.svg" height="20" width="20" title="Закрыть"/></h3>
+          <div class="rules">• Ознакомтесь с <label class="blue" 
+                                             (click)="clickPayInfo()">информацией о платеже
+                                            </label>.</div>
+          <div class="d-flex flex-column rules-block" *ngIf="boolPayInfo">
+            <h3>Реквизиты платежа<img class="close" src="../../assets/img/x-square.svg" 
+              (click)="clickPayInfo()" height="20" width="20" title="Закрыть"/></h3>
 
             <p>Индивидуальный предприниматель Климчук Михаил Михайлович</p>
             <p>ИНН: 290209950409</p>

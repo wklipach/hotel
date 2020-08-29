@@ -30,6 +30,7 @@ export class OrderComponent implements OnInit {
   costWithoutServices = 0;
   totalCost = 0;
   boolRules = false;
+  boolPayInfo = false;
   boolCashless = false;
   boolArrServGroup: boolean [];
   listSelectedServices: any[] = []; // {id, name, count, price, cost};
@@ -395,6 +396,10 @@ export class OrderComponent implements OnInit {
 
   clickRules() {
     this.boolRules = !this.boolRules;
+  }
+
+  clickPayInfo() {
+    this.boolPayInfo = !this.boolPayInfo;
   }
 
 
