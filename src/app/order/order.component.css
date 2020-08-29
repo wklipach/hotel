@@ -130,11 +130,12 @@ label, span {
 }
 .rules {
   font-size: 12px;
+  margin-bottom: 50px;
 }
 .rules-block {
   color: #373737;
   width: 570px;
-  height: 450px;
+  height: auto;
   margin: 30px 0;
   padding: 30px;
   border: solid 2px #ced0d0;
@@ -197,7 +198,7 @@ label, span {
   float: right;
   width: 275px;
   height: 40px;
-  margin: 30px 10px 35px auto;
+  margin: 0 10px 35px auto;
   background-color: #33a2dc;
   background: linear-gradient(to bottom,#36a7dd 0,#2f9ad8 100%);
   color: #fff;
@@ -249,6 +250,14 @@ label, span {
   border-color: #f5c6cb;
   text-align: center;
   color: white;
+}
+.paycard-block {
+  height: 50px;
+}
+.paycard {
+  width: auto;
+  height: 35px;
+
 }
 @media screen and (min-width:992px) and (max-width:1199px) {
 .row {
@@ -397,6 +406,9 @@ h2 {
   }
   .client-info {
     padding: 15px 15px;
+  }
+  .rules {
+    font-size: 12px;
   }
   .rules-block {
     width: 530px;

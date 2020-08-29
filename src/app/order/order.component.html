@@ -160,15 +160,19 @@
             <textarea formControlName="wishes" class="form-control" rows="4" aria-label="Особые пожелания"></textarea>
           </div>
 
-          <div class="rules">• Совершая бронирование, я подтверждаю, что мною прочитаны и приняты 
+          <div class="rules">• Совершая бронирование, я подтверждаю, что мною прочитаны и приняты
                       <label class="blue" (click)="clickRules()">правила и условия
-                      </label>.</div>
+                      </label>.
+          </div>
           <div class="d-flex flex-column rules-block" *ngIf="boolRules">
-            <h3>Правила бронирования<img class="close" (click)="clickRules()" src="../../assets/img/x-square.svg" 
+            <h3>Правила бронирования<img class="close" (click)="clickRules()" src="../../assets/img/x-square.svg"
               height="20" width="20" title="Закрыть"/></h3>
 
             <h3 style="color: #33a2dc; margin: 20px auto;">Время заезда 13:00 | Время выезда 12:00</h3>
             <br><br>
+
+            <p>Ваши персональные данные, полученные при бронировании номера, будут использоваться исключительно для связи с вами
+              и не будут переданы третьим лицам.</p>
             <p>Бронирование осуществляется:
             <p> на сайте <a href="https://victoria-sbor.ru">victoria-sbor.ru</a> <br>
               <a href="vk.com/hotelvictoriasb">ВКонтакте</a>  <br>
@@ -184,14 +188,33 @@
 
           </div>
 
-          <button class="btn-pay" type="button" (click)="apply()" >Перейти к оплате</button>
+          <div class="d-flex justify-content-between paycard-block">
+            <img class="paycard" src="../../assets/img/mastercard-securecode.png"/>
+            <img class="paycard" src="../../assets/img/verified-by-visa.png"/>
+            <img class="paycard" src="../../assets/img/mir-accept.png"/>
 
 
-          <div class="rules">• Ознакомтесь с <label class="blue" 
+            <button class="btn-pay" type="button" (click)="apply()" >Перейти к оплате</button>
+          </div>
+
+
+          <div class="rules">• Ознакомтесь с <label class="blue"
                                              (click)="clickPayInfo()">информацией о платеже
-                                            </label>.</div>
+                                            </label>.
+          </div>
+
           <div class="d-flex flex-column rules-block" *ngIf="boolPayInfo">
-            <h3>Реквизиты платежа<img class="close" src="../../assets/img/x-square.svg" 
+
+          <div class="d-flex justify-content-between">
+            <img  src="../../assets/img/modul-logo.svg" height="30" width="auto"/>
+            <h3 style="width: auto;border: none;">МодульБанк</h3>
+          </div>
+
+          <p>Онлайн оплата осуществляется МодульБанком. <a href="https://modulbank.ru">Перейти на сайт МодульБанка</a> </p>
+
+            <!-- Эти реквизиты в онлайн оплате не нужны,  перенесем в безнальный платеж
+
+            <h3>Реквизиты платежа<img class="close" src="../../assets/img/x-square.svg"
               (click)="clickPayInfo()" height="20" width="20" title="Закрыть"/></h3>
 
             <p>Индивидуальный предприниматель Климчук Михаил Михайлович</p>
@@ -200,6 +223,7 @@
             <p>БИК: 044525092</p>
             <p>к/с №: 30101810645250000092</p>
             <p>Счёт №: 40802810070010240327</p>
+            -->
 
           </div>
 
@@ -295,7 +319,7 @@
         <div class="d-flex justify-content-start py-2 line">
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="check-invoice" [checked]="boolCashless" (change)="boolCashless = !boolCashless">
-            <label class="custom-control-label" for="check-invoice">Безналичный расчет</label>
+            <label class="custom-control-label" for="check-invoice">Использовать платежное поручение</label>
           </div>
         </div>
 
