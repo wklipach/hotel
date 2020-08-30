@@ -207,15 +207,16 @@
 
           <div class="d-flex justify-content-between">
             <img  src="../../assets/img/modul-logo.svg" height="30" width="auto"/>
-            <h3 style="width: auto;border: none;">МодульБанк</h3>
+            <h3 style="width: auto;border: none;">МодульБанк
+              <img class="close" src="../../assets/img/x-square.svg"
+                (click)="clickPayInfo()" height="20" width="20" title="Закрыть"/></h3>
           </div>
 
           <p>Онлайн оплата осуществляется МодульБанком. <a href="https://modulbank.ru">Перейти на сайт МодульБанка</a> </p>
 
-            <!-- Эти реквизиты в онлайн оплате не нужны,  перенесем в безнальный платеж
 
-            <h3>Реквизиты платежа<img class="close" src="../../assets/img/x-square.svg"
-              (click)="clickPayInfo()" height="20" width="20" title="Закрыть"/></h3>
+
+            <h3>Реквизиты компании</h3>
 
             <p>Индивидуальный предприниматель Климчук Михаил Михайлович</p>
             <p>ИНН: 290209950409</p>
@@ -223,7 +224,7 @@
             <p>БИК: 044525092</p>
             <p>к/с №: 30101810645250000092</p>
             <p>Счёт №: 40802810070010240327</p>
-            -->
+
 
           </div>
 

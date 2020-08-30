@@ -17,9 +17,6 @@ p {
   text-align: center;
 }
 .requisites {
-  position: absolute;
-  top: 10px;
-  right: 20px;
   color: #ffffff;
 }
 @media screen and (min-width:992px) and (max-width:1199px) {
