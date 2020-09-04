@@ -9,11 +9,8 @@ export class PamentService {
 
   constructor(private http: HttpClient, public gr: GlobalRef) { }
 
-
   processPayment(idorder, amount) {
-    console.log('processPayment');
     const datamessage = {post_payment: 'post_payment', id_order: idorder, amount};
-    console.log('processPayment', datamessage);
     return this.http.post(this.gr.sUrlGlobal + 'payment', datamessage, {responseType: 'text' });
   }
 

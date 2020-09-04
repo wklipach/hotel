@@ -350,10 +350,11 @@ export class OrderComponent implements OnInit {
 
                     // после того как завели заказ начинаем процесс оплаты
                   if (!this.boolCashless) {
-                  this.ps.processPayment(id_order, totalrub).subscribe( valuePay => {
-                      console.log(valuePay);
-                      document.write(valuePay.toString());
-                      });
+
+                    // document.location.href = 'https://pay.modulbank.ru/pay';
+                    this.ps.processPayment(id_order, totalrub).subscribe( valuePay => {
+                     document.location.href = 'https://pay.modulbank.ru/pay';
+                  });
                    }
 
                   if (this.boolCashless) {
