@@ -327,9 +327,24 @@
       </div>
     </div>
 
-
   </div>
 
 </form>
 
 <app-footer></app-footer>
+
+
+
+<form [formGroup]="orderForm" method="post" action="https://pay.modulbank.ru/widget/pay" style="display: none;">
+  <input type="text" name="amount">
+  <input type="text" name="receipt_items">
+  <input type="text" name="client_price">
+  <input type="text" name="description">
+  <input type="text" name="merchant">
+  <input type="text" name="signature">
+  <input type="text" name="success_url">
+  <input type="text" name="testing">
+  <input type="text" name="unix_timestamp">
+  <input type="text" name="order_id">
+  <button type="submit"></button>
+</form>
