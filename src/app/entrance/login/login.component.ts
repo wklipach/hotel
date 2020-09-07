@@ -89,10 +89,12 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.block_button(this.nStopMs);
         }
 
-        if (!value[0][0].id) {
+        console.log('value[0]=', value[0]);
+        if (value[0].length === 0) { // && !value[0][0] && !value[0][0].id) {
           this.showErr = true;
           this.showSucc = false;
           this.sResTrouble = 'Пользователь не найден.';
+          console.log('sResTrouble=', this.sResTrouble);
           this.authService.clearUserStorage();
           this.block_button(this.nStopMs);
           return;

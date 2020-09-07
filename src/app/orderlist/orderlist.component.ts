@@ -29,6 +29,7 @@ export class OrderlistComponent implements OnInit {
 
   loadOrderList() {
     this.os.getOrderList().subscribe ( (orderlist: Array<any>) => {
+      console.log('orderlist=', orderlist);
       this.orderlist = orderlist;
     });
   }

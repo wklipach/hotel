@@ -67,7 +67,8 @@ export class OrderService {
 
   setInsertOrder(idnumber: number, datebegin: Date, dateend: Date, iduser: number,
                  coupon: string, couponsuccess: boolean,
-                 totalrub: number, description: string, boolCashless: boolean, deposit: number) {
+                 totalrub: number, description: string, boolCashless: boolean, 
+                 deposit: number, guest: number, children: number) {
 
                   console.log('datebegin=', datebegin);
 
@@ -82,7 +83,9 @@ export class OrderService {
                          total_rub: totalrub,
                          description,
                          boolCashless,
-                         deposit};
+                         deposit,
+                         guest,
+                         children};
                   return this.http.post(this.gr.sUrlGlobal + 'order', datamessage);
 
 }

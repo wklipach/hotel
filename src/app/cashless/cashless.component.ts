@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from '../services/order.service';
+import { Base64 } from 'js-base64';
 
 @Component({
   selector: 'app-cashless',
@@ -16,6 +17,8 @@ export class CashlessComponent implements OnInit {
   dateend: Date = null;
   totalrub = 0;
   deposit = 0;
+  guest = 0;
+  children = 0;
   description = '';
   sCashless = 'да';
   name = '';
@@ -25,7 +28,8 @@ export class CashlessComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private os: OrderService, private router: Router) {
         this.route.queryParams.subscribe(params => {
-            this.id_order = params.id_order;
+          console.log('params.id_order=', params.id_order);
+          this.id_order = Number(Base64.decode(params.id_order));
         });
 
   }
@@ -37,6 +41,8 @@ export class CashlessComponent implements OnInit {
       this.totalrub = valorder[0].total_rub;
       this.deposit = valorder[0].deposit;
       this.description = valorder[0].description;
+      this.guest = valorder[0].guest;
+      this.children = valorder[0].children;
 
       if (Boolean(valorder[0].bitCashless) === false) {
         this.sCashless = 'нет';

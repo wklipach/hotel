@@ -51,6 +51,7 @@ export class OrderComponent implements OnInit {
 
   orderid = '';
   description = '';
+  success_url = '';
 
   constructor(private os: OrderService,  public gr: GlobalRef,
               private ps: PamentService, private auth: AuthService, private router: Router) {
@@ -164,8 +165,8 @@ export class OrderComponent implements OnInit {
 
     let res = this.orderForm.controls['addserv' + id].value;
     if (res === '') {
-      this.orderForm.controls['addserv' + id].setValue(0);
-      this.addAddServ(id, name, 0, price);
+      this.orderForm.controls['addserv' + id].setValue(1);
+      this.addAddServ(id, name, 1, price);
       return;
     }
 
@@ -348,12 +349,14 @@ export class OrderComponent implements OnInit {
         const totalrub = this.totalCost;
         const description = orderdescription;
         let deposit = 0;
+        const guest = this.countAdult; 
+        const children = this.countChildren;
         if (this.room.price_weekdays) {
           deposit = this.room.price_weekdays;
         }
 
         this.os.setInsertOrder(idnumber, datebegin, dateend, iduser, coupon,
-                                couponsuccess, totalrub, description, this.boolCashless, deposit).subscribe( numberorder => {
+                                couponsuccess, totalrub, description, this.boolCashless, deposit, guest, children).subscribe( numberorder => {
 
           if (numberorder) {
             const id_order  = numberorder[0][0].id_order;
@@ -374,13 +377,19 @@ export class OrderComponent implements OnInit {
                     */
                    this.orderid = 'Заказ №' + id_order.toString();
                    this.description = this.room.name + ' ' + this.strInfoDate;
+                   const codeOrder =  Base64.encodeURI(id_order);
+                   this.success_url = this.gr.sUrlAngular + 'cashless?id_order=' + codeOrder;
                    this.moveDate();
                    document.getElementById('modulBankWithLove').click();
 
                    }
 
                   if (this.boolCashless) {
-                   this.router.navigate(['/cashless'], { queryParams: {id_order} });
+
+                   const codeOrder =  Base64.encodeURI(id_order);
+                   console.log('codeOrder=', codeOrder);
+                   // Base64.decode()
+                   this.router.navigate(['/cashless'], { queryParams:  {id_order: codeOrder} , skipLocationChange: true });
                   }
 
                 });
@@ -459,7 +468,7 @@ export class OrderComponent implements OnInit {
     this.bankData.unix_timestamp = UNIX_TIMESTAMP;
     this.bankData.testing = '1';
     this.bankData.merchant = '4590e689-c84e-43ec-83f5-6f5c0f8e9063';
-    this.bankData.success_url = 'https://pay.modulbank.ru/success';
+    this.bankData.success_url = this.success_url;  // 'https://pay.modulbank.ru/success';
     this.bankData.signature = this.GetSignature('F79781A25F203661CFECE9EE1EFFC2F0', this.bankData);
 //    console.log('данные для передачи = ');
 //    console.log(this.bankData);
