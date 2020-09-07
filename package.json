@@ -26,6 +26,7 @@
     "crypto-js": "^4.0.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
+    "js-base64": "^3.4.5",
     "rxjs": "~6.5.4",
     "seethru": "^4.0.0",
     "tslib": "^1.10.0",

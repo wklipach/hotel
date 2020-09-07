@@ -334,17 +334,17 @@
 <app-footer></app-footer>
 
 
-
-<form [formGroup]="orderForm" method="post" action="https://pay.modulbank.ru/widget/pay" style="display: none;">
-  <input type="text" name="amount">
-  <input type="text" name="receipt_items">
-  <input type="text" name="client_price">
-  <input type="text" name="description">
-  <input type="text" name="merchant">
-  <input type="text" name="signature">
-  <input type="text" name="success_url">
-  <input type="text" name="testing">
-  <input type="text" name="unix_timestamp">
-  <input type="text" name="order_id">
-  <button type="submit"></button>
+<form ngNoForm target="_blank" action="https://pay.modulbank.ru/pay" method="POST">
+  <input hidden id  =  "testing" type="text" name="testing">
+  <input hidden id =   "merchant" type="text" name="merchant">
+  <input hidden id =   "amount" type="text" name="amount">
+  <input hidden id =   "order_id" type="text" name="order_id">
+  <input hidden id =   "description" type="text" name="description">
+  <input hidden id =   "signature" type="text" name="signature">   
+  <input hidden id =   "success_url" type="text" name="success_url">
+  <input hidden id =   "unix_timestamp" type="text" name="unix_timestamp">
+  <div class="container text-center mt-10">
+  <button hidden id="modulBankWithLove" class="btn-primary" type="submit">send 2</button>
+ </div>
 </form>
+

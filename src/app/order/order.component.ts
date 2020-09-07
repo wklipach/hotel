@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../services/order.service';
 import { GlobalRef } from '../services/globalref';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { analyzeFileForInjectables } from '@angular/compiler';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { PamentService } from '../services/pament.service';
+import { Base64 } from 'js-base64';
+import SHA1 from 'crypto-js/sha1';
 
 @Component({
   selector: 'app-order',
@@ -34,6 +36,21 @@ export class OrderComponent implements OnInit {
   boolCashless = false;
   boolArrServGroup: boolean [];
   listSelectedServices: any[] = []; // {id, name, count, price, cost};
+
+  bankData = {
+    amount: '0',
+    order_id: '',
+    description: '',
+    unix_timestamp: '',
+    testing: '',
+    merchant: '',
+    success_url: '',
+    signature: ''
+  };
+
+
+  orderid = '';
+  description = '';
 
   constructor(private os: OrderService,  public gr: GlobalRef,
               private ps: PamentService, private auth: AuthService, private router: Router) {
@@ -346,15 +363,20 @@ export class OrderComponent implements OnInit {
             this.os.setAddService(id_order, this.listSelectedServices).subscribe( addserv => {
               if (addserv) {
                 this.os.setDateToNumber(id_order, this.room.id, datebegin, dateend).subscribe( DateToNumber => {
-                  console.log('!!!!!');
 
                     // после того как завели заказ начинаем процесс оплаты
                   if (!this.boolCashless) {
 
-                    // document.location.href = 'https://pay.modulbank.ru/pay';
+                    /*
                     this.ps.processPayment(id_order, totalrub).subscribe( valuePay => {
                      document.location.href = 'https://pay.modulbank.ru/pay';
-                  });
+                    });
+                    */
+                   this.orderid = 'Заказ №' + id_order.toString();
+                   this.description = this.room.name + ' ' + this.strInfoDate;
+                   this.moveDate();
+                   document.getElementById('modulBankWithLove').click();
+
                    }
 
                   if (this.boolCashless) {
@@ -415,5 +437,41 @@ export class OrderComponent implements OnInit {
       return 'chevron-down.svg';
     }
   }
+
+  GetSignature(secretKey, formData) {
+    const values = Object.keys(formData)
+      .filter(key => key !== 'signature')
+      .filter(key => formData[key] !== '')
+      .sort()
+      .map(key => `${key}=${Base64.encode(formData[key])}`)
+      .join('&');
+  /* Двойное шифрование sha1 на основе секретного ключа */
+    const signature = SHA1(secretKey + SHA1(secretKey + values));
+    return signature.toString();
+  }
+
+  moveDate() {
+    const UNIX_TIMESTAMP = Math.round(new Date().getTime() / 1000).toString();
+
+    this.bankData.amount = this.totalCost.toString();
+    this.bankData.order_id = this.orderid;
+    this.bankData.description = this.description;
+    this.bankData.unix_timestamp = UNIX_TIMESTAMP;
+    this.bankData.testing = '1';
+    this.bankData.merchant = '4590e689-c84e-43ec-83f5-6f5c0f8e9063';
+    this.bankData.success_url = 'https://pay.modulbank.ru/success';
+    this.bankData.signature = this.GetSignature('F79781A25F203661CFECE9EE1EFFC2F0', this.bankData);
+//    console.log('данные для передачи = ');
+//    console.log(this.bankData);
+    (document.getElementById('amount') as HTMLInputElement).value = this.bankData.amount;
+    (document.getElementById('order_id') as HTMLInputElement).value = this.bankData.order_id;
+    (document.getElementById('description') as HTMLInputElement).value = this.bankData.description;
+    (document.getElementById('unix_timestamp') as HTMLInputElement).value = this.bankData.unix_timestamp;
+    (document.getElementById('testing') as HTMLInputElement).value = this.bankData.testing;
+    (document.getElementById('merchant') as HTMLInputElement).value = this.bankData.merchant;
+    (document.getElementById('success_url') as HTMLInputElement).value = this.bankData.success_url;
+    (document.getElementById('signature') as HTMLInputElement).value = this.bankData.signature;
+  }
+
 
 }
