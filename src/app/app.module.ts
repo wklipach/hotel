@@ -49,29 +49,30 @@ import { ReviewService } from './services/review.service';
 import { CashlessComponent } from './cashless/cashless.component';
 import { OrderlistComponent } from './orderlist/orderlist.component';
 import { RequisitesComponent } from './requisites/requisites.component';
+import {Location} from '@angular/common';
 
 registerLocaleData(localeRu);
 
 // определение маршрутов
 const appRoutes: Routes = [
   {path: '', component: MainComponent},
-  {path: 'reservation', component: ReservationComponent},
+  {path: 'bronirovanie/.', component: ReservationComponent},
   {path: 'contacts', component: ContactsComponent},
-  {path: 'reviews', component: ReviewsComponent},
-  {path: 'transfer', component: TransferComponent},
-  {path: 'about', component: AboutComponent },
+  {path: 'otzyvy/.', component: ReviewsComponent},
+  {path: 'transfer/.', component: TransferComponent},
+  {path: 'o-nas/.', component: AboutComponent, pathMatch: 'full'},
   {path: 'header', component: HeaderComponent},
   {path: 'main', component: MainComponent},
-  {path: 'about-room', component: AboutRoomComponent},
-  {path: 'admin', component: AddroomsComponent},
-  {path: 'order', component: OrderComponent},
+  {path: 'o-komnate/.', component: AboutRoomComponent},
+  {path: 'administrirovanie/.', component: AddroomsComponent},
+  {path: 'zakaz/.', component: OrderComponent},
   {path: 'login', component: LoginComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'parlor', component: ParlorComponent},
-  {path: 'cashless', component: CashlessComponent},
+  {path: 'kabinet/.', component: ParlorComponent},
+  {path: 'cashless/.', component: CashlessComponent},
   {path: 'orderlist', component: OrderlistComponent},
-  {path: 'requisites', component: RequisitesComponent},
+  {path: 'requisites/.', component: RequisitesComponent},
   {path: 'test', component: TestpageComponent}
 ];
 
@@ -125,3 +126,19 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+const __stripTrailingSlash = (Location as any).stripTrailingSlash;
+
+Location.stripTrailingSlash = url => {
+  if (url.endsWith('/')) {
+    url = url;
+  }
+  else {
+    url = url + '/';
+  }
+  const queryString$ = url.match(/([^?]*)?(.*)/);
+  if (queryString$[2].length > 0) {
+    return /[^\/]\/$/.test(queryString$[1]) ? queryString$[1] + '.' + queryString$[2] : __stripTrailingSlash(url);
+  }
+  return /[^\/]\/$/.test(url) ? url + '.' : __stripTrailingSlash(url);
+};

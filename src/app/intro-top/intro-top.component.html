@@ -50,7 +50,7 @@ autoplay="autoplay" loop="loop" controls="controls" muted="muted" tabindex="0"
 
   <span class="d-flex justify-content-center advert ml-n5">Комфортные номера от 1800 рублей в сутки</span>
 
-
+<button class="d-flex justify-content-center advert ml-n5" (click)="reservClick()">Бронировать</button>
 
   <div class="d-flex justify-content-between socnet">
     <a href="https://www.instagram.com/hotelsbor"><img src="../../assets/img/instagram.png" height="32" width="32" title="Instagram"/></a>
@@ -61,7 +61,43 @@ autoplay="autoplay" loop="loop" controls="controls" muted="muted" tabindex="0"
   </div>
 
 
-
-
 </div>
+
+<!-- скрытые кнопки нужная для нажатия -->
+<button id="openModalButtonReserv" [hidden]="true" data-toggle="modal" data-target="#wModal2">Open Modal</button>
+<button id="closeModalButtonReserv" [hidden]="true" data-toggle="modal"data-target="#wModal2" class="btn btn-default" data-dismiss="modal">Close</button>
+<div id="wModal2" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        {{sErrorPhone}}
+        <h5 class="modal-title">Заказать звонок</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="form-group">
+        <label for="inputPhoneNameReserv" style="color: red">* имя</label>
+        <input class="form-control" id="inputPhoneNameReserv" placeholder="имя">
+      </div>
+
+      <div class="form-group">
+        <label for="inputPhoneNumberReserv" class="form-control-label">* телефон</label>
+        <input class="form-control" id="inputPhoneNumberReserv">
+      </div>
+
+      <div class="form-group">
+        <label for="inputPhoneAddReserv" class="form-control-label">Дополнительно:</label>
+        <textarea class="form-control" id="inputPhoneAddReserv"></textarea>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="onYesCallClick()">Да</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 

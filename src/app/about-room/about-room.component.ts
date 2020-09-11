@@ -291,7 +291,7 @@ export class AboutRoomComponent implements OnInit, AfterViewInit {
 
     this.auth.setInfoDate(strDateBegin, strDateEnd, dDateBegin, dDateEnd);
     this.auth.setInfoGuests(this.numberOfAdults, this.numberOfChildren);
-    this.router.navigate(['/order']);
+    this.router.navigate(['/zakaz/.']);
 
   }
 

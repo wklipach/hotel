@@ -195,7 +195,7 @@ export class ReservationComponent implements OnInit {
   onClickAboutRoom(idnumber: number, room: any) {
     this.auth.setNumber(idnumber);
     this.auth.setInfoNumber(room);
-    this.router.navigate(['/about-room']);
+    this.router.navigate(['/o-komnate/.']);
   }
 
   toDate(dateStr) {

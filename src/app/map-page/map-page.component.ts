@@ -112,7 +112,8 @@ export class MapPageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this.router.url === '/about-room') {
+    console.log('this.router.url =', this.router.url );
+    if (this.router.url === '/o-komnate/.') {
 
       this.refstyle = 'ref-about-room';
 
@@ -172,7 +173,6 @@ export class MapPageComponent implements OnInit {
 
 
   }
-
 
 
   renderMap(latVar, lngVar) {
