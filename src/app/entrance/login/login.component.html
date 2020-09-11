@@ -32,9 +32,9 @@
 
     <p><button type="submit" class="btn btn-outline-primary my-3" role="button" id="btnpwd" [disabled]="loginForm.invalid || stopCondition" style="width: 100px;">Войти</button></p>
 
-    <p><a class="forgot-password" routerLink="/forgot-password" routerLinkActive="active">Забыли пароль или логин?</a></p>
+    <p><a class="forgot-password" routerLink="/forgot-password/." routerLinkActive="active">Забыли пароль или логин?</a></p>
 
-    <p><a class="register" routerLink="/register" routerLinkActive="active">Зарегистрироваться</a></p>
+    <p><a class="register" routerLink="/register/." routerLinkActive="active">Зарегистрироваться</a></p>
 
 
   <ng-container *ngIf="showErr">

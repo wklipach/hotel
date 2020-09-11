@@ -378,7 +378,7 @@ export class OrderComponent implements OnInit {
                    this.orderid = 'Заказ №' + id_order.toString();
                    this.description = this.room.name + ' ' + this.strInfoDate;
                    const codeOrder =  Base64.encodeURI(id_order);
-                   this.success_url = this.gr.sUrlAngular + 'cashless?id_order=' + codeOrder;
+                   this.success_url = this.gr.sUrlAngular + 'itog-oplaty/?id_order=' + codeOrder;
                    this.moveDate();
                    document.getElementById('modulBankWithLove').click();
 
@@ -389,7 +389,7 @@ export class OrderComponent implements OnInit {
                    const codeOrder =  Base64.encodeURI(id_order);
                    console.log('codeOrder=', codeOrder);
                    // Base64.decode()
-                   this.router.navigate(['/cashless'], { queryParams:  {id_order: codeOrder} , skipLocationChange: true });
+                   this.router.navigate(['/itog-oplaty/.'], { queryParams:  {id_order: codeOrder} , skipLocationChange: true });
                   }
 
                 });

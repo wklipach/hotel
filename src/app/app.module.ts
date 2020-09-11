@@ -57,23 +57,21 @@ registerLocaleData(localeRu);
 const appRoutes: Routes = [
   {path: '', component: MainComponent},
   {path: 'bronirovanie/.', component: ReservationComponent},
-  {path: 'contacts', component: ContactsComponent},
   {path: 'otzyvy/.', component: ReviewsComponent},
   {path: 'transfer/.', component: TransferComponent},
-  {path: 'o-nas/.', component: AboutComponent, pathMatch: 'full'},
+  {path: 'o-nas/.', component: AboutComponent},
   {path: 'header', component: HeaderComponent},
   {path: 'main', component: MainComponent},
   {path: 'o-komnate/.', component: AboutRoomComponent},
   {path: 'administrirovanie/.', component: AddroomsComponent},
   {path: 'zakaz/.', component: OrderComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'forgot-password', component: ForgotPasswordComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: 'login/.', component: LoginComponent},
+  {path: 'forgot-password/.', component: ForgotPasswordComponent},
+  {path: 'register/.', component: RegisterComponent},
   {path: 'kabinet/.', component: ParlorComponent},
-  {path: 'cashless/.', component: CashlessComponent},
-  {path: 'orderlist', component: OrderlistComponent},
-  {path: 'requisites/.', component: RequisitesComponent},
-  {path: 'test', component: TestpageComponent}
+  {path: 'itog-oplaty/.', component: CashlessComponent},
+  {path: 'spisokzakazov/.', component: OrderlistComponent},
+  {path: 'requisites/.', component: RequisitesComponent}
 ];
 
 
