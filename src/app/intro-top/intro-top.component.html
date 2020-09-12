@@ -48,9 +48,9 @@ autoplay="autoplay" loop="loop" controls="controls" muted="muted" tabindex="0"
 
 
 
-  <span class="d-flex justify-content-center advert ml-n5">Комфортные номера от 1800 рублей в сутки</span>
+  <span class="d-flex justify-content-center advert">Комфортные номера от 1800 рублей в сутки</span>
 
-<button class="d-flex justify-content-center advert ml-n5" (click)="reservClick()">Бронировать</button>
+<button class="d-flex justify-content-center btn-reservation" (click)="reservClick()">Забронировать номер</button>
 
   <div class="d-flex justify-content-between socnet">
     <a href="https://www.instagram.com/hotelsbor"><img src="../../assets/img/instagram.png" height="32" width="32" title="Instagram"/></a>
@@ -78,17 +78,17 @@ autoplay="autoplay" loop="loop" controls="controls" muted="muted" tabindex="0"
       </div>
 
       <div class="form-group">
-        <label for="inputPhoneNameReserv" style="color: red">* имя</label>
-        <input class="form-control" id="inputPhoneNameReserv" placeholder="имя">
+        <label for="inputPhoneNameReserv" style="color: #8a8587">* Обязательное поле</label>
+        <input class="form-control" id="inputPhoneNameReserv" placeholder="Имя">
       </div>
 
       <div class="form-group">
-        <label for="inputPhoneNumberReserv" class="form-control-label">* телефон</label>
-        <input class="form-control" id="inputPhoneNumberReserv">
+        <label for="inputPhoneNumberReserv" class="form-control-label" style="color: #8a8587">* Обязательное поле</label>
+        <input class="form-control" id="inputPhoneNumberReserv" placeholder="Телефон">
       </div>
 
       <div class="form-group">
-        <label for="inputPhoneAddReserv" class="form-control-label">Дополнительно:</label>
+        <label for="inputPhoneAddReserv" class="form-control-label">Сообщение:</label>
         <textarea class="form-control" id="inputPhoneAddReserv"></textarea>
       </div>
 

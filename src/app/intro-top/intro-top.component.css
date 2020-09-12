@@ -1,18 +1,13 @@
-
-
 .video-block {
   position: relative;
   width: 100%;
   height: auto;
-
 }
-
 .video {
   height: 1070px;
   opacity: 0.7;
   z-index: -10 !important;
 }
-
 .logo-video {
   position: absolute;
   width:680px;
@@ -28,9 +23,32 @@ height: 0;
 */
 .advert {
   position: absolute;
-  color:#86B0CC;
+  color:#8a8587;
+  margin-left: -80px;
   font-size: 26px;
   bottom: 420px;
+}
+.btn-reservation {
+  font-family: Arial,sans-serif;
+  position: absolute;
+  width: 230px;
+  height: 43px;
+  line-height: 2.7;
+  text-transform: uppercase;
+  border-radius: 20px;
+  margin-top: 720px;
+  margin-left: -20px;
+  background-color: transparent;
+  border: solid rgba(0, 0, 0, 0.99) 1px;
+  cursor: pointer;
+}
+.btn-reservation:hover {
+  color: white;
+  background-color: rgba(77, 77, 77, 0.6);
+  border-color: rgba(176, 132, 132, 1);
+}
+.modal-content {
+  padding: 20px 30px;
 }
 .socnet {
   position: absolute;
@@ -41,3 +59,25 @@ img {
   border-radius: 5px;
 }
 
+@media screen and (min-width:992px) and (max-width:1199px) {
+
+}  /* КОНЕЦ 992 - 1200  */
+
+@media screen and (min-width:480px) and (max-width:991px) {
+
+}  /* КОНЕЦ 480 - 991  */
+
+@media screen and (max-width:479px) {
+  .advert {
+    bottom: 72%;
+    margin: 0 auto;
+    font-size: 18px;
+  }
+  .btn-reservation {
+    margin-top: 80%;
+    margin-left: 0;
+}
+  .socnet {
+    bottom: 550px;
+  }
+}  /* КОНЕЦ 320 - 479  */

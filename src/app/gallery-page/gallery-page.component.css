@@ -25,18 +25,20 @@ p {
   padding: 10px 20px;
 }
 .count-heart {
+  position: absolute;
+  opacity: 0;
   width: 64px;
   height: 24px;
   margin-top: 80px;
   margin-left: 50px;
 }
 .count-heart img:hover{
-
 }
 .numeral{
   color: white;
   font-size: 15px;
   padding-left: 10px;
+
 }
 .numeral:hover{
   font-weight: 700;
