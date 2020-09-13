@@ -18,7 +18,7 @@
       <div class="d-flex justify-content-start">
         <label class="parameters">Параметры:</label>
         <div *ngIf="room" class="allparameters">Вместимость:&nbsp;&nbsp;{{room.guests}} взрослых,&nbsp;{{room.children}} детей</div>
-        <div class="area">Площадь: <span>30</span> кв. м</div>
+        <div class="area">Площадь: <span>{{room.size}}</span> кв. м</div>
       </div>
 
         <div class="d-flex justify-content-start">
