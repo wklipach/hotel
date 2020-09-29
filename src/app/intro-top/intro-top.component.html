@@ -1,31 +1,6 @@
 
-
 <div class="d-flex justify-content-center video-block">
 
- <!--
-  <div class="logo-video">
-    <div class="d-flex justify-content-center">
-
-      <video width="100%" height="auto"
-             poster="../../assets/img/logo-video.png"
-             autoplay
-             tabindex="0"
-             #myvideo
-             muted
-             oncanplay="this.play()"
-             onloadedmetadata="this.muted = true"
-             id='myvideo'>
-
-
-        <source src="../../assets/img/intro-logo.mp4" type="video/mp4">
-        <source src="../../assets/img/intro.webm" type="video/webm">
-      </video>
-
-    </div>
-  </div>
-
-autoplay="autoplay" loop="loop" controls="controls" muted="muted" tabindex="0"
--->
 
   <div class="video">
     <video width="100%" height="auto"
@@ -39,18 +14,17 @@ autoplay="autoplay" loop="loop" controls="controls" muted="muted" tabindex="0"
            onloadedmetadata="this.muted = true"
            id='myvideo'>
 
-      <source src="/../../assets/img/victoria-intro.webm" type="video/webm">
-      <source src="/../../assets/img/victoria-intro.mp4" type="video/mp4">
+      <source src="/../../assets/img/intro.webm" type="video/webm">
+      <source src="/../../assets/img/intro.mp4" type="video/mp4">
 
 
     </video>
   </div>
 
 
-
   <span class="d-flex justify-content-center advert">Комфортные номера от 1800 рублей в сутки</span>
 
-<button class="d-flex justify-content-center btn-reservation" (click)="reservClick()">Забронировать номер</button>
+  <button class="d-flex justify-content-center btn-reservation" (click)="reservClick()">Забронировать номер</button>
 
   <div class="d-flex justify-content-between socnet">
     <a href="https://www.instagram.com/hotelsbor"><img src="../../assets/img/instagram.png" height="32" width="32" title="Instagram"/></a>
@@ -63,7 +37,7 @@ autoplay="autoplay" loop="loop" controls="controls" muted="muted" tabindex="0"
 
 </div>
 
-<!-- скрытые кнопки нужная для нажатия -->
+<!-- скрытые кнопки нужная для нажатия-->
 <button id="openModalButtonReserv" [hidden]="true" data-toggle="modal" data-target="#wModal2">Open Modal</button>
 <button id="closeModalButtonReserv" [hidden]="true" data-toggle="modal"data-target="#wModal2" class="btn btn-default" data-dismiss="modal">Close</button>
 <div id="wModal2" class="modal" tabindex="-1" role="dialog">
@@ -101,3 +75,17 @@ autoplay="autoplay" loop="loop" controls="controls" muted="muted" tabindex="0"
 </div>
 
 
+<!--
+
+
+<div id="trailer" class="is_overlay">
+  <video id="video" width="100%" height="auto" autoplay="autoplay" loop="loop" preload="auto">
+    <source src="/../../assets/img/intro.webm" type="video/webm">
+    <source src="/../../assets/img/intro.mp4" type="video/mp4">
+
+  </video>
+</div>
+
+
+
+-->

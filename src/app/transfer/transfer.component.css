@@ -4,16 +4,15 @@
 
 .video-block {
   position: relative;
-  width: 100%;
-  height: auto;
-
-}
+ }
 
 .video {
-  width: 100%;
-  height: auto;
-  opacity: 1;
+  opacity: 0.6;
   z-index: -10 !important;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
 }
 
 h2{
