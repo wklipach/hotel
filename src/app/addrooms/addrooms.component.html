@@ -7,18 +7,33 @@
       <div class="col-6">
 
         <div class="card p-4">
+
           <h5 class="card-title">Адрес</h5>
           <label>Выберите адрес</label>
-          <select class="custom-select" formControlName="inputAddress" placeholder="">
-            <option [value]="address.id" *ngFor="let address of listAddress">{{address.name}}</option>
-          </select>
+
+          <div class="d-flex">
+            Гостиница<input type="radio" id="rbAddroomHotel" name="grAddroomHotel" value="hotel" (click)="clickAddroomHotel()" checked />
+            Прочие фонды<input type="radio" id="rbAddroomFound" name="grAddroomHotel" value="found" (click)="clickAddroomHotel()" />
+          </div>
+
+          <div *ngIf="boolHotel">
+            <select class="custom-select" formControlName="inputAddress" placeholder="">
+              <option [value]="address.id" *ngFor="let address of listAddress">{{address.name}}</option>
+            </select>
+          </div>
+
+          <div *ngIf="!boolHotel">
+            <input formControlName="inputNewAddress" type="text" class="form-control w-25" placeholder="">
+          </div>
+
+
         </div>
 
         <div class="card p-4">
           <h5 class="card-title">Номер</h5>
 
           <label> Название или тип проживания</label>
-          <input formControlName="nameRoom" type="text" class="form-control" placeholder="Отель Молодежная 72 №1">
+          <input formControlName="nameRoom" type="text" class="form-control" placeholder="Название или тип проживания">
 
           <div class="d-flex">
             <label class="w-75">Макс. гостей</label>
@@ -100,7 +115,7 @@
 
           <!-- загрузка изображений -->
           <div class=" d-flex text-center mb-3">
-            <input type="file" accept="image/*" id="avatar" (change)="onFileChange($event)" #fileInput
+            <input type="file" multiple="multiple" accept="image/*" id="avatar" (change)="onFileChange($event)" #fileInput
                    style="display:none">
             <button type="button" class="btn btn-link"
                     style="display: block; cursor: pointer; text-decoration: underline;"

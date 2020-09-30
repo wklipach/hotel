@@ -11,6 +11,7 @@ export class NumberService {
 
   insertNumber(paramInsert) {
     paramInsert.insert_number = 'insert_number';
+    console.log(paramInsert);
     return this.http.post(this.gr.sUrlGlobal + 'number', paramInsert);
   }
 

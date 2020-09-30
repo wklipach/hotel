@@ -20,9 +20,10 @@ export class AddroomsComponent implements OnInit {
   listTypeprice = [];
   listAddress = [];
   indexImg = 0;
+  boolHotel = true;
   addroomsForm: FormGroup;
 
-  constructor(private lg: ListGuideService, private ns: NumberService, 
+  constructor(private lg: ListGuideService, private ns: NumberService,
               private router: Router, private authService: AuthService) {
     this.addroomsForm  = new FormGroup({
       nameRoom: new FormControl(''),
@@ -33,6 +34,7 @@ export class AddroomsComponent implements OnInit {
       typeBed: new FormControl(''), */
       description: new FormControl(''),
       inputAddress: new FormControl(''),
+      inputNewAddress: new FormControl(''),
       inputTypeprice: new FormControl(''),
       priceWeekdays: new FormControl(''),
       priceWeekend: new FormControl('')
@@ -74,7 +76,17 @@ export class AddroomsComponent implements OnInit {
     });
 
     this.lg.getGuideAddress(1).subscribe( (value: any[]) => {
-      this.listAddress = value;
+
+
+      this.listAddress =  value.filter( a => {
+        return Boolean(a.bHotel.data[0]);
+      }).sort((a, b) => {
+        if (a.name > b.name) {
+          return 1;} else {
+          return 0;
+        }
+      });
+
     });
 
   }
@@ -109,35 +121,34 @@ export class AddroomsComponent implements OnInit {
       console.log('No files selected');
       return;
     }
-    this.indexImg = this.indexImg + 1;
-    const indexImg = this.indexImg;
 
-
+for (let curFileIndex = 0; curFileIndex < files.length; curFileIndex++) { /* begin for */
     const reader = new FileReader();
 
     reader.onload = (event) => {
-      const img = new Image();
-      img.id = 'img' + indexImg.toString();
-      img.width = 250;
-
-      let ext = '';
-      const  parts = files[0].name.split('.');
-      if (parts.length > 1) {
-        ext = parts.pop();
-      }
-      img.title = ext;
-      // console.log(files[0].name, ext);
-      // img.height = 200;
-      img.onload = () => {
-
-
-        elementFather.appendChild(img);
-        // document.body.appendChild(img);
-
-      };
-      img.src = (event.target.result as string);
+          console.log('curFileIndex=', curFileIndex);
+          this.indexImg = this.indexImg + 1;
+          const indexImg = this.indexImg;
+          const img = new Image();
+          img.id = 'img' + indexImg.toString();
+          img.width = 250;
+          let ext = '';
+          const parts = files[0].name.split('.');
+          if (parts.length > 1) {
+            ext = parts.pop();
+          }
+          img.title = ext;
+          // console.log(files[0].name, ext);
+          // img.height = 200;
+          img.onload = () => {
+            elementFather.appendChild(img);
+            // document.body.appendChild(img);
+          };
+          img.src = (event.target.result as string);
     };
-    reader.readAsDataURL(files[0]);
+    reader.readAsDataURL(files[curFileIndex]);
+} /* end for */
+
   }
 
 
@@ -145,6 +156,8 @@ export class AddroomsComponent implements OnInit {
 
 
     this.sError = '';
+    let intAddress = -1;
+    let sAddress = '';
 
     if (this.addroomsForm.controls.nameRoom.value === '') {
       this.sError = 'Введите название номера.';
@@ -180,10 +193,24 @@ export class AddroomsComponent implements OnInit {
 
 
 
-    if (!Number(this.addroomsForm.controls.inputAddress.value)) {
-      this.sError = 'Добавьте адрес.';
-      return;
+     if (this.boolHotel) {
+       if (!Number(this.addroomsForm.controls.inputAddress.value)) {
+         this.sError = 'Добавьте адрес.';
+         return;
+       }
+       intAddress = Number(this.addroomsForm.controls.inputAddress.value);
+     }
+
+    if (!this.boolHotel) {
+      if (this.addroomsForm.controls.inputNewAddress.value.toString().trim() === '') {
+        this.sError = 'Добавьте адрес.';
+        return;
+      }
+      sAddress = this.addroomsForm.controls.inputNewAddress.value.toString().trim();
     }
+
+
+
 
     if (!Number(this.addroomsForm.controls.inputTypeprice.value)) {
       this.sError = 'Добавьте тип расчета.';
@@ -206,7 +233,8 @@ export class AddroomsComponent implements OnInit {
       guests: this.addroomsForm.controls.maxGuest.value,
       children: this.addroomsForm.controls.maxChild.value,
       size: this.addroomsForm.controls.numberSize.value,
-      id_address: this.addroomsForm.controls.inputAddress.value,
+      id_address: intAddress,
+      sAddress,
       id_typeprice: this.addroomsForm.controls.inputTypeprice.value,
       price_weekdays: this.addroomsForm.controls.priceWeekdays.value,
       price_weekend: this.addroomsForm.controls.priceWeekend.value,
@@ -300,4 +328,7 @@ export class AddroomsComponent implements OnInit {
       }
     }
 
+  clickAddroomHotel() {
+    this.boolHotel = !this.boolHotel;
+  }
 }
