@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, HostListener} from "@angular/core";
 import { ListGuideService } from '../services/list-guide.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import { NumberService } from '../services/number.service';
@@ -330,5 +330,16 @@ for (let curFileIndex = 0; curFileIndex < files.length; curFileIndex++) { /* beg
 
   clickAddroomHotel() {
     this.boolHotel = !this.boolHotel;
+  }
+
+
+  onDrop(event) {
+    event.preventDefault();
+    this.onFileChange(event.dataTransfer.files);
+    // console.log('!!!!', event.dataTransfer.files);
+  }
+  onDragOver(event) {
+    event.stopPropagation();
+    event.preventDefault();
   }
 }
