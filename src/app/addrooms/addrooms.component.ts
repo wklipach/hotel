@@ -114,26 +114,46 @@ export class AddroomsComponent implements OnInit {
 
   onFileChange(fileInput)  {
 
-    const elementFather = this.imageloadCard.nativeElement as HTMLElement;
+console.log('11111111111111');
 
-    const files = fileInput.target.files;
-    if (files.length === 0) {
-      console.log('No files selected');
-      return;
+const elementFather = this.imageloadCard.nativeElement as HTMLElement;
+let files = [];
+
+console.log('222222222222222');  
+
+if (fileInput.target.files) {
+      console.log('3333333333333');    
+      files = fileInput.target.files;
+      if (files.length === 0) {
+        console.log('No files selected');
+        return;
+      }
     }
 
+if (fileInput.dataTransfer) {
+      console.log('4444444444444');    
+      files = fileInput.dataTransfer.files;
+    }
+
+
+console.log('files=', files);
 for (let curFileIndex = 0; curFileIndex < files.length; curFileIndex++) { /* begin for */
     const reader = new FileReader();
+
+    const d = this.gragstart;
 
     reader.onload = (event) => {
           console.log('curFileIndex=', curFileIndex);
           this.indexImg = this.indexImg + 1;
           const indexImg = this.indexImg;
           const img = new Image();
+          img.draggable = true;
+          img.ondragstart = d;
           img.id = 'img' + indexImg.toString();
           img.width = 250;
           let ext = '';
-          const parts = files[0].name.split('.');
+          const parts = files[curFileIndex].name.split('.');
+          // console.log('files[0]=', files[curFileIndex]);
           if (parts.length > 1) {
             ext = parts.pop();
           }
@@ -193,7 +213,7 @@ for (let curFileIndex = 0; curFileIndex < files.length; curFileIndex++) { /* beg
 
 
 
-     if (this.boolHotel) {
+    if (this.boolHotel) {
        if (!Number(this.addroomsForm.controls.inputAddress.value)) {
          this.sError = 'Добавьте адрес.';
          return;
@@ -335,11 +355,64 @@ for (let curFileIndex = 0; curFileIndex < files.length; curFileIndex++) { /* beg
 
   onDrop(event) {
     event.preventDefault();
-    this.onFileChange(event.dataTransfer.files);
-    // console.log('!!!!', event.dataTransfer.files);
+    const data = event.dataTransfer.getData('text');
+    // внешний источник файлов
+    if (!data) {
+    this.onFileChange(event);
+    }
+
+    // внутренний источник файлов
+    if (data) {
+      const elementFather = this.imageloadCard.nativeElement as HTMLElement;
+     // const imageSourche = document.getElementById(data) as HTMLImageElement;
+     // const imageTarget = event.target as HTMLImageElement;
+
+
+    //  console.log('imageSourche', imageSourche);
+     // console.log('imageTarget', imageTarget);
+
+      // const sourceSrc = imageSourche.src;
+      // const targetSrc = imageTarget.src;
+      // const sourceTitle = imageSourche.title;
+      // const targetTitle = imageTarget.title;
+     // const idSourche = imageSourche.id;
+     // const idTarget = imageTarget.id;
+
+    //  console.log('idSourche=', idSourche);
+    //  console.log('idTarget=', idTarget);
+
+      //imageSourche.src = targetSrc;
+      //imageSourche.title = targetTitle;
+      //imageTarget.src = sourceSrc;
+      //imageTarget.title = sourceTitle;
+     // imageSourche.id = '-1'; // idTarget;
+     // imageTarget.id = '-2'; // idSourche;
+     // imageSourche.id =  idTarget;
+     // imageTarget.id =  idSourche;
+
+     // console.log('data', data, document.getElementById(data) );
+      elementFather.appendChild(document.getElementById(data));
+
+     const  list1 = elementFather.getElementsByTagName('img');
+     for (let i=0; i<list1.length; i++) {
+         list1[i].setAttribute('id', 'img'+(i+1).toString());
+         console.log('list1[i].id=', list1[i].id);
+    }
+      
+      
+     
+     
+    }
+
   }
   onDragOver(event) {
     event.stopPropagation();
     event.preventDefault();
   }
+
+  gragstart($event) {
+    console.log('dragstart', $event);
+    $event.dataTransfer.setData('text', $event.target.id);
+  }
+
 }

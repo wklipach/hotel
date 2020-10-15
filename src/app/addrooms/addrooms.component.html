@@ -109,7 +109,7 @@
     </div>
 
     <div class="row">
-      <div class="col-12">
+      <div class="col-12" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
         <div class="card p-4">
           <h5 class="card-title">Фотографии</h5>
 
