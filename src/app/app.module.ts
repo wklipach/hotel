@@ -50,6 +50,8 @@ import { CashlessComponent } from './cashless/cashless.component';
 import { OrderlistComponent } from './orderlist/orderlist.component';
 import { RequisitesComponent } from './requisites/requisites.component';
 import {Location} from '@angular/common';
+import { EditroomsComponent } from './editrooms/editrooms.component';
+import { EditonenumberComponent } from './editonenumber/editonenumber.component';
 
 registerLocaleData(localeRu);
 
@@ -71,7 +73,10 @@ const appRoutes: Routes = [
   {path: 'kabinet/.', component: ParlorComponent},
   {path: 'itog-oplaty/.', component: CashlessComponent},
   {path: 'spisokzakazov/.', component: OrderlistComponent},
-  {path: 'requisites/.', component: RequisitesComponent}
+  {path: 'requisites/.', component: RequisitesComponent},
+  {path: 'editrooms/.', component: EditroomsComponent},
+  {path: 'editonenumber/.', component: EditonenumberComponent}
+
 ];
 
 
@@ -105,7 +110,9 @@ const appRoutes: Routes = [
     TestpageComponent,
     CashlessComponent,
     OrderlistComponent,
-    RequisitesComponent
+    RequisitesComponent,
+    EditroomsComponent,
+    EditonenumberComponent
   ],
   imports: [
     HttpClientModule,
@@ -114,8 +121,6 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     CommonModule,
     RouterModule.forRoot(appRoutes)
-
-
   ],
   providers: [
               DatePipe, GlobalRef, ListGuideService, NumberService,

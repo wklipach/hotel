@@ -36,4 +36,17 @@ export class NumberService {
     return this.http.post(this.gr.sUrlGlobal + 'number', datamessage);
   }
 
+  setDeleteNumber(idnumber) {
+    const datamessage = {delete_number: idnumber.toString()};
+    return this.http.post(this.gr.sUrlGlobal + 'number', datamessage);
+  }
+
+
+  getListNumber(idCity: number) {
+    const varparams = new HttpParams()
+      .set('get_list_number', 'get_list_number');
+    return this.http.get(this.gr.sUrlGlobal + 'number', {params: varparams});
+  }
+
+
 }

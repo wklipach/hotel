@@ -33,6 +33,13 @@
           </p>
         </a>
 
+        <a *ngIf="editor === 1" class="nav-link" href="editrooms/." [style] = "getStyleName(102)">
+          <p class="icon icon-admin">
+            <span>Редактирование номеров</span>
+          </p>
+        </a>
+
+
         <a *ngIf="editor === 1" class="nav-link" href="spisokzakazov/." [style] = "getStyleName(102)">
           <p class="icon icon-admin">
             <span>Список заказов</span>

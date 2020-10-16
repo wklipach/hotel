@@ -37,7 +37,11 @@ export class AddroomsComponent implements OnInit {
       inputNewAddress: new FormControl(''),
       inputTypeprice: new FormControl(''),
       priceWeekdays: new FormControl(''),
-      priceWeekend: new FormControl('')
+      priceWeekend: new FormControl(''),
+      priceWeek: new FormControl(''),
+      priceMonth: new FormControl(''),
+      priceChristmas: new FormControl(''),
+      inputLinkVideo: new FormControl('')
       // 'checkInstructuion': new FormControl('')
     });
   }
@@ -119,10 +123,10 @@ console.log('11111111111111');
 const elementFather = this.imageloadCard.nativeElement as HTMLElement;
 let files = [];
 
-console.log('222222222222222');  
+console.log('222222222222222');
 
 if (fileInput.target.files) {
-      console.log('3333333333333');    
+      console.log('3333333333333');
       files = fileInput.target.files;
       if (files.length === 0) {
         console.log('No files selected');
@@ -131,7 +135,7 @@ if (fileInput.target.files) {
     }
 
 if (fileInput.dataTransfer) {
-      console.log('4444444444444');    
+      console.log('4444444444444');
       files = fileInput.dataTransfer.files;
     }
 
@@ -199,20 +203,6 @@ for (let curFileIndex = 0; curFileIndex < files.length; curFileIndex++) { /* beg
       return;
     }
 
-/*
-    if (!Number(this.addroomsForm.controls.amountBed.value)) {
-      this.sError = 'Добавьте количество кроватей.';
-      return;
-    }
-
-    if (!Number(this.addroomsForm.controls.typeBed.value)) {
-      this.sError = 'Добавьте тип кровати.';
-      return;
-    }
-*/
-
-
-
     if (this.boolHotel) {
        if (!Number(this.addroomsForm.controls.inputAddress.value)) {
          this.sError = 'Добавьте адрес.';
@@ -230,8 +220,6 @@ for (let curFileIndex = 0; curFileIndex < files.length; curFileIndex++) { /* beg
     }
 
 
-
-
     if (!Number(this.addroomsForm.controls.inputTypeprice.value)) {
       this.sError = 'Добавьте тип расчета.';
       return;
@@ -247,6 +235,32 @@ for (let curFileIndex = 0; curFileIndex < files.length; curFileIndex++) { /* beg
       return;
     }
 
+///
+    if (!Number(this.addroomsForm.controls.priceWeek.value)) {
+      this.sError = 'Добавьте стоимость за месяц.';
+      return;
+    }
+
+    if (!Number(this.addroomsForm.controls.priceMonth.value)) {
+      this.sError = 'Добавьте стоимость за месяц.';
+      return;
+    }
+
+    if (!Number(this.addroomsForm.controls.priceChristmas.value)) {
+      this.sError = 'Добавьте стоимость в праздник.';
+      return;
+    }
+
+    //priceWeek
+    //priceMonth
+    //priceChristmas
+    //inputLinkVideo
+///
+
+    let sLinkVideo = '';
+    if (this.addroomsForm.controls.inputLinkVideo.value) {
+      sLinkVideo = this.addroomsForm.controls.inputLinkVideo.value.trim();
+    }
 
     const paramInsert = {
       name: this.addroomsForm.controls.nameRoom.value,
@@ -258,17 +272,24 @@ for (let curFileIndex = 0; curFileIndex < files.length; curFileIndex++) { /* beg
       id_typeprice: this.addroomsForm.controls.inputTypeprice.value,
       price_weekdays: this.addroomsForm.controls.priceWeekdays.value,
       price_weekend: this.addroomsForm.controls.priceWeekend.value,
-      description: this.addroomsForm.controls.description.value
+      description: this.addroomsForm.controls.description.value,
+      price_week: this.addroomsForm.controls.priceWeek.value,
+      price_month: this.addroomsForm.controls.priceMonth.value,
+      price_christmas: this.addroomsForm.controls.priceChristmas.value,
+      link_video:  sLinkVideo
     };
 
     // сохранение после проверок
     this.ns.insertNumber(paramInsert).subscribe(numberNewRecord => {
 
+      console.log('numberNewRecord =', numberNewRecord);
       if (numberNewRecord) {
           // tslint:disable-next-line: no-string-literal
           if (typeof numberNewRecord['insertId'] !== 'undefined') {
             // tslint:disable-next-line: no-string-literal
             const id = numberNewRecord['insertId'];
+
+            console.log('id =', id);
 
             // перебор особенностей номера и их вывод
             const masFeature = [];
@@ -277,12 +298,14 @@ for (let curFileIndex = 0; curFileIndex < files.length; curFileIndex++) { /* beg
                   masFeature.push(feature.id); }
             });
 
+            console.log('this.listFeatures =', this.listFeatures);
+
             if (masFeature.length > 0) {
                 this.ns.insertNumberFeature({id_number: id, masFeature}).subscribe(value => {
                 });
             }
            // закончили занесение особенностей номера
-
+            console.log('4444444');
 
             // перебор кроватей и их вывод
             const masBedstype = [];
@@ -398,10 +421,7 @@ for (let curFileIndex = 0; curFileIndex < files.length; curFileIndex++) { /* beg
          list1[i].setAttribute('id', 'img'+(i+1).toString());
          console.log('list1[i].id=', list1[i].id);
     }
-      
-      
-     
-     
+
     }
 
   }
@@ -415,4 +435,7 @@ for (let curFileIndex = 0; curFileIndex < files.length; curFileIndex++) { /* beg
     $event.dataTransfer.setData('text', $event.target.id);
   }
 
+  clearLinkVideo() {
+    this.addroomsForm.controls.inputLinkVideo.setValue('');
+  }
 }

@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 order-details">
+
+      <div *ngFor="let number of numberList">
+
+        <div>{{number.name}}</div>
+        <div>{{number.aname}}</div>
+        <button (click)="editCurrentNumber(number.id)">Редактировать</button>
+        <button (click)="deleteCurrentNumber(number.id, number.name)">Удалить</button>
+        <div>----------------------------------------------------------------</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+
+<!-- скрытые кнопки нужная для нажатия -->
+<button id="openNumberModalButton" [hidden]="true" data-toggle="modal" data-target="#wNumberModal">Open Modal</button>
+<button id="closeNumberModalButton" [hidden]="true" data-toggle="modal"data-target="#wNumberModal" class="btn btn-default" data-dismiss="modal">Close</button>
+<div id="wNumberModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Вопрос</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>{{sQuestion}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="onYesClick(idnumber, stype)">Да</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -25,6 +25,19 @@ public setNumber(idnumber: number) {
   window.localStorage.setItem('id_number', JSON.stringify(idnumber));
   }
 
+  public setEditNumber(idnumber: number) {
+    window.localStorage.setItem('id_edit_number', JSON.stringify(idnumber));
+  }
+
+  public getEditNumber(): number {
+    if (window.localStorage.getItem('id_edit_number')) {
+      return JSON.parse(window.localStorage.getItem('id_edit_number'));
+    } else {
+      return -1;
+    }
+  }
+
+
 // стираем номер комнаты и информацию о номере из локального хранилища
 public clearNumber() {
    window.localStorage.removeItem('id_number');

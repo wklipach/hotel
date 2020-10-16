@@ -103,6 +103,21 @@
             <input formControlName="priceWeekend" type="text" class="form-control w-50" placeholder="">
           </div>
 
+          <div class="d-flex">
+            <label class="w-50">Цена в неделю</label>
+            <input formControlName="priceWeek" type="text" class="form-control w-50" placeholder="">
+          </div>
+
+          <div class="d-flex">
+            <label class="w-50">Цена в месяц</label>
+            <input formControlName="priceMonth" type="text" class="form-control w-50" placeholder="">
+          </div>
+
+          <div class="d-flex">
+            <label class="w-50">Цена в праздники</label>
+            <input formControlName="priceChristmas" type="text" class="form-control w-50" placeholder="">
+          </div>
+
         </div>
 
       </div>
@@ -130,6 +145,15 @@
 
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-12">
+         <label class="w-50">Ссылка на видео</label>
+         <input formControlName="inputLinkVideo" type="file"  class="form-control w-50" placeholder="">
+          <button (click)="clearLinkVideo()">Очистить</button>
+        </div>
+      </div>
+
 
       <div class="mb-5 error">
         <div class="alert-danger">{{sError}}</div>
