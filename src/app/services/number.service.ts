@@ -48,5 +48,18 @@ export class NumberService {
     return this.http.get(this.gr.sUrlGlobal + 'number', {params: varparams});
   }
 
+  getNumberBedstype(idnumber) {
+    const varparams = new HttpParams()
+      .set('get_number_beds', 'get_number_beds')
+      .set('id_number', idnumber);
+    return this.http.get(this.gr.sUrlGlobal + 'number', {params: varparams});
+  }
+
+  getNumberFeature(idnumber) {
+    const varparams = new HttpParams()
+      .set('get_number_features', 'get_number_features')
+      .set('id_number', idnumber);
+    return this.http.get(this.gr.sUrlGlobal + 'number', {params: varparams});
+  }
 
 }
